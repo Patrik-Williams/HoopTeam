@@ -51,6 +51,10 @@ namespace HoopTeam
                     Ent();
 
                 }
+                else
+                {
+                    DisplayAlert("Error: ", objetocliente.LogIn(correo, contra), "OK");
+                }
                     
 
             }
@@ -62,6 +66,17 @@ namespace HoopTeam
             
 
 
+        }
+
+        private void verPass_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (txtContra.IsPassword == true)
+            {
+                txtContra.IsPassword = false;
+            }else if (txtContra.IsPassword == false)
+            {
+                txtContra.IsPassword = true;
+            }
         }
     }
 }

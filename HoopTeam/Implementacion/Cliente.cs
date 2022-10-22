@@ -130,7 +130,7 @@ namespace HoopTeam.Implementacion
                         }
                         else
                         {
-                            flag = "NO EXISTE EL USUARIO";
+                            flag = "Usuario o contrasenna equivocada";
                             return flag;
                         }
                     }
