@@ -3,10 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HoopTeam.Paginas.EstMain">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome Estudiante"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="#999">
+
+            <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5107/5107718.png" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
+
+                
+                    <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40"></Image>
+                
+                    
+                        
+                </Grid>
+            </Frame>
+
+            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+                    <Frame Grid.Column="2" BackgroundColor="#eee" CornerRadius="20">
+                        <StackLayout>
+                            <Label Margin="20,0,0,0" Text=" " x:Name="lbInfo" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </Frame>
+
+            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+                    <Frame Grid.Column="2" BackgroundColor="#eee" CornerRadius="20">
+                        <StackLayout>
+                            <Label Margin="20,0,0,0" Text="Algo " x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </Frame>
+
+            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+                    <Frame Grid.Column="2" BackgroundColor="#eee" CornerRadius="20">
+                        <StackLayout>
+                            <Label Margin="20,0,0,0" Text="Algo " x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </Frame>
+
+
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

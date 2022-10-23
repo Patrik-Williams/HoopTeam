@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using HoopTeam;
+
 
 
 
@@ -10,7 +12,12 @@ namespace HoopTeam.Implementacion
 {
     class Cliente
     {
-        public string MostrarNombre(string cedula)
+       
+
+        Datos datos = new Datos();
+
+        
+        public string MostrarNombre(string cedula, string tabla)
         {// Inicio del metodo MOSTRAR NOMBRE
 
             
@@ -22,25 +29,25 @@ namespace HoopTeam.Implementacion
             string txt = "";
             try//Intente
             {
-                con = new MySqlConnection("server = localhost; " +
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
-                                          "username = root; " +
-                                          "password = admin;" +
-                                          "database =hoopteam");
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Entrenador where cedula=" + cedula;
+                string qry = "SELECT * FROM " + tabla + " where cedula=" + cedula;
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
-                Adaptador.Fill(dsEntrenador, "Entrenadores");
+                Adaptador.Fill(dsEntrenador, tabla);
                 cmd.ExecuteNonQuery();
 
-                tbEntrenador = dsEntrenador.Tables["Entrenadores"];
+                tbEntrenador = dsEntrenador.Tables[tabla];
 
                 foreach (DataRow drCurrent in tbEntrenador.Rows)
                 {
                     txt = drCurrent["nombre"].ToString();
-                    txt += " " + drCurrent["apellido1"].ToString(); 
+                    txt += " " + drCurrent["apellido1"].ToString() + " " + drCurrent["apellido2"].ToString(); 
                 }
 
                 return txt;
@@ -54,6 +61,8 @@ namespace HoopTeam.Implementacion
         public string LogIn(string correo, string contra)
         {
             string flag = "";
+
+           
 
             MySqlCommand cmd = new MySqlCommand();//comandos
             MySqlConnection con;//conexion
@@ -105,6 +114,7 @@ namespace HoopTeam.Implementacion
                     {
                         foreach (DataRow drCurrent in tbEstudiante.Rows)
                         {
+                            datos.setCedula(drCurrent["cedula"].ToString());
                             flag = "Est";
                             return flag;
                         }
