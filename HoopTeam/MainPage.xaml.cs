@@ -60,7 +60,7 @@ namespace HoopTeam
             }
             else
             {
-                DisplayAlert("Datos errones", "Por favor, llena toda la información", "Ok");
+                DisplayAlert("Error", "Por favor, llena toda la información", "Ok");
                 
             }
             
@@ -77,6 +77,11 @@ namespace HoopTeam
             {
                 txtContra.IsPassword = true;
             }
+        }
+
+        private void ButtonEst_Clicked(object sender, EventArgs e)
+        {
+            Est();
         }
     }
 }

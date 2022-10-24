@@ -10,15 +10,16 @@
                
                     <Image Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100"></Image>
                     <Label Text="HoopTeam" FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center"  FontFamily="Arial" TextColor="#FF8200"/>
-                
-                
-                
+                    <Label Text="Branch Ian"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center"  FontFamily="Arial" TextColor="#090039"/>
+
+
+
                 <Entry  Placeholder="Correo" x:Name="txtCorreo" BackgroundColor="#eee" Margin="0,10" PlaceholderColor="#333" TextColor="#000"/>
                 <Entry Placeholder="Contrasenna" IsPassword="True" x:Name="txtContra" BackgroundColor="#eee" Margin="0,10" PlaceholderColor="#333" TextColor="#000"/>
                 <CheckBox x:Name="verPass" CheckedChanged="verPass_CheckedChanged"></CheckBox>
                 <Label Text="Mostrar Contrasenna" TextColor="Black"></Label>
                 <Button CornerRadius="10" FontAttributes="Bold" Text="Iniciar Sesion" Background="#FF8200" Clicked="ver_clicked" Margin="0,30" TextColor="#fff"/>
-                
+                <Button CornerRadius="10" FontAttributes="Bold" Text="Estudiante" Clicked="ButtonEst_Clicked" Margin="0,30" TextColor="#fff" BackgroundColor="#D28282"/>
             </StackLayout>
  
             
