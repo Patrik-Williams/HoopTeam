@@ -14,12 +14,26 @@
 
 
 
-                <Entry  Placeholder="Correo" x:Name="txtCorreo" BackgroundColor="#eee" Margin="0,10" PlaceholderColor="#333" TextColor="#000"/>
-                <Entry Placeholder="Contrasenna" IsPassword="True" x:Name="txtContra" BackgroundColor="#eee" Margin="0,10" PlaceholderColor="#333" TextColor="#000"/>
-                <CheckBox x:Name="verPass" CheckedChanged="verPass_CheckedChanged"></CheckBox>
-                <Label Text="Mostrar Contrasenna" TextColor="Black"></Label>
-                <Button CornerRadius="10" FontAttributes="Bold" Text="Iniciar Sesion" Background="#FF8200" Clicked="ver_clicked" Margin="0,30" TextColor="#fff"/>
-                <Button CornerRadius="10" FontAttributes="Bold" Text="Estudiante" Clicked="ButtonEst_Clicked" Margin="0,30" TextColor="#fff" BackgroundColor="#D28282"/>
+                <Entry  Placeholder="Correo" x:Name="txtCorreo" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+                <Entry Placeholder="Contrasenna" IsPassword="True" x:Name="txtContra" BackgroundColor="#eee" Margin="0,20,0,0" PlaceholderColor="#333" TextColor="#000"/>
+
+                <Grid Margin="0,20,0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox Grid.Column="1" x:Name="verPass" CheckedChanged="verPass_CheckedChanged" ></CheckBox>
+                    <Label Grid.Column="2" Text="Mostrar Contrasenna" VerticalOptions="Center" TextColor="Black"></Label>
+                
+                </Grid>
+
+                <StackLayout Margin="0,30">
+                    <Button CornerRadius="10" FontAttributes="Bold" Text="Iniciar Sesion" Background="#FF8200" Clicked="ver_clicked"  TextColor="#fff" />
+                    <Button CornerRadius="10" FontAttributes="Bold" Text="Estudiante" BackgroundColor="#D28282" Clicked="ButtonEst_Clicked"  TextColor="#fff" />
+                </StackLayout>
+                
+                
             </StackLayout>
  
             

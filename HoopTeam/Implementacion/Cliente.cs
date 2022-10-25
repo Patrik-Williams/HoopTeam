@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using HoopTeam;
+using HoopTeam.Modelo;
 
 
 
@@ -12,61 +13,17 @@ namespace HoopTeam.Implementacion
 {
     class Cliente
     {
-       
+        Estudiante est = new Estudiante();
 
-        Datos datos = new Datos();
+        MySqlCommand cmd = new MySqlCommand();//comandos
+        MySqlConnection con;//conexion
+        MySqlDataAdapter Adaptador = new MySqlDataAdapter();
 
-        
-        public string MostrarNombre(string cedula, string tabla)
-        {// Inicio del metodo MOSTRAR NOMBRE
-
-            
-            MySqlCommand cmd = new MySqlCommand();//comandos
-            MySqlConnection con;//conexion
-            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
-            DataSet dsEntrenador = new DataSet();
-            DataTable tbEntrenador = new DataTable();
-            string txt = "";
-            try//Intente
-            {
-                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
-                                          "port = 3306; " +
-                                          "username = admin; " +
-                                          "password = hoopteamAdmin;" +
-                                          "database =HoopTeam");
-                con.Open();
-                string qry = "SELECT * FROM " + tabla + " where cedula=" + cedula;
-                cmd.CommandText = qry;
-                cmd.Connection = con;
-                Adaptador.SelectCommand = cmd;
-                Adaptador.Fill(dsEntrenador, tabla);
-                cmd.ExecuteNonQuery();
-
-                tbEntrenador = dsEntrenador.Tables[tabla];
-
-                foreach (DataRow drCurrent in tbEntrenador.Rows)
-                {
-                    txt = drCurrent["nombre"].ToString();
-                    txt += " " + drCurrent["apellido1"].ToString() + " " + drCurrent["apellido2"].ToString(); 
-                }
-
-                return txt;
-            }// fin del try
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }// Fin del metodo MOSTRAR NOMBRE
 
         public string LogIn(string correo, string contra)
         {
             string flag = "";
 
-           
-
-            MySqlCommand cmd = new MySqlCommand();//comandos
-            MySqlConnection con;//conexion
-            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
             DataSet dsEntrenador = new DataSet();
             DataTable tbEntrenador = new DataTable();
 
@@ -114,7 +71,15 @@ namespace HoopTeam.Implementacion
                     {
                         foreach (DataRow drCurrent in tbEstudiante.Rows)
                         {
-                            datos.setCedula(drCurrent["cedula"].ToString());
+                            est.setCedula(drCurrent["cedula"].ToString());
+                            est.setNombre(drCurrent["nombre"].ToString());
+                            est.setApellido1 (drCurrent["apellido1"].ToString());
+                            est.setApellido2(drCurrent["apellido2"].ToString());
+                            est.setNacimiento(drCurrent["fechaNacimiento"].ToString());
+                            est.setGenero(drCurrent["genero"].ToString());
+                            est.setCorreo(drCurrent["correo"].ToString());
+                            est.setContrasenna(drCurrent["contrasenna"].ToString());
+
                             flag = "Est";
                             return flag;
                         }
@@ -140,7 +105,7 @@ namespace HoopTeam.Implementacion
                         }
                         else
                         {
-                            flag = "Usuario o contrasenna equivocada";
+                            flag = "Usuario o contrasenna invalidos";
                             return flag;
                         }
                     }
@@ -153,9 +118,6 @@ namespace HoopTeam.Implementacion
                 return ex.Message;
 
             }
-
-
-
             return flag;
 
         }
