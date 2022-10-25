@@ -22,7 +22,7 @@
                 </Grid>
             </Frame>
 
-            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+            <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -31,9 +31,9 @@
                     
                     <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
 
-                    <Frame Grid.Column="2" BackgroundColor="#eee" CornerRadius="20">
+                    <Frame Grid.Column="2" BackgroundColor="#fff" CornerRadius="20" HasShadow="False">
                         <StackLayout>
-                            <Label Margin="20,0,0,0" Text=" " x:Name="lbInfo" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text=" " x:Name="lbInfo" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
                         </StackLayout>
                     </Frame>
                 </Grid>
@@ -46,13 +46,13 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
 
-                    <Frame Grid.Column="2" BackgroundColor="#eee" CornerRadius="20">
-                        <StackLayout>
-                            <Label Margin="20,0,0,0" Text="Algo " x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                    
+                        <StackLayout Grid.Column="2">
+                            <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                         </StackLayout>
-                    </Frame>
+                    
                 </Grid>
             </Frame>
 
@@ -63,13 +63,12 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
 
-                    <Frame Grid.Column="2" BackgroundColor="#eee" CornerRadius="20">
-                        <StackLayout>
-                            <Label Margin="20,0,0,0" Text="Algo " x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                        </StackLayout>
-                    </Frame>
+
+                    <StackLayout Grid.Column="2">
+                        <Label Margin="20,0,0,0" Text="Calendario" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                    </StackLayout>
                 </Grid>
             </Frame>
 
