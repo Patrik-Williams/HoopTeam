@@ -11,7 +11,9 @@
 
                 <Image Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100"></Image>
                 <Label Text="HoopTeam" FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center"  FontFamily="Arial" TextColor="#FF8200"/>
-               
+                <Label Text="Branch Ian"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center"  FontFamily="Arial" TextColor="#090039"/>
+       
+
 
                 <Entry  Placeholder="Correo" x:Name="txtCorreo" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
                 <Entry Placeholder="Contraseña" IsPassword="True" x:Name="txtContra" BackgroundColor="#eee" Margin="0,20,0,0" PlaceholderColor="#333" TextColor="#000"/>
