@@ -23,12 +23,12 @@
                     </Grid.ColumnDefinitions>
 
                     <CheckBox Grid.Column="1" x:Name="verPass" CheckedChanged="verPass_CheckedChanged" ></CheckBox>
-                    <Label Grid.Column="2" Text="Mostrar Contrasenna" VerticalOptions="Center" TextColor="Black"></Label>
+                    <Label Grid.Column="2" Text="Mostrar Contraseña" VerticalOptions="Center" TextColor="Black"></Label>
 
                 </Grid>
 
                 <StackLayout Margin="0,30">
-                    <Button CornerRadius="10" FontAttributes="Bold" Text="Iniciar Sesion" Background="#FF8200" Clicked="ver_clicked"  TextColor="#fff" />
+                    <Button CornerRadius="10" FontAttributes="Bold" Text="Iniciar sesión" Background="#FF8200" Clicked="ver_clicked"  TextColor="#fff" />
                     <Button CornerRadius="10" FontAttributes="Bold" Text="Estudiante" BackgroundColor="#D28282" Clicked="ButtonEst_Clicked"  TextColor="#fff" />
                 </StackLayout>
 

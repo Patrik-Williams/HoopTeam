@@ -59,7 +59,7 @@
 
 
                         <StackLayout Grid.Column="2">
-                            <Label Margin="20,0,0,0" Text="Mis Equipos" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="Mis equipos" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                         </StackLayout>
 
                     </Grid>
