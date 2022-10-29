@@ -23,7 +23,7 @@
                     </Grid.ColumnDefinitions>
 
                     <CheckBox Grid.Column="1" x:Name="verPass" CheckedChanged="verPass_CheckedChanged" ></CheckBox>
-                    <Label Grid.Column="2" Text="Mostrar Contraseña" VerticalOptions="Center" TextColor="Black"></Label>
+                    <Label Grid.Column="2" Text="Mostrar contraseña" VerticalOptions="Center" TextColor="Black"></Label>
 
                 </Grid>
 
