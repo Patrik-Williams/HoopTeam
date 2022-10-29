@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HoopTeam.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,25 +7,16 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using HoopTeam.Implementacion;
-using HoopTeam.Modelo;
 
 namespace HoopTeam.Paginas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EstMain : ContentPage
+    public partial class EstSettings : ContentPage
     {
-        Cliente objCliente = new Cliente();
-        
         Estudiante estudiante = new Estudiante();
-        public EstMain()
+        public EstSettings()
         {
             InitializeComponent();
-
-            //lbInfo.Text = objCliente.MostrarNombre(datos.getCedula(), "Estudiantes");
-            lbInfo.Text = estudiante.getNombre() + " " + estudiante.getApellido1() + " " + estudiante.getApellido2();
-            lbCorreo.Text = estudiante.getCorreo();
-            lbCedula.Text = estudiante.getCedula();
         }
 
         async void LogOut()
@@ -39,26 +31,18 @@ namespace HoopTeam.Paginas
             estudiante.setNacimiento("");
             await Navigation.PushModalAsync(new MainPage(), true);
         }
-
         private void LogOut_Clicked(object sender, EventArgs e)
         {
             LogOut();
         }
 
-        private void verPerfil_Tapped(object sender, EventArgs e)
+        async void Est()
         {
-            DisplayAlert("Informacion", "PERFIL", "Ok");
+            await Navigation.PushModalAsync(new EstMain(), true);
         }
-
-
-        async void Sett()
+        private void Volver_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new EstSettings(), true);
-        }
-
-        private void settings_Clicked(object sender, EventArgs e)
-        {
-            Sett();
+            Est();
         }
 
     }
