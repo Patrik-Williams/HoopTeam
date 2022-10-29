@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using HoopTeam;
-
+using HoopTeam.Modelo;
 
 
 
@@ -14,6 +14,11 @@ namespace HoopTeam.Implementacion
     {
         Estudiante est = new Estudiante();
         Entrenador ent = new Entrenador();
+
+
+        MySqlCommand cmd = new MySqlCommand();//comandos
+        MySqlConnection con;//conexion
+        MySqlDataAdapter Adaptador = new MySqlDataAdapter();
 
         public string LogIn(string correo, string contra)
         {
@@ -74,11 +79,19 @@ namespace HoopTeam.Implementacion
                     cmd.ExecuteNonQuery();
                     tbEstudiante = dsEstudiante.Tables["Estudiantes"];
 
-                    if(tbEstudiante.Rows.Count != 0)
+                    if (tbEstudiante.Rows.Count != 0)
                     {
                         foreach (DataRow drCurrent in tbEstudiante.Rows)
                         {
-                            datos.setCedula(drCurrent["cedula"].ToString());
+                            est.setCedula(drCurrent["cedula"].ToString());
+                            est.setNombre(drCurrent["nombre"].ToString());
+                            est.setApellido1(drCurrent["apellido1"].ToString());
+                            est.setApellido2(drCurrent["apellido2"].ToString());
+                            est.setNacimiento(drCurrent["fechaNacimiento"].ToString());
+                            est.setGenero(drCurrent["genero"].ToString());
+                            est.setCorreo(drCurrent["correo"].ToString());
+                            est.setContrasenna(drCurrent["contrasenna"].ToString());
+
                             flag = "Est";
                             return flag;
                         }

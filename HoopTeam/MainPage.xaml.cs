@@ -44,7 +44,7 @@ namespace HoopTeam
                 
                 if(objetocliente.LogIn(correo, contra).Equals("Est"))
                 {
-                    DisplayAlert("Información: ", "ESTUDIANTE", "OK");
+                                        DisplayAlert("Información: ", "Bienvenido Estudiante", "OK");
                     Est();                
                 }else if (objetocliente.LogIn(correo, contra).Equals("Ent")) {
                     DisplayAlert("Información: ", "Bienvenido Entrenador", "OK");
@@ -77,6 +77,10 @@ namespace HoopTeam
             {
                 txtContra.IsPassword = true;
             }
+        }
+	private void ButtonEst_Clicked(object sender, EventArgs e)
+        {
+            Est();
         }
     }
 }
