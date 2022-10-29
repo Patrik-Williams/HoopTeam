@@ -3,80 +3,84 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HoopTeam.Paginas.EstMain">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#999">
+        <ScrollView VerticalScrollBarVisibility="Default" >
+            <StackLayout BackgroundColor="#999">
 
-            <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
+                <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
 
-                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5107/5107718.png" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
+                        </Grid.ColumnDefinitions>
 
-                
-                    <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40"></Image>
-                
-                    
-                        
-                </Grid>
-            </Frame>
+                        <!--<Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5107/5107718.png" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
+                   -->
 
-            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
 
-                    <Frame Grid.Column="2" BackgroundColor="#eee" CornerRadius="20">
-                        <StackLayout>
-                            <Label Margin="20,0,0,0" Text=" " x:Name="lbInfo" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                        <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
+
+                        <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/992/992680.png" Clicked="LogOut_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
+
+
+
+                    </Grid>
+                </Frame>
+
+
+                <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="150"></Image>
+
+                        <Frame Grid.Column="2" Margin="20,0,0,0" BackgroundColor="#fff" CornerRadius="20" HasShadow="True">
+
+                            <StackLayout>
+                                <Label Margin="20,0,0,0" Text=" " x:Name="lbInfo" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
+                                <Label Margin="20,0,0,0" Text=" " x:Name="lbCorreo" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
+                                <Label Margin="20,0,0,0" Text=" " x:Name="lbCedula" FontAttributes="bold" FontSize="16" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </Frame>
+
+                <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                        <StackLayout Grid.Column="2">
+                            <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                         </StackLayout>
-                    </Frame>
-                </Grid>
-            </Frame>
 
-            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
+                    </Grid>
+                </Frame>
 
-                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+                <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Frame Grid.Column="2" BackgroundColor="#eee" CornerRadius="20">
-                        <StackLayout>
-                            <Label Margin="20,0,0,0" Text="Algo " x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                        <StackLayout Grid.Column="2">
+                            <Label Margin="20,0,0,0" Text="Calendario" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                         </StackLayout>
-                    </Frame>
-                </Grid>
-            </Frame>
-
-            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
-
-                    <Frame Grid.Column="2" BackgroundColor="#eee" CornerRadius="20">
-                        <StackLayout>
-                            <Label Margin="20,0,0,0" Text="Algo " x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                        </StackLayout>
-                    </Frame>
-                </Grid>
-            </Frame>
-
-
-
-
-
-        </StackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

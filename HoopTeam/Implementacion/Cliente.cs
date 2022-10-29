@@ -12,51 +12,8 @@ namespace HoopTeam.Implementacion
 {
     class Cliente
     {
-       
-
-        Datos datos = new Datos();
-
-        
-        public string MostrarNombre(string cedula, string tabla)
-        {// Inicio del metodo MOSTRAR NOMBRE
-
-            
-            MySqlCommand cmd = new MySqlCommand();//comandos
-            MySqlConnection con;//conexion
-            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
-            DataSet dsEntrenador = new DataSet();
-            DataTable tbEntrenador = new DataTable();
-            string txt = "";
-            try//Intente
-            {
-                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
-                                          "port = 3306; " +
-                                          "username = admin; " +
-                                          "password = hoopteamAdmin;" +
-                                          "database =HoopTeam");
-                con.Open();
-                string qry = "SELECT * FROM " + tabla + " where cedula=" + cedula;
-                cmd.CommandText = qry;
-                cmd.Connection = con;
-                Adaptador.SelectCommand = cmd;
-                Adaptador.Fill(dsEntrenador, tabla);
-                cmd.ExecuteNonQuery();
-
-                tbEntrenador = dsEntrenador.Tables[tabla];
-
-                foreach (DataRow drCurrent in tbEntrenador.Rows)
-                {
-                    txt = drCurrent["nombre"].ToString();
-                    txt += " " + drCurrent["apellido1"].ToString() + " " + drCurrent["apellido2"].ToString(); 
-                }
-
-                return txt;
-            }// fin del try
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }// Fin del metodo MOSTRAR NOMBRE
+        Estudiante est = new Estudiante();
+        Entrenador ent = new Entrenador();
 
         public string LogIn(string correo, string contra)
         {
@@ -96,6 +53,13 @@ namespace HoopTeam.Implementacion
                 {
                     foreach (DataRow drCurrent in tbEntrenador.Rows)
                     {
+                        ent.setCedula(drCurrent["cedula"].ToString());
+                        ent.setNombre(drCurrent["nombre"].ToString());
+                        ent.setApellido1(drCurrent["apellido1"].ToString());
+                        ent.setApellido2(drCurrent["apellido2"].ToString());
+                        ent.setCorreo(drCurrent["correo"].ToString());
+                        ent.setContrasenna(drCurrent["contrasenna"].ToString());
+
                         flag = "Ent";
                         return flag;
                     }

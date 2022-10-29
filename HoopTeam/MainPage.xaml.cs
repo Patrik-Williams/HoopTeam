@@ -47,7 +47,7 @@ namespace HoopTeam
                     DisplayAlert("Información: ", "ESTUDIANTE", "OK");
                     Est();                
                 }else if (objetocliente.LogIn(correo, contra).Equals("Ent")) {
-                    DisplayAlert("Informacion: ", "ENTRENADOR", "OK");
+                    DisplayAlert("Información: ", "Bienvenido Entrenador", "OK");
                     Ent();
 
                 }
