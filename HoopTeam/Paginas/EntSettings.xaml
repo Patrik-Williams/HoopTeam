@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HoopTeam.Paginas.EntSettings">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#999">
+
+            <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <!--<Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5107/5107718.png" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
+                   -->
+
+                    <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/507/507257.png" Clicked="Volver_Clicked" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="30"></ImageButton>
+
+                    <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
+                </Grid>
+            </Frame>
+
+            <Label Text="Settings" TextColor="Black" FontSize="30" HorizontalOptions="Center"></Label>
+
+            <ImageButton Source="https://cdn-icons-png.flaticon.com/512/992/992680.png" Clicked="LogOut_Clicked" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50"></ImageButton>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

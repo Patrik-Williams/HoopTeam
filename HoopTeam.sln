@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoopTeam.Android", "HoopTea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoopTeam.iOS", "HoopTeam.iOS\HoopTeam.iOS.csproj", "{9B7D4977-AC38-4733-AAF4-C45E89AC514F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoopTeam", "HoopTeam\HoopTeam.csproj", "{89BDFA1B-9702-43E3-83C8-C7CCDFB04C42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoopTeam", "HoopTeam\HoopTeam.csproj", "{89BDFA1B-9702-43E3-83C8-C7CCDFB04C42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

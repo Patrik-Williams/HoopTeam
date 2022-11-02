@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HoopTeam.Modelo
 {
@@ -24,7 +22,7 @@ namespace HoopTeam.Modelo
 
         public void setCedula(String ced)
         {
-           cedula = ced;
+            cedula = ced;
         }
 
         public String getNombre()
@@ -64,7 +62,7 @@ namespace HoopTeam.Modelo
 
         public void setNacimiento(String Nac)
         {
-           Nacimiento = Nac;
+            Nacimiento = Nac;
         }
 
         public String getGenero()

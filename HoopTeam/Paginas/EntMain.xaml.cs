@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using HoopTeam.Implementacion;
+using HoopTeam.Modelo;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using HoopTeam.Implementacion;
-using HoopTeam.Modelo;
 
 
 namespace HoopTeam.Paginas
@@ -26,20 +21,21 @@ namespace HoopTeam.Paginas
             lbCorreo.Text = entrenador.getCorreo();
             lbCedula.Text = entrenador.getCedula();
         }
-        async void LogOut()
+
+        private void verPerfil_Tapped(object sender, EventArgs e)
         {
-            entrenador.setCedula("");
-            entrenador.setNombre("");
-            entrenador.setApellido1("");
-            entrenador.setApellido2("");
-            entrenador.setCorreo("");
-            entrenador.setContrasenna("");
-            await Navigation.PushModalAsync(new MainPage(), true);
+            DisplayAlert("Informacion", "PERFIL", "Ok");
         }
 
-        private void LogOut_Clicked(object sender, EventArgs e)
+
+        async void Sett()
         {
-            LogOut();
+            await Navigation.PushModalAsync(new EstSettings(), true);
+        }
+
+        private void settings_Clicked(object sender, EventArgs e)
+        {
+            Sett();
         }
     }
 }

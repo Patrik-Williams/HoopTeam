@@ -1,12 +1,7 @@
 ﻿using HoopTeam.Implementacion;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
 using HoopTeam.Paginas;
+using System;
+using Xamarin.Forms;
 
 
 namespace HoopTeam
@@ -37,16 +32,18 @@ namespace HoopTeam
             string correo = "";
             string contra = "";
 
-            if(!string.IsNullOrEmpty(txtCorreo.Text) && !string.IsNullOrEmpty(txtContra.Text))
+            if (!string.IsNullOrEmpty(txtCorreo.Text) && !string.IsNullOrEmpty(txtContra.Text))
             {
                 correo = txtCorreo.Text;
                 contra = txtContra.Text;
-                
-                if(objetocliente.LogIn(correo, contra).Equals("Est"))
+
+                if (objetocliente.LogIn(correo, contra).Equals("Est"))
                 {
                     DisplayAlert("Información: ", "Bienvenido Estudiante", "OK");
-                    Est();                
-                }else if (objetocliente.LogIn(correo, contra).Equals("Ent")) {
+                    Est();
+                }
+                else if (objetocliente.LogIn(correo, contra).Equals("Ent"))
+                {
                     DisplayAlert("Información: ", "Bienvenido Entrenador", "OK");
                     Ent();
 
@@ -55,15 +52,15 @@ namespace HoopTeam
                 {
                     DisplayAlert("Error: ", objetocliente.LogIn(correo, contra), "OK");
                 }
-                    
+
 
             }
             else
             {
                 DisplayAlert("Datos errones", "Por favor, llena toda la información", "Ok");
-                
+
             }
-            
+
 
 
         }
@@ -73,12 +70,13 @@ namespace HoopTeam
             if (txtContra.IsPassword == true)
             {
                 txtContra.IsPassword = false;
-            }else if (txtContra.IsPassword == false)
+            }
+            else if (txtContra.IsPassword == false)
             {
                 txtContra.IsPassword = true;
             }
         }
-	private void ButtonEst_Clicked(object sender, EventArgs e)
+        private void ButtonEst_Clicked(object sender, EventArgs e)
         {
             Est();
         }

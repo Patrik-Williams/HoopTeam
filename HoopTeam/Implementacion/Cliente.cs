@@ -1,10 +1,7 @@
-﻿using MySql.Data.MySqlClient;
+﻿using HoopTeam.Modelo;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
-using HoopTeam;
-using HoopTeam.Modelo;
 
 
 
@@ -17,14 +14,20 @@ namespace HoopTeam.Implementacion
 
 
         MySqlCommand cmd = new MySqlCommand();//comandos
+#pragma warning disable CS0169 // The field 'Cliente.con' is never used
         MySqlConnection con;//conexion
+#pragma warning restore CS0169 // The field 'Cliente.con' is never used
         MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+        public Cliente()
+        {
+        }
 
         public string LogIn(string correo, string contra)
         {
             string flag = "";
 
-           
+
 
             MySqlCommand cmd = new MySqlCommand();//comandos
             MySqlConnection con;//conexion
@@ -54,7 +57,7 @@ namespace HoopTeam.Implementacion
                 cmd.ExecuteNonQuery();
                 tbEntrenador = dsEntrenador.Tables["entrenador"];
 
-                if(tbEntrenador.Rows.Count != 0)
+                if (tbEntrenador.Rows.Count != 0)
                 {
                     foreach (DataRow drCurrent in tbEntrenador.Rows)
                     {
@@ -123,7 +126,7 @@ namespace HoopTeam.Implementacion
                     }
 
                 }
-                
+
             }
             catch (Exception ex)
             {
