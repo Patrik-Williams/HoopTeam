@@ -9,7 +9,7 @@ namespace HoopTeam.Paginas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EstSettings : ContentPage
     {
-        Estudiante estudiante = new Estudiante();
+        EstudianteEstatico estudiante = new EstudianteEstatico();
         public EstSettings()
         {
             InitializeComponent();

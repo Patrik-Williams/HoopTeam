@@ -39,8 +39,8 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackLayout Grid.Column="1">
-                        <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="70"></Image>
+                    <StackLayout Grid.Column="1" VerticalOptions="Center">
+                        <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                     </StackLayout>
 
                     
@@ -52,40 +52,34 @@
                 </Grid>
             </Frame>
 
-            <CollectionView ItemsSource="{Binding Estudiantes}" Margin="10">
+            <CollectionView ItemsSource="{Binding Estudiantes}" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
-                        <Grid Margin="0,1,0,1">
+                        <Grid Margin="0,2,0,2">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
-                            <Frame BackgroundColor="#be9955" CornerRadius="35" Padding="5">
-                                <Frame BackgroundColor="White" CornerRadius="30" Padding="5">
-                                    <Grid  ColumnSpacing="10" RowSpacing="10">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Frame>
-                                            <Image Source="{Binding imageURL}"
-                                        WidthRequest="110" HeightRequest="110"
-                                        Grid.Column="2"/>
-                                        </Frame>
-                                        <StackLayout Orientation="Vertical" Grid.Column="1">
-                                            <Label Text="{Binding salesDescription}" FontSize="20" TextColor="Black"></Label>
-                                            <Label Text="{Binding price}" FontSize="15" TextColor="Black"></Label>
-                                            <Label Text="{Binding stock}" FontSize="15" TextColor="Black"></Label>
-                                            <Label Text="{Binding status}" FontSize="15" TextColor="Black"></Label>
-                                            <Label Text="{Binding dateAdded}" FontSize="15" TextColor="Black"></Label>
-                                            <Frame BackgroundColor="#be9955" Padding="1">
-                                                <Entry BackgroundColor="White" TextColor="Black" Placeholder="0" PlaceholderColor="Gray"></Entry>
-                                            </Frame>
-                                            <Button BackgroundColor="#be9955" Text="Agregar al carrito" CornerRadius="15" Margin="5"></Button>
-                                        </StackLayout>
-                                    </Grid>
+                            <Frame BackgroundColor="White" CornerRadius="20">
+                                <Grid  ColumnSpacing="10" RowSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Frame Grid.Column="1">
+                                        <Image Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png"
+                                        WidthRequest="70" HeightRequest="100"
+                                        />
+                                    </Frame>
+                                    <StackLayout Orientation="Vertical" Grid.Column="2" VerticalOptions="Center">
+                                        <Label Text="{Binding Cedula}" FontSize="20" TextColor="Black"></Label>
+                                        <Label Text="{Binding NombreCompleto}" FontSize="15" TextColor="Black"></Label>
+                                        <!--<Label Text="{Binding Apellido1}" FontSize="15" TextColor="Black"></Label>
+                                            <Label Text="{Binding Apellido2}" FontSize="15" TextColor="Black"></Label>-->
+                                        <Label Text="{Binding Correo}" FontSize="15" TextColor="Black"></Label>
+                                    </StackLayout>
+                                </Grid>
                                 </Frame>
-                            </Frame>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

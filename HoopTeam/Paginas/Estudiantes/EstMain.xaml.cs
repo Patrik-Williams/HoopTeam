@@ -11,7 +11,7 @@ namespace HoopTeam.Paginas
     {
         Cliente objCliente = new Cliente();
 
-        Estudiante estudiante = new Estudiante();
+        EstudianteEstatico estudiante = new EstudianteEstatico();
         public EstMain()
         {
             InitializeComponent();

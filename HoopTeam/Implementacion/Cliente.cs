@@ -9,7 +9,7 @@ namespace HoopTeam.Implementacion
 {
     class Cliente
     {
-        Estudiante est = new Estudiante();
+        EstudianteEstatico est = new EstudianteEstatico();
         Entrenador ent = new Entrenador();
 
 

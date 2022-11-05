@@ -2,19 +2,9 @@
 
 namespace HoopTeam.Modelo
 {
-    class Estudiante
+    class EstudianteEstatico
     {
-        public string Cedula { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido1 { get; set; }
-        public string Apellido2 { get; set; }
-        public string NombreCompleto { get; set; }
-        public string Nacimiento { get; set; }
-        public string Genero { get; set; }
-        public string Correo { get; set; }
-        public string Contrasenna { get; set; }
-
-        /*private static string cedula;
+        private static string cedula;
         private static string Nombre;
         private static string Apellido1;
         private static string Apellido2;
@@ -105,7 +95,7 @@ namespace HoopTeam.Modelo
         public void setContrasenna(String contra)
         {
             contrasenna = contra;
-        }*/
+        }
 
 
 
