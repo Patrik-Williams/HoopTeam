@@ -18,16 +18,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Paginas\EntMain.xaml">
+    <EmbeddedResource Update="Paginas\Entrenadores\EntEstudiantes.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Paginas\EntSettings.xaml">
+    <EmbeddedResource Update="Paginas\Entrenadores\EntMain.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Paginas\EstMain.xaml">
+    <EmbeddedResource Update="Paginas\Entrenadores\EntSettings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Paginas\EstSettings.xaml">
+    <EmbeddedResource Update="Paginas\Estudiantes\EstMain.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Paginas\Estudiantes\EstSettings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
