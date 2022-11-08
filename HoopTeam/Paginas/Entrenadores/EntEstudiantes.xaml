@@ -17,22 +17,14 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <!--<Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5107/5107718.png" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
-                   -->
-
-
-
-
                     <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
                     <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
-
 
                 </Grid>
             </Frame>
 
             <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                 <!--On clicked para el frame-->
-
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -46,13 +38,13 @@
                     
 
                         <StackLayout Grid.Column="2" VerticalOptions="Center">
-                        <Label Text="Estudiantes" x:Name="lbInfo" FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+                        <Label Text="Estudiantes"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                     </StackLayout>
                     
                 </Grid>
             </Frame>
 
-            <CollectionView ItemsSource="{Binding Estudiantes}" Margin="20,10,20,10">
+            <CollectionView ItemsSource="{Binding EstudiantesPorEntrenador}" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
                         <Grid Margin="0,2,0,2">
@@ -74,9 +66,10 @@
                                     <StackLayout Orientation="Vertical" Grid.Column="2" VerticalOptions="Center">
                                         <Label Text="{Binding Cedula}" FontSize="20" TextColor="Black"></Label>
                                         <Label Text="{Binding NombreCompleto}" FontSize="15" TextColor="Black"></Label>
-                                        <!--<Label Text="{Binding Apellido1}" FontSize="15" TextColor="Black"></Label>
-                                            <Label Text="{Binding Apellido2}" FontSize="15" TextColor="Black"></Label>-->
-                                        <Label Text="{Binding Correo}" FontSize="15" TextColor="Black"></Label>
+
+                                        <Label Text="{Binding IdEquipo}" FontSize="15" TextColor="Black"></Label>
+                                        <Label Text="{Binding Categoria}" FontSize="15" TextColor="Black"></Label>
+                                        <Label Text="{Binding Genero}" FontSize="15" TextColor="Black"></Label>
                                     </StackLayout>
                                 </Grid>
                                 </Frame>

@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HoopTeam.Modelo
+namespace HoopTeam.Modelo.Entrenadores
 {
-    class EstudiantesXEntrenadorViewModel
+    public class EstudianteViewModel
     {
-        public List<Estudiante> Estudiantes { get; set; }
+       // public List<Estudiante> Estudiantes { get; set; }
 
-        public EstudiantesXEntrenadorViewModel()
+       /* public EstudianteViewModel()
         {
             Estudiantes = new EstudianteService().GetEstudiantes();
-        }
+        }*/
     }
 }

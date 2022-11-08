@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HoopTeam.Implementacion;
+using HoopTeam.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,13 @@ namespace HoopTeam.Paginas.Entrenadores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EntEstudiantes : ContentPage
     {
-        public EntEstudiantes()
+        Entrenador ent = new Entrenador();
+
+        
+        public EntEstudiantes() 
         {
             InitializeComponent();
+            
         }
 
         async void Sett()
