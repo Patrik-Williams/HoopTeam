@@ -45,7 +45,7 @@
 
                         <StackLayout Grid.Column="1">
                             <Image Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="150"></Image>
-                            <Label Text="Perfil" FontSize="18" TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+                            <Label Text="Perfil" FontSize="18" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold"></Label>
                         </StackLayout>
                         <Frame Grid.Column="2" Margin="20,0,0,0" BackgroundColor="#fff" CornerRadius="20" HasShadow="True">
 
@@ -59,6 +59,10 @@
                 </Frame>
 
                 <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="verEquipos_Tapped" NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                     <Grid >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>

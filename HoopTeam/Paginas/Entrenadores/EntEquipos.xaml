@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:HoopTeam.Modelo"
-             x:Class="HoopTeam.Paginas.Entrenadores.EntEstudiantes">
+             xmlns:vm="clr-namespace:HoopTeam.Modelo.Entrenadores"
+             x:Class="HoopTeam.Paginas.Entrenadores.EntEquipos">
     <ContentPage.BindingContext>
-        <vm:EstudiantesXEntrenadorViewModel></vm:EstudiantesXEntrenadorViewModel>
+        <vm:EquiposEntrenadorViewModel></vm:EquiposEntrenadorViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout BackgroundColor="#999">
@@ -32,19 +32,19 @@
                     </Grid.ColumnDefinitions>
 
                     <StackLayout Grid.Column="1" VerticalOptions="Center">
-                        <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
+                        <Image Source="https://cdn-icons-png.flaticon.com/512/937/937139.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                     </StackLayout>
 
-                    
 
-                        <StackLayout Grid.Column="2" VerticalOptions="Center">
-                        <Label Text="Estudiantes"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+
+                    <StackLayout Grid.Column="2" VerticalOptions="Center">
+                        <Label Text="Mis Equipos"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                     </StackLayout>
-                    
+
                 </Grid>
             </Frame>
 
-            <CollectionView ItemsSource="{Binding EstudiantesPorEntrenador}" Margin="20,10,20,10">
+            <CollectionView ItemsSource="{Binding EquiposEntrenador}" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
                         <Grid Margin="0,2,0,2">
@@ -58,31 +58,46 @@
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    
 
-                                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png"
+
+                                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png"
                                         VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
 
                                     <StackLayout Orientation="Vertical" Grid.Column="2" Margin="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Start">
-                                        <Label Text="{Binding NombreCompleto}" FontSize="24" TextColor="Black" FontAttributes="Bold"></Label>
-                                        <Label Text="{Binding Cedula}" FontSize="20" TextColor="Black"></Label>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Equipo: " FontSize="24" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                        <Label Grid.Column="2"  Text="{Binding idEquipo}" FontSize="24" TextColor="Black" FontAttributes="Bold"></Label>
+                                        </Grid>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                            <Label Grid.Column="2" Text="{Binding categoria}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                            <Label Grid.Column="3" Text="{Binding genero}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                        </Grid>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="1" Text="Equipo: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="2" Text="{Binding IdEquipo}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
-                                            <Label Grid.Column="3" Text="{Binding Categoria}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
-                                            <Label Grid.Column="4" Text="{Binding Genero}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                            <Label Grid.Column="1" Text="Cupo: " FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                            <Label Grid.Column="2" Text="{Binding cupo}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
                                         
+                                        
+                                        
+
                                     </StackLayout>
-                                    
+
                                 </Grid>
-                                </Frame>
+                            </Frame>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
