@@ -7,6 +7,7 @@
         <vm:EstudiantesXEntrenadorViewModel></vm:EstudiantesXEntrenadorViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
+        <!--De donde trae datos-->
         <StackLayout BackgroundColor="#999">
 
             <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
@@ -25,7 +26,7 @@
 
             <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                 <!--On clicked para el frame-->
-                <Grid >
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
