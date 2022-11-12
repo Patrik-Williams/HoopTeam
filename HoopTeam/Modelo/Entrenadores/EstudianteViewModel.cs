@@ -6,13 +6,13 @@ using HoopTeam.Modelo;
 
 namespace HoopTeam.Modelo.Entrenadores
 {
-    public class EstudianteViewModel
+    class EstudianteViewModel
     {
-       /* public List<Estudiante> Estudiantes { get; set; }
+       public List<Estudiante> Estudiantes { get; set; }
 
         public EstudianteViewModel()
         {
             Estudiantes = new EstudianteService().GetEstudiantes();
-        }*/
+        }
     }
 }

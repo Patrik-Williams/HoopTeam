@@ -12,7 +12,7 @@ namespace HoopTeam.Implementacion
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
         public List<Estudiante> GetEstudiantes()
         {
-            List<Estudiante> estudiantes= new List<Estudiante>();
+            List<Estudiante> estudiantes = new List<Estudiante>();
             estudiantes = clienteEnt.GetEstudiantes();
             return estudiantes;
 
