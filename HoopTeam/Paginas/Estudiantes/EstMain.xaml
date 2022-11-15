@@ -53,8 +53,15 @@
                     </Frame>
                 </Grid>
             </Frame>
+            
+            
+            
 
             <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="verEstudiantes_Tapped" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                </Frame.GestureRecognizers>
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -64,12 +71,54 @@
                     <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
 
                     
-                        <StackLayout Grid.Column="2">
+                        <StackLayout Grid.Column="2" >
                             <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+
+                        <StackLayout Margin="20,0,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                      
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="1" Text="Id: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="" x:Name="lbId"  FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
+                                <!-- <Label Grid.Column="4" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="5" Text="" x:Name="lbCategoria" FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
+                                <Label Grid.Column="6" Text="Genero: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="7" Text="" x:Name="lbGenero"   FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>-->
+                            </Grid>
+
+                             <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="" x:Name="lbCategoria" FontSize="20" TextColor="Black"  HorizontalTextAlignment="Start"></Label>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" Text="Genero: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="" x:Name="lbGenero"   FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
+                            </Grid>
+
+
                         </StackLayout>
+                    </StackLayout>
                     
                 </Grid>
             </Frame>
+            
+            
+            
+            
+            
 
             <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                 <Grid >

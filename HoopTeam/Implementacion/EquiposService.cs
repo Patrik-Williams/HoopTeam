@@ -17,7 +17,5 @@ namespace HoopTeam.Implementacion
             return equipos;
 
         }
-
-
     }
 }
