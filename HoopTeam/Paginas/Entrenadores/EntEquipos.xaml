@@ -102,6 +102,17 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Frame BackgroundColor="#253A52"  Margin="0,0,0,5" WidthRequest="100" HeightRequest="15" CornerRadius="20" HorizontalOptions="Center">
+                <!--On clicked para el frame-->
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="verEquipos_Tapped" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+
+                <Label Text="Ver todos"  FontAttributes="bold" FontSize="13" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+            </Frame>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

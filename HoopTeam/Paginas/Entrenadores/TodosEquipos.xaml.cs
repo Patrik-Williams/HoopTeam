@@ -10,16 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace HoopTeam.Paginas.Entrenadores
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EntEquipos : ContentPage
+    public partial class TodosEquipos : ContentPage
     {
-        public EntEquipos()
+        public TodosEquipos()
         {
             InitializeComponent();
         }
 
         async void Sett()
         {
-            await Navigation.PushModalAsync(new EntMain(), true);
+            await Navigation.PushModalAsync(new EntEquipos(), true);
         }
 
         private void settings_Clicked(object sender, EventArgs e)
@@ -27,9 +27,6 @@ namespace HoopTeam.Paginas.Entrenadores
             Sett();
         }
 
-        private async void verEquipos_Tapped(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new TodosEquipos(), true);
-        }
+        
     }
 }

@@ -17,6 +17,7 @@
                 </Frame>
                 <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Grid>
+
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
@@ -33,59 +34,69 @@
                 <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <StackLayout>
                     <Grid >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        
-                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
-                        
-                        <StackLayout Grid.Column="2">
-                            
-                            <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                            <Entry  Placeholder="Nombre" x:Name="txtNombre" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
 
-                            <Label Margin="20,0,0,0" Text="Apellido 1" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                            <Entry  Placeholder="Apellido1" x:Name="txtApellido1" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                             </Grid.ColumnDefinitions>
+                                
+                                <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
 
-                            <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                            <Entry  Placeholder="Apellido1" x:Name="txtApellido2" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                <StackLayout Grid.Column="2">
 
-                            <Label Margin="20,0,0,0" Text="Fecha de nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                            <Entry  Placeholder="Contraseña" x:Name="txtNacimiento" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                    <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Nombre" x:Name="txtNombre" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
-                            <Label Margin="20,0,0,0" Text="Correo" x:Name="lb6" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                            <Entry  Placeholder="Correo" x:Name="txtCorreo" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                    <Label Margin="20,0,0,0" Text="Apellido 1" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Apellido1" x:Name="txtApellido1" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
-                            <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb7" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                            <Entry  Placeholder="Contraseña" x:Name="txtContraseña" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
-                            
-                        </StackLayout>
-                        
-                    </Grid>
+                                    <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Apellido1" x:Name="txtApellido2" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+
+                                    <Label Margin="20,0,0,0" Text="Fecha de nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Contraseña" x:Name="txtNacimiento" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+
+                                    <Label Margin="20,0,0,0" Text="Correo" x:Name="lb6" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Correo" x:Name="txtCorreo" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+
+                                    <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb7" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Contraseña" x:Name="txtContraseña" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+
+                                </StackLayout>
+                            </Grid>
+
+
+
+                            <Grid Grid.Row="2" HorizontalOptions="Center" Margin="0,20,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="1" HorizontalOptions="Center" >
+                                    <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" Margin="0,0,20,0" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
+                                    <Label Text="Editar" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                                </StackLayout>
+                                <StackLayout Grid.Column="2" HorizontalOptions="Center" >
+                                    <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/8568/8568248.png" Margin="20,0,0,0"  Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Center"  WidthRequest="50"></ImageButton>
+                                    <Label Text="Eliminar" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                                </StackLayout>
+                            </Grid>
+                        </Grid>
                     
                     
 
-                            <Frame VerticalOptions="Center" HorizontalOptions="Center" >
+                            
                                
                                     
-                                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <StackLayout Grid.Column="1" HorizontalOptions="Center" >
-                                        <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/148/148764.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50"></ImageButton>
-                                    </StackLayout>
-                                    <StackLayout Grid.Column="2" HorizontalOptions="Center" >
-                                        <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/8568/8568248.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Center"  WidthRequest="50"></ImageButton>
-                                    </StackLayout>
-                                    </Grid>
-                                </StackLayout>
+                             
                                  
-                            </Frame>
+                            
 
 
                         

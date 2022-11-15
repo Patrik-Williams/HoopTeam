@@ -18,6 +18,13 @@ namespace HoopTeam.Implementacion
 
         }
 
+        public List<Equipos> GetTodosEquipos()
+        {
+            List<Equipos> equipos = new List<Equipos>();
+            equipos = clienteEnt.GetTodosEquipos();
+            return equipos;
+        }
+
 
     }
 }

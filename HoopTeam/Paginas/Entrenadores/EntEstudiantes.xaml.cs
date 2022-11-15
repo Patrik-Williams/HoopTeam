@@ -21,6 +21,7 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             InitializeComponent();
             
+            
         }
 
         async void Sett()
@@ -41,6 +42,13 @@ namespace HoopTeam.Paginas.Entrenadores
         async private void verEditEst_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new EditEstudiante(), true);
+        }
+
+         private void getItem(object sender, EventArgs e)
+        {
+            CollectionView.SelectedItemProperty.ToString();
+            DisplayAlert("Info",CollectionView.SelectedItemProperty.,"ok");
+            
         }
     }
 }

@@ -153,6 +153,52 @@ namespace HoopTeam.Implementacion
             }
         }
 
+        public List<Equipos> GetTodosEquipos()
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                List<Equipos> list = new List<Equipos>();
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+                string qry = "SELECT * FROM Equipos";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Equipos");
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Equipos"];
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+                    Equipos eq = new Equipos();
+                    eq.idEquipo = Int32.Parse(drCurrent["idEquipo"].ToString());
+                    eq.categoria = drCurrent["categoria"].ToString();
+                    eq.genero = drCurrent["genero"].ToString();
+                    eq.cedEntrenador = Int32.Parse(drCurrent["cedEntrenador"].ToString());
+                    eq.cupo = Int32.Parse(drCurrent["cupo"].ToString());
+
+                    list.Add(eq);
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                return new List<Equipos>();
+            }
+        }
+
         public List<Equipos> GetEquipos(string ent)
         {
             try
@@ -170,7 +216,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Equipos Where cedEntrenador = "+ent+" ";
+                string qry = "SELECT * FROM Equipos Where cedEntrenador = " + ent + " ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
