@@ -45,7 +45,7 @@
 
                 </Grid>
             </Frame>
-            
+
             <CollectionView ItemsSource="{Binding Estudiantes}" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
@@ -55,6 +55,9 @@
                                 <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
                             <Frame BackgroundColor="White" CornerRadius="20">
+
+                                <!--On clicked para el frame-->
+
                                 <Grid  ColumnSpacing="10" RowSpacing="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -66,16 +69,33 @@
                                         VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
 
                                     <StackLayout Orientation="Vertical" Grid.Column="2" Margin="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Start">
-                                        
-                                        <Entry Text="{Binding NombreCompleto}" IsEnabled="True" FontSize="20" TextColor="Black" FontAttributes="Bold" BackgroundColor="#eee"></Entry>
+                                        <Label Text="{Binding NombreCompleto}" FontSize="24" TextColor="Black" FontAttributes="Bold"></Label>
                                         <Label Text="{Binding Cedula}" FontSize="20" TextColor="Black"></Label>
-                                        <DatePicker Date="{Binding Nacimiento}" TextColor="Black" FontAttributes="Bold" BackgroundColor="#eee"></DatePicker>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Fecha de nacimiento: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Nacimiento}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                        </Grid>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Genero: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Genero}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                        </Grid>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Correo: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Correo}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                        </Grid>
 
-                                        <Label Text="Correo" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
-                                        <Entry Text="{Binding Correo}" IsEnabled="True" FontSize="20" TextColor="Black" FontAttributes="Bold" BackgroundColor="#eee"></Entry>
-
-                                        <Label Text="Contraseña" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
-                                        <Entry Text="{Binding Contrasenna}" IsEnabled="True" FontSize="20" TextColor="Black" FontAttributes="Bold" BackgroundColor="#eee"></Entry>
                                     </StackLayout>
 
                                 </Grid>
@@ -84,7 +104,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

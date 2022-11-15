@@ -15,7 +15,6 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
-
                     </Grid.ColumnDefinitions>
 
                     <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
@@ -56,6 +55,12 @@
                                 <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
                             <Frame BackgroundColor="White" CornerRadius="20">
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="verEditEst_Tapped" NumberOfTapsRequired="1">
+                                    </TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+
                                 <Grid  ColumnSpacing="10" RowSpacing="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>

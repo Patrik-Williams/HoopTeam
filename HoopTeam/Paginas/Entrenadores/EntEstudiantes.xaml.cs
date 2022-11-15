@@ -27,15 +27,20 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             await Navigation.PushModalAsync(new EntMain(), true);
         }
-
+        private void settings_Clicked(object sender, EventArgs e)
+        {
+            Sett();
+        }
         private async void verEstudiantes_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new TodosEstudiantes(), true);
         }
 
-        private void settings_Clicked(object sender, EventArgs e)
+       
+
+        async private void verEditEst_Tapped(object sender, EventArgs e)
         {
-            Sett();
+            await Navigation.PushModalAsync(new EditEstudiante(), true);
         }
     }
 }
