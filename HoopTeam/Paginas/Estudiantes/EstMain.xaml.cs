@@ -1,5 +1,6 @@
 ﻿using HoopTeam.Implementacion;
 using HoopTeam.Modelo;
+using HoopTeam.Paginas.Estudiantes;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,11 +23,11 @@ namespace HoopTeam.Paginas
             lbCedula.Text = estudiante.getCedula();
         }
 
-        private void verPerfil_Tapped(object sender, EventArgs e)
+       
+        async private void verPerfil_Tapped(object sender, EventArgs e)
         {
-            DisplayAlert("Informacion", "PERFIL", "Ok");
+            await Navigation.PushModalAsync(new EntEstt(), true);
         }
-
 
         async void Sett()
         {

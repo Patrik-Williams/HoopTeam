@@ -10,6 +10,7 @@ namespace HoopTeam.Implementacion
     class EstudianteService
     {
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
+        ClienteEstudiante clienteEst = new ClienteEstudiante();
         public List<Estudiante> GetEstudiantes()
         {
             List<Estudiante> estudiantes= new List<Estudiante>();
@@ -17,12 +18,20 @@ namespace HoopTeam.Implementacion
             return estudiantes;
 
         }
+       // public List<Estudiante> GetEstudiantesPerfil(string estP)
+       // {
+       //     List<Estudiante> estudiantesP = new List<Estudiante>();
+       //     estudiantesP = clienteEst.GetEstudiantesPerfil(estP);
+       //     return estudiantesP;
 
+       // }
         public List<EstEntrenador> GetEstEntrenadores(string ent)
         {
             List<EstEntrenador> estudiantes = new List<EstEntrenador>();
             estudiantes = clienteEnt.GetEstEntrenador(ent);
             return estudiantes;
         }
+
+
     }
 }

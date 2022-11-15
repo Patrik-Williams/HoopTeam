@@ -1,0 +1,9 @@
+﻿Operación Compilar iniciada..
+1>------ Operación Compilar iniciada: proyecto: HoopTeam, configuración: Debug Any CPU ------
+1>C:\Users\admin\Documents\GitHub\HoopTeam\HoopTeam\obj\Debug\netstandard2.0\Paginas\Estudiantes\EntEstt.xaml.g.cs(50,45,50,48): error CS0102: El tipo 'EntEstt' ya contiene una definición para 'lb5'
+1>C:\Users\admin\Documents\GitHub\HoopTeam\HoopTeam\obj\Debug\netstandard2.0\Paginas\Estudiantes\EntEstt.xaml.g.cs(53,45,53,54): error CS0102: El tipo 'EntEstt' ya contiene una definición para 'txtCorreo'
+1>C:\Users\admin\Documents\GitHub\HoopTeam\HoopTeam\obj\Debug\netstandard2.0\Paginas\Estudiantes\EntEstt.xaml.g.cs(56,45,56,48): error CS0102: El tipo 'EntEstt' ya contiene una definición para 'lb6'
+1>C:\Users\admin\Documents\GitHub\HoopTeam\HoopTeam\obj\Debug\netstandard2.0\Paginas\Estudiantes\EntEstt.xaml.g.cs(59,45,59,58): error CS0102: El tipo 'EntEstt' ya contiene una definición para 'txtContraseña'
+1>Compilación del proyecto "HoopTeam.csproj" terminada -- ERROR.
+========== Compilar: 0 correctos, 1 incorrectos, 1 actualizados, 0 omitidos ==========
+========== Implementar: 0 correctos, 0 incorrectos, 0 omitidos ==========
