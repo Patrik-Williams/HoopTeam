@@ -12,7 +12,5 @@ namespace HoopTeam.Modelo.Entrenadores
         public string Categoria { get; set; }
         public string Genero { get; set; }
 
-
-
     }
 }

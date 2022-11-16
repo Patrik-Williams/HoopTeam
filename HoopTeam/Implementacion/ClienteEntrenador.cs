@@ -104,7 +104,8 @@ namespace HoopTeam.Implementacion
                     "WHERE en.cedula = "+ ent +" " +
                     "AND en.cedula = eq.cedEntrenador "  +
                     "AND eq.idequipo = ee.idequipo " +
-                    "AND ee.cedestudiante = es.cedula; ";
+                    "AND ee.cedestudiante = es.cedula " +
+                    "AND ee.activo = 1; ";
 
                 //string qry = "select ent.nombre from Entrenador ent, Equipos e where ent.cedula = e.cedEntrenador";
 
@@ -245,6 +246,157 @@ namespace HoopTeam.Implementacion
                 return new List<Equipos>();
             }
         }
+
+        public Estudiante GetEstudiante(string ced)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+                Estudiante est = new Estudiante();
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+                string qry = "SELECT * FROM Estudiantes Where cedula = " + ced + " ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Estudiantes");
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Estudiantes"];
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+                    est.Cedula = drCurrent["cedula"].ToString();
+                    est.Nombre = drCurrent["nombre"].ToString();
+                    est.Apellido1 = drCurrent["apellido1"].ToString();
+                    est.Apellido2 = drCurrent["apellido2"].ToString();
+                    est.Genero = drCurrent["genero"].ToString();
+                    est.Nacimiento = drCurrent["fechaNacimiento"].ToString();
+                    est.Correo = drCurrent["correo"].ToString();
+                    est.Contrasenna = drCurrent["contrasenna"].ToString();
+                }
+                return est;
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                return new Estudiante();
+            }
+        }
+
+        public List<Equipos> GetEquiposGenero(string gen)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                List<Equipos> list = new List<Equipos>();
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+                string qry = "SELECT * FROM Equipos Where genero = '" + gen + "' and (cupo > 0) ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Equipos");
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Equipos"];
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+                    Equipos eq = new Equipos();
+                    eq.idEquipo = Int32.Parse(drCurrent["idEquipo"].ToString());
+                    eq.categoria = drCurrent["categoria"].ToString();
+                    eq.genero = drCurrent["genero"].ToString();
+                    eq.cedEntrenador = Int32.Parse(drCurrent["cedEntrenador"].ToString());
+                    eq.cupo = Int32.Parse(drCurrent["cupo"].ToString());
+
+                    list.Add(eq);
+
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                return new List<Equipos>();
+            }
+        }
+
+        public void EditarInfoEst(int ced, string nom, string ap1, string ap2, string correo, string contra, int equipoNuevo, int equipoViejo)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "UPDATE Estudiantes set Nombre = '" + nom + "', Apellido1 ='" + ap1 + "', Apellido2 ='" + ap2 + "'" +
+                    ", correo= '" + correo + "', " + "contrasenna = '" + contra + "' where cedula = " + ced + " ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+
+                string qry2 = "INSERT INTO EstudianteEquipo (fechaInicio, cedEstudiante, idEquipo, activo )values( curdate(), " + ced + ", " + equipoNuevo + ", 1)";
+                cmd.CommandText = qry2;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+
+                string qry3 = "UPDATE Equipos SET cupo= cupo-1 WHERE idEquipo=" + equipoNuevo + "";
+                cmd.CommandText = qry3;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+
+                string qry4 = "UPDATE Equipos SET cupo= cupo+1 WHERE idEquipo=" + equipoViejo + "";
+                cmd.CommandText = qry4;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+                string qry5 = "UPDATE EstudianteEquipo SET activo = 0 where cedEstudiante = " + ced + " and idEquipo = " + equipoViejo + ";";
+                cmd.CommandText = qry5;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+
     }
 
 }

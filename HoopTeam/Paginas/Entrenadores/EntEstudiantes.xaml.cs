@@ -1,7 +1,9 @@
 ﻿using HoopTeam.Implementacion;
 using HoopTeam.Modelo;
+using HoopTeam.Modelo.Entrenadores;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,12 +18,15 @@ namespace HoopTeam.Paginas.Entrenadores
     {
         Entrenador ent = new Entrenador();
 
-        
-        public EntEstudiantes() 
+        string ced { get; set; }
+        string equipo { get; set; }
+
+
+        public EntEstudiantes()
         {
             InitializeComponent();
-            
-            
+
+
         }
 
         async void Sett()
@@ -37,18 +42,27 @@ namespace HoopTeam.Paginas.Entrenadores
             await Navigation.PushModalAsync(new TodosEstudiantes(), true);
         }
 
-       
+
 
         async private void verEditEst_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new EditEstudiante(), true);
+            Debug.WriteLine(ced);
+            Debug.WriteLine(equipo);
+            await Navigation.PushModalAsync(new EditEstudiante(ced, equipo), true);
         }
 
-         private void getItem(object sender, EventArgs e)
+        public void CVCollectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CollectionView.SelectedItemProperty.ToString();
-            DisplayAlert("Info",CollectionView.SelectedItemProperty.,"ok");
-            
+            updateSelectionData(e.PreviousSelection, e.CurrentSelection);
         }
+
+        void updateSelectionData(IReadOnlyList<Object> previousSelected, IReadOnlyList<Object> currentSelected)
+        {
+            var selectedEstudiante = currentSelected.FirstOrDefault() as EstEntrenador;
+            ced = selectedEstudiante.Cedula;
+            equipo = selectedEstudiante.IdEquipo + " " + selectedEstudiante.Categoria;
+            Debug.WriteLine(selectedEstudiante.NombreCompleto);
+        }
+
     }
 }

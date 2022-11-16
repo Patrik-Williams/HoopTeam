@@ -49,28 +49,29 @@
 
                                 <StackLayout Grid.Column="2">
 
-                                    <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Nombre" x:Name="txtNombre" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
-                                    <Label Margin="20,0,0,0" Text="Apellido 1" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Label Margin="20,0,0,0" Text="Apellido 1" x:Name="lb3" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Apellido1" x:Name="txtApellido1" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
-                                    <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Apellido1" x:Name="txtApellido2" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
-                                    <Label Margin="20,0,0,0" Text="Fecha de nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Contraseña" x:Name="txtNacimiento" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                    <Label Margin="20,0,0,0" Text="Fecha de nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Contraseña" x:Name="txtNacimiento" IsEnabled="False" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
-                                    <Label Margin="20,0,0,0" Text="Correo" x:Name="lb6" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Label Margin="20,0,0,0" Text="Correo" x:Name="lb6" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Correo" x:Name="txtCorreo" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
-                                    <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb7" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb7" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Contraseña" x:Name="txtContraseña" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+
+                                    <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb8" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Picker Margin="20,5,0,20" x:Name="cbEquipo" Title="Equipo" TextColor="Black" BackgroundColor="#eee" SelectedIndexChanged="OnPickerSelectedIndexChanged"> </Picker>
 
                                 </StackLayout>
                             </Grid>
-
-
 
                             <Grid Grid.Row="2" HorizontalOptions="Center" Margin="0,20,0,0">
                                 <Grid.ColumnDefinitions>
@@ -79,27 +80,16 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackLayout Grid.Column="1" HorizontalOptions="Center" >
-                                    <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" Margin="0,0,20,0" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
-                                    <Label Text="Editar" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                                    <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" Margin="0,0,20,0" Clicked="btnEditar" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
+                                   <!-- <Label Text="Editar" HorizontalOptions="Center" FontSize="14" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"></Label>-->
                                 </StackLayout>
                                 <StackLayout Grid.Column="2" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/8568/8568248.png" Margin="20,0,0,0"  Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Center"  WidthRequest="50"></ImageButton>
-                                    <Label Text="Eliminar" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                                    <!--<Label Text="Eliminar" HorizontalOptions="Center" FontSize="14" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"></Label>-->
                                 </StackLayout>
                             </Grid>
                         </Grid>
-                    
-                    
-
-                            
-                               
-                                    
-                             
-                                 
-                            
-
-
-                        
+        
                     </StackLayout>
                 </Frame>
             </StackLayout>

@@ -46,7 +46,7 @@
 
 
 
-            <CollectionView ItemsSource="{Binding EstudiantesPorEntrenador}" Margin="20,10,20,10">
+            <CollectionView ItemsSource="{Binding EstudiantesPorEntrenador}" SelectionMode="Single" SelectionChanged="CVCollectionChanged" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
                         <Grid Margin="0,2,0,2">
@@ -59,8 +59,7 @@
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="verEditEst_Tapped" NumberOfTapsRequired="1">
                                     </TapGestureRecognizer>
-                                    <TapGestureRecognizer Tapped="getItem" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                                    
+
                                 </Frame.GestureRecognizers>
 
                                 <Grid  ColumnSpacing="10" RowSpacing="10">
