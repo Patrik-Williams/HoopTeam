@@ -161,9 +161,13 @@ namespace HoopTeam.Implementacion
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
                 MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+                MySqlDataAdapter Adaptador2 = new MySqlDataAdapter();
 
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
+
+                DataSet ds2 = new DataSet();
+                DataTable dt2 = new DataTable();
                 List<Equipos> list = new List<Equipos>();
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
@@ -171,14 +175,19 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Equipos";
+                string qry = "SELECT e.idEquipo, e.categoria, e.genero, e.cedEntrenador, e.cupo, concat(et.nombre, ' ', et.apellido1, ' ', et.apellido2) as Nombre FROM Equipos e, Entrenador et " +
+                    "WHERE e.cedEntrenador = et.cedula;";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
+
                 Adaptador.SelectCommand = cmd;
+                Adaptador2.SelectCommand = cmd;
                 Adaptador.Fill(ds, "Equipos");
+                Adaptador2.Fill(ds2, "Entrenador");
                 cmd.ExecuteNonQuery();
 
                 dt = ds.Tables["Equipos"];
+                dt2 = ds2.Tables["Entrenador"];
 
                 foreach (DataRow drCurrent in dt.Rows)
                 {
@@ -187,6 +196,7 @@ namespace HoopTeam.Implementacion
                     eq.categoria = drCurrent["categoria"].ToString();
                     eq.genero = drCurrent["genero"].ToString();
                     eq.cedEntrenador = Int32.Parse(drCurrent["cedEntrenador"].ToString());
+                    eq.Entrenador = drCurrent["Nombre"].ToString();
                     eq.cupo = Int32.Parse(drCurrent["cupo"].ToString());
 
                     list.Add(eq);
@@ -340,6 +350,53 @@ namespace HoopTeam.Implementacion
             }
         }
 
+        public List<Equipos> GetEquiposGen_Ent(string gen, int ent)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                List<Equipos> list = new List<Equipos>();
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+                string qry = "SELECT * FROM Equipos Where genero = '" + gen + "' and cedEntrenador = " + ent + " and (cupo > 0) ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Equipos");
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Equipos"];
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+                    Equipos eq = new Equipos();
+                    eq.idEquipo = Int32.Parse(drCurrent["idEquipo"].ToString());
+                    eq.categoria = drCurrent["categoria"].ToString();
+                    eq.genero = drCurrent["genero"].ToString();
+                    eq.cedEntrenador = Int32.Parse(drCurrent["cedEntrenador"].ToString());
+                    eq.cupo = Int32.Parse(drCurrent["cupo"].ToString());
+
+                    list.Add(eq);
+
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                return new List<Equipos>();
+            }
+        }
+
         public void EditarInfoEst(int ced, string nom, string ap1, string ap2, string correo, string contra, int equipoNuevo, int equipoViejo)
         {
             try
@@ -388,6 +445,43 @@ namespace HoopTeam.Implementacion
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+
+        public void EliminarEstudiante(int ced)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "DELETE FROM Estudiantes where cedula = " + ced + " ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+                string qry2 = "DELETE FROM EstudianteEquipo where cedula = " + ced + " ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
 
             }
             catch (Exception ex)

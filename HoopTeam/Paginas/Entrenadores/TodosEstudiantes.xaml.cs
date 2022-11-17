@@ -26,5 +26,10 @@ namespace HoopTeam.Paginas.Entrenadores
             Sett();
         }
 
+        private async void agregarEstudiantes_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new AgregarEst(), true);
+        }
+
     }
 }

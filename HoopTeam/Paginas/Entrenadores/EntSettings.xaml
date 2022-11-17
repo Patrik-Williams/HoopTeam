@@ -24,7 +24,7 @@
 
             <Label Text="Settings" TextColor="Black" FontSize="30" HorizontalOptions="Center"></Label>
 
-            <ImageButton Source="https://cdn-icons-png.flaticon.com/512/992/992680.png" Clicked="LogOut_Clicked" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50"></ImageButton>
+            <ImageButton Source="https://cdn-icons-png.flaticon.com/512/992/992680.png" Clicked="LogOut_Clicked" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="50"></ImageButton>
 
         </StackLayout>
     </ContentPage.Content>

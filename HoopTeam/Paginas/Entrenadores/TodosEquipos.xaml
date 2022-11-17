@@ -88,6 +88,14 @@
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Entrenador: " FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Entrenador}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                        </Grid>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
                                             <Label Grid.Column="1" Text="Cupo: " FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
                                             <Label Grid.Column="2" Text="{Binding cupo}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>

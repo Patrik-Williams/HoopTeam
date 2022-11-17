@@ -62,15 +62,15 @@ namespace HoopTeam.Paginas.Entrenadores
             await Navigation.PushModalAsync(new EntEstudiantes(), true);
         }
 
+       
+        private void settings_Clicked(object sender, EventArgs e)
+        {
+            Sett();
+        } 
         async void Volver()
         {
             await Navigation.PushModalAsync(new EntEstudiantes(), true);
         }
-        private void settings_Clicked(object sender, EventArgs e)
-        {
-            Sett();
-        }
-
         private void OnPickerSelectedIndexChanged(object sender, EventArgs e)
         {
             Picker picker = sender as Picker;
@@ -94,6 +94,22 @@ namespace HoopTeam.Paginas.Entrenadores
             clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo);
 
             Volver();
+        }
+
+        private async void ShowExitDialog()
+        {
+            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al estudiante?", "Si", "No");
+            if (answer)
+            {
+                //clienteEnt.EliminarEstudiante(Int32.Parse(est.Cedula));
+                DisplayAlert("Informacion", "Estudiante eliminado", "Ok");
+                Volver();
+            }
+        }
+
+        private void btnEliminar(object sender, EventArgs e)
+        {
+            ShowExitDialog();
         }
     }
 }

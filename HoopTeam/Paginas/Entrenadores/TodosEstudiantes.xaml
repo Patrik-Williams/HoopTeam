@@ -69,7 +69,7 @@
                                         VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
 
                                     <StackLayout Orientation="Vertical" Grid.Column="2" Margin="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Start">
-                                        <Label Text="{Binding NombreCompleto}" FontSize="24" TextColor="Black" FontAttributes="Bold"></Label>
+                                        <Label Text="{Binding NombreCompleto}" FontSize="22" TextColor="Black" FontAttributes="Bold"></Label>
                                         <Label Text="{Binding Cedula}" FontSize="20" TextColor="Black"></Label>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -104,6 +104,16 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Frame BackgroundColor="#256B1C"  Margin="0,0,0,5" WidthRequest="100" HeightRequest="17" CornerRadius="20" HorizontalOptions="Center">
+                <!--On clicked para el frame-->
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="agregarEstudiantes_Tapped" NumberOfTapsRequired="1" >
+                    </TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+
+                <Label Text="Agregar"  FontAttributes="bold" FontSize="13" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+            </Frame>
 
         </StackLayout>
     </ContentPage.Content>
