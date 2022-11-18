@@ -91,6 +91,10 @@ namespace HoopTeam.Paginas.Entrenadores
             string contra = txtContraseña.Text;
             int eqViejo = Int32.Parse(equipoViejo[0].ToString());
             int eqNuevo = Int32.Parse(equipoNuevo[0].ToString());
+            if (eqNuevo.Equals(""))
+            {
+                eqNuevo = eqViejo;
+            }
             clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo);
 
             Volver();

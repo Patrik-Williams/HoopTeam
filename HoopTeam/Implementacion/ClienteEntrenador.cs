@@ -422,11 +422,19 @@ namespace HoopTeam.Implementacion
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
+                if(equipoNuevo != equipoViejo)
+                {
+                    string qry2 = "INSERT INTO EstudianteEquipo (fechaInicio, cedEstudiante, idEquipo, activo )values( curdate(), " + ced + ", " + equipoNuevo + ", 1)";
+                    cmd.CommandText = qry2;
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
 
-                string qry2 = "INSERT INTO EstudianteEquipo (fechaInicio, cedEstudiante, idEquipo, activo )values( curdate(), " + ced + ", " + equipoNuevo + ", 1)";
-                cmd.CommandText = qry2;
-                cmd.Connection = con;
-                cmd.ExecuteNonQuery();
+                    string qry5 = "UPDATE EstudianteEquipo SET activo = 0 where cedEstudiante = " + ced + " and idEquipo = " + equipoViejo + ";";
+                    cmd.CommandText = qry5;
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
+                }
+
 
 
                 string qry3 = "UPDATE Equipos SET cupo= cupo-1 WHERE idEquipo=" + equipoNuevo + "";
@@ -437,11 +445,6 @@ namespace HoopTeam.Implementacion
 
                 string qry4 = "UPDATE Equipos SET cupo= cupo+1 WHERE idEquipo=" + equipoViejo + "";
                 cmd.CommandText = qry4;
-                cmd.Connection = con;
-                cmd.ExecuteNonQuery();
-
-                string qry5 = "UPDATE EstudianteEquipo SET activo = 0 where cedEstudiante = " + ced + " and idEquipo = " + equipoViejo + ";";
-                cmd.CommandText = qry5;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
