@@ -26,18 +26,18 @@ namespace HoopTeam.Paginas.Entrenadores
 
         public AgregarEst()   
         {
-            InitializeComponent();
-
-           
+            InitializeComponent();     
         }
 
         async void Sett()
         {
-            await Navigation.PushModalAsync(new TodosEstudiantes(), true);
-
-            
+            await Navigation.PushModalAsync(new TodosEstudiantes(), true);  
         }
 
+        async void Volver()
+        {
+            await Navigation.PushModalAsync(new EntEstudiantes(), true);
+        }
 
         private void settings_Clicked(object sender, EventArgs e)
         {
@@ -46,7 +46,17 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregar(object sender, EventArgs e)
         {
-            Sett();
+            int ced = Int32.Parse(txtCedula.Text);
+            string nom = txtNombre.Text;
+            string ap1 = txtApellido1.Text;
+            string ap2 = txtApellido2.Text;
+            string correo = txtCorreo.Text;
+            string contra = txtContraseña.Text;
+
+            clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, Int32.Parse(equipo[0].ToString()));
+            DisplayAlert("Informacion", "Estudiante agregado", "Ok");
+            Volver();
+
         }
         private void OnPickerSelectedIndexChangedGenero(object sender, EventArgs e)
         {

@@ -83,21 +83,27 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnEditar(object sender, EventArgs e)
         {
-            int ced = Int32.Parse(est.Cedula);
-            string nom = txtNombre.Text;
-            string ap1 = txtApellido1.Text;
-            string ap2 = txtApellido2.Text;
-            string correo = txtCorreo.Text;
-            string contra = txtContraseña.Text;
-            int eqViejo = Int32.Parse(equipoViejo[0].ToString());
-            int eqNuevo = Int32.Parse(equipoNuevo[0].ToString());
-            if (eqNuevo.Equals(""))
+            if (cbEquipo.SelectedItem == null)
             {
-                eqNuevo = eqViejo;
+                DisplayAlert("Alerta", "Debe seleccionar un equipo", "Aceptar");
             }
-            clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo);
+            else
+            {
+                int ced = Int32.Parse(est.Cedula);
+                string nom = txtNombre.Text;
+                string ap1 = txtApellido1.Text;
+                string ap2 = txtApellido2.Text;
+                string correo = txtCorreo.Text;
+                string contra = txtContraseña.Text;
+                int eqViejo = Int32.Parse(equipoViejo[0].ToString());
+                int eqNuevo = Int32.Parse(equipoNuevo[0].ToString());
 
-            Volver();
+                clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo);
+
+                Volver();
+            }
+
+            
         }
 
         private async void ShowExitDialog()
@@ -105,7 +111,7 @@ namespace HoopTeam.Paginas.Entrenadores
             var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al estudiante?", "Si", "No");
             if (answer)
             {
-                //clienteEnt.EliminarEstudiante(Int32.Parse(est.Cedula));
+                clienteEnt.EliminarEstudiante(Int32.Parse(est.Cedula));
                 DisplayAlert("Informacion", "Estudiante eliminado", "Ok");
                 Volver();
             }

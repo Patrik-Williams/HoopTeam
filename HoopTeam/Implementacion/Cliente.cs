@@ -72,7 +72,7 @@ namespace HoopTeam.Implementacion
                 }
                 else
                 {
-                    string qry2 = "SELECT * FROM Estudiantes where correo = '" + correo + "' and contrasenna = '" + contra + "'";
+                    string qry2 = "SELECT * FROM Estudiantes where correo = '" + correo + "' and contrasenna = '" + contra + "' and activo = 1 ";
                     cmd.CommandText = qry2;
                     cmd.Connection = con;
                     Adaptador.SelectCommand = cmd;

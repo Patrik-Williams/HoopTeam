@@ -28,9 +28,9 @@ namespace HoopTeam.Implementacion
                                           "port = 3306; " +
                                           "username = admin; " +
                                           "password = hoopteamAdmin;" +
-                                          "database =HoopTeam");
+                                          "database = HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Estudiantes";
+                string qry = "SELECT * FROM Estudiantes where activo = 1";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -105,7 +105,8 @@ namespace HoopTeam.Implementacion
                     "AND en.cedula = eq.cedEntrenador "  +
                     "AND eq.idequipo = ee.idequipo " +
                     "AND ee.cedestudiante = es.cedula " +
-                    "AND ee.activo = 1; ";
+                    "AND ee.activo = 1 " +
+                    "AND es.activo = 1;";
 
                 //string qry = "select ent.nombre from Entrenador ent, Equipos e where ent.cedula = e.cedEntrenador";
 
@@ -274,7 +275,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Estudiantes Where cedula = " + ced + " ";
+                string qry = "SELECT * FROM Estudiantes Where cedula = " + ced + " and activo = 1 ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -476,15 +477,60 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "DELETE FROM Estudiantes where cedula = " + ced + " ";
+                string qry = "update Estudiantes set activo = 0 where cedula = " + ced + " ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
-                string qry2 = "DELETE FROM EstudianteEquipo where cedula = " + ced + " ";
+                string qry2 = "UPDATE EstudianteEquipo SET activo = 0 where cedEstudiante = " + ced + " ";
+                cmd.CommandText = qry2;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+
+        public void AgregarEstudiante(int ced, string nom, string ap1, string ap2, string gen, string correo, string contra, int equipo)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "INSERT INTO Estudiantes Values(" + ced + ", '" + nom + "', '" + ap1 + "', '" + ap2 + "', curdate(), '" + gen + "', '" + correo + "', '" + contra + "', 1);";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
+
+                string qry2 = "INSERT INTO EstudianteEquipo (fechaInicio, cedEstudiante, idEquipo, activo )values( curdate(), " + ced + ", " + equipo + ", 1)";
+                cmd.CommandText = qry2;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+                string qry3 = "UPDATE Equipos SET cupo= cupo-1 WHERE idEquipo=" + equipo+ "";
+                cmd.CommandText = qry3;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
 
             }
             catch (Exception ex)
