@@ -24,6 +24,8 @@ namespace HoopTeam.Paginas.Estudiantes
             txtApellido2.Text = estudiante.getApellido2();
             txtCorreo.Text =  estudiante.getCorreo();
             txtContraseña.Text = estudiante.getContrasenna();
+            txtFecha.Text = estudiante.getNacimiento();
+            txtGenero.Text = estudiante.getGenero();
 
 
         }
@@ -47,11 +49,13 @@ namespace HoopTeam.Paginas.Estudiantes
             string ap2 = txtApellido2.Text;
             string correo = txtCorreo.Text;
             string con = txtContraseña.Text;
+            string fecha = txtFecha.Text;
+            string gen = txtGenero.Text;
             string ced = estudiante.getCedula();
 
             try
             {
-                objClienteE.actualizarEstudiante(nom, ap1, ap2, correo, con, ced);
+                objClienteE.actualizarEstudiante(nom, ap1, ap2, correo, con,gen,fecha, ced);
                 DisplayAlert("Información: ", "Datos actualizados", "OK");
                 Sett();
             }

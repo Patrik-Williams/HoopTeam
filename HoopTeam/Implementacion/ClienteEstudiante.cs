@@ -70,7 +70,7 @@ namespace HoopTeam.Implementacion
             return flag;
             }
             
-            public string actualizarEstudiante(string nom, string ap1, string ap2, string correo, string con, string ced)
+            public string actualizarEstudiante(string nom, string ap1, string ap2, string fecha, string gen, string correo, string con, string ced)
       
             {
 
@@ -93,7 +93,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con1.Open();
-                string qry = "UPDATE Estudiantes set nombre = '" + nom + "', apellido1 = '" + ap1 + "', apellido2 = '" + ap2 + "', correo = '" + correo + "',contrasenna = '" + con + "' where cedula = " + ced + " ";
+                string qry = "UPDATE Estudiantes set nombre = '" + nom + "', apellido1 = '" + ap1 + "', apellido2 = '" + ap2 + "', fechaNacimiento = '" + fecha + "', genero = '" + gen + "', correo = '" + correo + "',contrasenna = '" + con + "' where cedula = " + ced + " ";
                 cmd.CommandText = qry;
                 cmd.Connection = con1;
                 Adaptador.SelectCommand = cmd;

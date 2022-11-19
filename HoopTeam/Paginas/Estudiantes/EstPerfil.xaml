@@ -60,16 +60,24 @@
                             <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Apellido2" Text=" " x:Name="txtApellido2" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
-                            <Label Margin="20,0,0,0" Text="Correo" x:Name="lb5" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="Fecha de Nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Entry  Placeholder="fecha" Text=" " x:Name="txtFecha" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+                            <Label Margin="20,0,0,0" Text="Genero" x:Name="lb6" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Entry  Placeholder="Genero" Text=" " x:Name="txtGenero" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+
+                            <Label Margin="20,0,0,0" Text="Correo" x:Name="lb7" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Correo" Text=" " x:Name="txtCorreo" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
 
-                            <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb6" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb8" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Contraseña" Text=" " x:Name="txtContraseña" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
                             <StackLayout Margin="20,20" HorizontalOptions="Center">
-                                <Button CornerRadius="10" FontAttributes="Bold" Text="Aceptar" Background="#000" Clicked="ver_Cambios"  TextColor="#fff" HorizontalOptions="Center" ></Button>
-
+                                
+                                <ImageButton Source="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" Margin="0,0,20,0" Clicked="ver_Cambios" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
+                                
                             </StackLayout>
 
                         </StackLayout>
