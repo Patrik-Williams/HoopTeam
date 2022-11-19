@@ -199,50 +199,10 @@ namespace HoopTeam.Implementacion
                 return new List<Equipos>();
             }
         }
-        public List<Agenda> GetAgendas(string eqp)
-        {
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand();//comandos
-                MySqlConnection con;//conexion
-                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+      
+         
 
-                DataSet dsAgenda = new DataSet();
-                DataTable dtAgenda = new DataTable();
-                List<Agenda> list = new List<Agenda>();
-                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
-                                          "port = 3306; " +
-                                          "username = admin; " +
-                                          "password = hoopteamAdmin;" +
-                                          "database =HoopTeam");
-                con.Open();
-                string qry= "SELECT * FROM Agenda Where idEquipo = "+eqp +" ";
-                cmd.CommandText = qry;
-                cmd.Connection = con;
-                Adaptador.SelectCommand = cmd;
-                Adaptador.Fill(dsAgenda, "Agenda");
-                cmd.ExecuteNonQuery();
-
-                dtAgenda = dsAgenda.Tables["Equipos"];
-                foreach (DataRow drCurrent in dtAgenda.Rows)
-                {
-                    Agenda agn = new Agenda();
-                    agn.idAgenda = Int32.Parse(drCurrent["idAgenda"].ToString());
-                    agn.idEquipo = Int32.Parse(drCurrent["idEquipo"].ToString());
-                    agn.idCanchas = Int32.Parse(drCurrent["idCanchas"].ToString());
-                    agn.fechaHora = drCurrent["idCanchas"].ToString(); 
-                    agn.descripcion = drCurrent["descripcion"].ToString();
-
-                    list.Add(agn);
-
-                }
-                return list;
-            }
-            catch (Exception ex)
-            {
-                string txt = ex.Message;
-                return new List<Agenda>();
-            }
+           
         }
     }
 
