@@ -3,6 +3,7 @@ using HoopTeam.Modelo;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using HoopTeam.Paginas.Estudiantes;
 
 namespace HoopTeam.Paginas
 {
@@ -37,6 +38,13 @@ namespace HoopTeam.Paginas
         {
             Sett();
         }
+
+        async private void verAgenda_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new EstAgenda(), true);
+        }
+
+
 
     }
 }

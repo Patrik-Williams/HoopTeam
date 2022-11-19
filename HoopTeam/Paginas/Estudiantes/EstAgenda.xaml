@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:HoopTeam.Modelo"
+             x:Class="HoopTeam.Paginas.Estudiantes.EstAgenda">
+    <ContentPage.BindingContext>
+        <vm:AgendaPorEstudianteViewModel></vm:AgendaPorEstudianteViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#999">
+            <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
+                    <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
+
+                </Grid>
+            </Frame>
+
+            <Frame BackgroundColor="#FF8200"
+                   Margin="20,20"
+                   WidthRequest="1000"
+                   CornerRadius="20">
+                <!--On clicked para el frame-->
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="1"
+                                     VerticalOptions="Center">
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"
+                                   HorizontalOptions="Start"
+                                   WidthRequest="60"></Image>
+                        </StackLayout>
+
+
+
+                        <StackLayout Grid.Column="2"
+                                     VerticalOptions="Center">
+                            <Label Text="Agenda"
+                                   FontAttributes="bold"
+                                   FontSize="40"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontFamily="Arial"
+                                   TextColor="#FFF" />
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+
+            <CollectionView ItemsSource="{Binding AgendaPorEstudiante}" Margin="20,10,20,10">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <Grid Margin="0,2,0,2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Frame BackgroundColor="White" CornerRadius="20">
+                                <Grid  ColumnSpacing="10" RowSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png"
+                                            VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
+
+                                    <StackLayout Orientation="Vertical" Grid.Column="2" Margin="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Start">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="{Binding Descripcion}" FontSize="26" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2" Text="de " FontSize="26" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="3" Text="{Binding Equipo}" FontSize="26" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+
+                                        </Grid>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Cancha: " FontSize="18" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Cancha}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                        </Grid>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Ubicación: " FontSize="18" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Ubicacion}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                        </Grid>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Fecha y hora: " FontSize="18" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2" Text="{Binding FechaHora}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                        </Grid>
+
+                                    </StackLayout>
+
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>
