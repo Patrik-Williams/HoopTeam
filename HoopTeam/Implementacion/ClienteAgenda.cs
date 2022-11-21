@@ -6,13 +6,15 @@ using HoopTeam.Modelo;
 using MySql.Data.MySqlClient;
 
 
+
 namespace HoopTeam.Implementacion
 {
-    class ClienteAgenda
+   class ClienteAgenda
     {
+      
         public List<Agenda> GetAgendaEstudiante(string est)
         {
-             try
+            try
             {
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
@@ -49,9 +51,9 @@ namespace HoopTeam.Implementacion
                     "from Estudiantes es, EstudianteEquipo ee, Equipos eq, Agenda ag, Canchas ca " +
                     "where es.cedula = " + est + " " +
                     "and es.cedula = ee.cedEstudiante " +
-                    "and ee.idEquipo = eq.idEquipo "+
-                    "and eq.idEquipo = ag.idEquipo "+
-                    "and ag.idCanchas = ca.idCanchas "+
+                    "and ee.idEquipo = eq.idEquipo " +
+                    "and eq.idEquipo = ag.idEquipo " +
+                    "and ag.idCanchas = ca.idCanchas " +
                     "and ee.activo = 1;";
 
                 cmd.CommandText = qry;
@@ -133,8 +135,8 @@ namespace HoopTeam.Implementacion
 
 
                 string qry = "select ag.idAgenda, concat(eq.categoria, ' ', eq.genero) as Equipo, ag.descripcion, ag.fechayHora, ca.idCanchas, ca.ubicacion " +
-                "from Entrenador en, Equipos eq, Agenda ag, Canchas ca "+
-                "where en.cedula =" +ent+" " + 
+                "from Entrenador en, Equipos eq, Agenda ag, Canchas ca " +
+                "where en.cedula =" + ent + " " +
                 "and en.cedula = eq.cedEntrenador " +
                 "and eq.idEquipo = ag.idEquipo " +
                 "and ag.idCanchas = ca.idCanchas; ";
@@ -179,6 +181,35 @@ namespace HoopTeam.Implementacion
             {
                 string txt = ex.Message;
                 return new List<Agenda>();
+            }
+        }
+        public void AgregarAgenda(int idAgn, int idEqp, int idCn, string fecha, string dcp)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet dsAgenda = new DataSet();
+                DataTable dtAgenda = new DataTable();
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "INSERT INTO Agenda Values(" + idAgn + ", '" + idEqp + "', '" + idCn + "', '" + fecha + "', '" + dcp + "', 1);";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
             }
         }
     }

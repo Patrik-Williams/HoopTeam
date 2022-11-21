@@ -11,7 +11,7 @@ namespace HoopTeam.Implementacion
     class ClienteEntrenador
     {
         Entrenador ent = new Entrenador();
-        
+
 
         public List<Estudiante> GetEstudiantes()
         {
@@ -34,7 +34,7 @@ namespace HoopTeam.Implementacion
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
-                Adaptador.Fill(ds,"Estudiantes");
+                Adaptador.Fill(ds, "Estudiantes");
                 cmd.ExecuteNonQuery();
 
                 dt = ds.Tables["Estudiantes"];
@@ -101,8 +101,8 @@ namespace HoopTeam.Implementacion
 
                 string qry = "SELECT es.cedula as Cedula, concat(es.nombre, ' ', es.apellido1, ' ', es.apellido2) as Nombre ,eq.idEquipo, eq.categoria, eq.genero " +
                     "FROM Estudiantes es, Entrenador en, Equipos eq, EstudianteEquipo ee " +
-                    "WHERE en.cedula = "+ ent +" " +
-                    "AND en.cedula = eq.cedEntrenador "  +
+                    "WHERE en.cedula = " + ent + " " +
+                    "AND en.cedula = eq.cedEntrenador " +
                     "AND eq.idequipo = ee.idequipo " +
                     "AND ee.cedestudiante = es.cedula; ";
 
@@ -118,10 +118,10 @@ namespace HoopTeam.Implementacion
 
                 // Adaptador.Fill(ds, "Estudiantes");
                 Adaptador2.Fill(ds2, "Estudiantes");
-                Adaptador.Fill(ds, "Entrenador"); 
-                Adaptador1.Fill(ds1, "Equipos");    
+                Adaptador.Fill(ds, "Entrenador");
+                Adaptador1.Fill(ds1, "Equipos");
                 Adaptador3.Fill(ds3, "EstudianteEquipo");
-               
+
                 cmd.ExecuteNonQuery();
 
                 dt2 = ds2.Tables["Estudiantes"];
@@ -141,7 +141,7 @@ namespace HoopTeam.Implementacion
                     est.Genero = drCurrent["genero"].ToString();
 
                     list.Add(est);
-                 
+
                     Console.WriteLine("Hola mundo");
                 }
                 return list;
@@ -170,7 +170,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Equipos Where cedEntrenador = "+ent+" ";
+                string qry = "SELECT * FROM Equipos Where cedEntrenador = " + ent + " ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -198,7 +198,13 @@ namespace HoopTeam.Implementacion
                 string txt = ex.Message;
                 return new List<Equipos>();
             }
+        } 
+          
+          
         }
     }
 
-}
+
+
+
+

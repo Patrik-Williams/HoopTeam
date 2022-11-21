@@ -28,5 +28,14 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             Sett();
         }
+        async void Agenda()
+        {
+            await Navigation.PushModalAsync(new AgregarAgenda(), true);
+        }
+
+        private void agregarAgenda_Tapped(object sender, EventArgs e)
+        {
+            Agenda();
+        }
     }
 }

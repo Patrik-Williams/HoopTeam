@@ -28,5 +28,6 @@ namespace HoopTeam.Paginas.Estudiantes
         {
             Sett();
         }
+        
     }
 }
