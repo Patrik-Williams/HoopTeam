@@ -201,10 +201,16 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "INSERT INTO Agenda Values(" + idAgn + ", '" + idEqp + "', '" + idCn + "', '" + fecha + "', '" + dcp + "', 1);";
+                string qry = "INSERT INTO Agenda Values(" + idAgn + ", '" + idEqp + "', '" + idCn + "', curdate(), '" + fecha + "', '" + dcp + "', 1);";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
+
+                string qry3 = "UPDATE Equipos SET cupo= cupo-1 WHERE idEquipo=" + idEqp + "";
+                cmd.CommandText = qry3;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
 
             }
             catch (Exception ex)
