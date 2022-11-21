@@ -201,7 +201,7 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "INSERT INTO Agenda Values(" + idAgn + ", '" + idEqp + "', '" + idCn + "', curdate(), '" + fecha + "', '" + dcp + "', 1);";
+                string qry = "INSERT INTO Agenda Values(" + idAgn + ", '" + idEqp + "', '" + idCn + "', curdate(), '" + dcp + "');";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
