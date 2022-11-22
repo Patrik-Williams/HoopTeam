@@ -35,12 +35,12 @@
                         <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                     </StackLayout>
 
-                    
 
-                        <StackLayout Grid.Column="2" VerticalOptions="Center">
+
+                    <StackLayout Grid.Column="2" VerticalOptions="Center">
                         <Label Text="Mis Estudiantes"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                     </StackLayout>
-                    
+
                 </Grid>
             </Frame>
 
@@ -67,7 +67,7 @@
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    
+
 
                                     <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png"
                                         VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
@@ -87,11 +87,20 @@
                                             <Label Grid.Column="3" Text="{Binding Categoria}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                             <Label Grid.Column="4" Text="{Binding Genero}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
-                                        
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="1" Text="Estado de pago: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2" Text="{Binding  EstadoPago}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                        </Grid>
+
                                     </StackLayout>
-                                    
+
                                 </Grid>
-                                </Frame>
+                            </Frame>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -106,7 +115,7 @@
 
                 <Label Text="Ver todos"  FontAttributes="bold" FontSize="13" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
             </Frame>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

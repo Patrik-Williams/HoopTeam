@@ -11,6 +11,7 @@ namespace HoopTeam.Modelo.Entrenadores
         public string IdEquipo { get; set; }
         public string Categoria { get; set; }
         public string Genero { get; set; }
+        public string EstadoPago { get; set; }
 
     }
 }

@@ -79,16 +79,19 @@ namespace HoopTeam.Implementacion
                 MySqlDataAdapter Adaptador1 = new MySqlDataAdapter();
                 MySqlDataAdapter Adaptador2 = new MySqlDataAdapter();
                 MySqlDataAdapter Adaptador3 = new MySqlDataAdapter();
+                MySqlDataAdapter Adaptador4 = new MySqlDataAdapter();
 
                 DataSet ds = new DataSet();
                 DataSet ds1 = new DataSet();
                 DataSet ds2 = new DataSet();
                 DataSet ds3 = new DataSet();
+                DataSet ds4 = new DataSet();
 
                 DataTable dt = new DataTable();
                 DataTable dt1 = new DataTable();
                 DataTable dt2 = new DataTable();
                 DataTable dt3 = new DataTable();
+                DataTable dt4 = new DataTable();
 
                 List<EstEntrenador> list = new List<EstEntrenador>();
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
@@ -99,14 +102,15 @@ namespace HoopTeam.Implementacion
                 con.Open();
 
 
-                string qry = "SELECT es.cedula as Cedula, concat(es.nombre, ' ', es.apellido1, ' ', es.apellido2) as Nombre ,eq.idEquipo, eq.categoria, eq.genero " +
-                    "FROM Estudiantes es, Entrenador en, Equipos eq, EstudianteEquipo ee " +
+                string qry = "SELECT es.cedula as Cedula, concat(es.nombre, ' ', es.apellido1, ' ', es.apellido2) as Nombre ,eq.idEquipo, eq.categoria, eq.genero, p.pagoRealizado " +
+                    "FROM Estudiantes es, Entrenador en, Equipos eq, EstudianteEquipo ee, Pagos p " +
                     "WHERE en.cedula = "+ ent +" " +
                     "AND en.cedula = eq.cedEntrenador "  +
                     "AND eq.idequipo = ee.idequipo " +
                     "AND ee.cedestudiante = es.cedula " +
                     "AND ee.activo = 1 " +
-                    "AND es.activo = 1;";
+                    "AND es.activo = 1 " +
+                    "AND p.cedEstudiante = es.cedula;";
 
                 //string qry = "select ent.nombre from Entrenador ent, Equipos e where ent.cedula = e.cedEntrenador";
 
@@ -117,12 +121,13 @@ namespace HoopTeam.Implementacion
                 Adaptador1.SelectCommand = cmd;
                 Adaptador2.SelectCommand = cmd;
                 Adaptador3.SelectCommand = cmd;
+                Adaptador4.SelectCommand = cmd;
 
                 // Adaptador.Fill(ds, "Estudiantes");
                 Adaptador2.Fill(ds2, "Estudiantes");
                 Adaptador.Fill(ds, "Entrenador"); 
                 Adaptador1.Fill(ds1, "Equipos");    
-                Adaptador3.Fill(ds3, "EstudianteEquipo");
+                Adaptador4.Fill(ds3, "Pagos");
                
                 cmd.ExecuteNonQuery();
 
@@ -130,6 +135,7 @@ namespace HoopTeam.Implementacion
                 dt = ds.Tables["Entrenador"];
                 dt1 = ds1.Tables["Equipos"];
                 dt3 = ds3.Tables["EstudianteEquipo"];
+                dt4 = ds4.Tables["EstudianteEquipo"];
 
                 //Hacer un dt y un ds para cada una de las tablas de la consulta
 
@@ -142,9 +148,18 @@ namespace HoopTeam.Implementacion
                     est.Categoria = drCurrent["categoria"].ToString();
                     est.Genero = drCurrent["genero"].ToString();
 
+                    Debug.WriteLine(Int32.Parse(drCurrent["pagoRealizado"].ToString()));
+
+                    if (Int32.Parse(drCurrent["pagoRealizado"].ToString()) == 1){
+                       est.EstadoPago = "Realizado";
+                    }
+                    else
+                    {
+                        est.EstadoPago = "Por Realizar";
+                    }
+                    
+
                     list.Add(est);
-                 
-                    Console.WriteLine("Hola mundo");
                 }
                 return list;
             }
@@ -436,15 +451,17 @@ namespace HoopTeam.Implementacion
                     cmd.ExecuteNonQuery();
                 }
 
-
-
                 string qry3 = "UPDATE Equipos SET cupo= cupo-1 WHERE idEquipo=" + equipoNuevo + "";
                 cmd.CommandText = qry3;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
-
                 string qry4 = "UPDATE Equipos SET cupo= cupo+1 WHERE idEquipo=" + equipoViejo + "";
+                cmd.CommandText = qry4;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+                string qry5 = "UPDATE Pagos SET cupo= cupo+1 WHERE idEquipo=" + equipoViejo + "";
                 cmd.CommandText = qry4;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();

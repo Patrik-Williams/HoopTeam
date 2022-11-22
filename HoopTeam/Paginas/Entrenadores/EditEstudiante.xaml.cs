@@ -83,9 +83,9 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnEditar(object sender, EventArgs e)
         {
-            if (cbEquipo.SelectedItem == null)
+            if (cbEquipo.SelectedItem == null || cbPago.SelectedItem == null)
             {
-                DisplayAlert("Alerta", "Debe seleccionar un equipo", "Aceptar");
+                DisplayAlert("Alerta", "Debe seleccionar un equipo y Estado de pago", "Aceptar");
             }
             else
             {

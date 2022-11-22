@@ -68,8 +68,16 @@
                                     <Entry  Placeholder="Contraseña" x:Name="txtContraseña" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb8" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Picker Margin="20,5,0,20" x:Name="cbEquipo" Title="Equipo" TextColor="Black" BackgroundColor="#eee" SelectedIndexChanged="OnPickerSelectedIndexChanged"></Picker>
+                                    <Picker Margin="20,5,0,20" x:Name="cbEquipo" Title="Equipo" TextColor="Black" BackgroundColor="#aaa" SelectedIndexChanged="OnPickerSelectedIndexChanged"></Picker>
 
+                                    <Label Margin="20,0,0,0" Text="Pago Realizado" x:Name="lb9" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Picker Margin="20,5,0,20" x:Name="cbPago" Title="Equipo" TextColor="Black" BackgroundColor="#aaa" SelectedIndexChanged="OnPickerSelectedIndexChanged" >
+                                        <Picker.Items>
+                                            <x:String>Realizado</x:String>
+                                            <x:String>Por Realizar</x:String>
+                                        </Picker.Items >
+                                    </Picker>
+                                        
                                 </StackLayout>
                             </Grid>
                             <Grid Grid.Row="2" HorizontalOptions="Center" Margin="0,20,0,0">
