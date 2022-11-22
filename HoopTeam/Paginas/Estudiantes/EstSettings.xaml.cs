@@ -1,4 +1,6 @@
-﻿using HoopTeam.Modelo;
+﻿using HoopTeam.Implementacion;
+using HoopTeam.Modelo;
+using HoopTeam.Modelo.Estudiantes;
 using System;
 
 using Xamarin.Forms;
@@ -9,10 +11,27 @@ namespace HoopTeam.Paginas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EstSettings : ContentPage
     {
+        EstudiantePago estudiantePago = new EstudiantePago();
+        ClienteEstudiante objClienteEst = new ClienteEstudiante();
         EstudianteEstatico estudiante = new EstudianteEstatico();
+
         public EstSettings()
         {
             InitializeComponent();
+            estudiantePago = objClienteEst.EstudianteEstadoPago(estudiante.getCedula());
+            IdPago.Text = estudiantePago.getIdPago();
+            FechaPago.Text = estudiantePago.getFechaPago();
+            if(estudiantePago.getPagoRealizado()==1) {
+                PagoRealizado.Text = "Activo";
+            }
+            else
+            {
+                PagoRealizado.Text = "Desactivado";
+            }
+            
+            Monto.Text = estudiantePago.getMonto();
+
+
         }
 
         async void LogOut()

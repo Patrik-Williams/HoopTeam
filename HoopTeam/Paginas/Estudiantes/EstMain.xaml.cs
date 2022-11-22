@@ -28,6 +28,7 @@ namespace HoopTeam.Paginas
             lbId.Text = equipo.idEquipo.ToString();
             lbCategoria.Text = equipo.categoria;
             lbGenero.Text = equipo.genero;
+           
              
 
         }

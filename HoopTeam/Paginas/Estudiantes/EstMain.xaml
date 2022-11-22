@@ -84,10 +84,6 @@
 
                                 <Label Grid.Column="1" Text="Id: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
                                 <Label Grid.Column="2" Text="" x:Name="lbId"  FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
-                                <!-- <Label Grid.Column="4" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
-                                <Label Grid.Column="5" Text="" x:Name="lbCategoria" FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
-                                <Label Grid.Column="6" Text="Genero: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
-                                <Label Grid.Column="7" Text="" x:Name="lbGenero"   FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>-->
                             </Grid>
 
                              <Grid>

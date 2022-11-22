@@ -1,5 +1,6 @@
 ﻿using HoopTeam.Modelo;
 using HoopTeam.Modelo.Entrenadores;
+using HoopTeam.Modelo.Estudiantes;
 using System;
 using System.Collections.Generic;
 using System.Text;

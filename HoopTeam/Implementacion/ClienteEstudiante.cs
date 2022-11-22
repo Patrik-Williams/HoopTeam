@@ -5,8 +5,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using HoopTeam.Modelo.Entrenadores;
 using System.Diagnostics;
-
-
+using HoopTeam.Modelo.Estudiantes;
 
 namespace HoopTeam.Implementacion
 {
@@ -14,7 +13,7 @@ namespace HoopTeam.Implementacion
     {
         
 
-        public  Equipos getEquipo(string ced)
+        public Equipos getEquipo(string ced)
         {
             string flag = "";
 
@@ -168,5 +167,71 @@ namespace HoopTeam.Implementacion
 
 
 
+        public EstudiantePago EstudianteEstadoPago(string ced)
+        {
+            string flag = "";
+
+            Console.WriteLine(ced);
+
+            MySqlCommand cmd = new MySqlCommand();//comandos
+            MySqlConnection con;//conexion
+            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+            MySqlDataAdapter Adaptador1 = new MySqlDataAdapter();
+
+            DataSet ds = new DataSet();
+            DataSet ds1 = new DataSet();
+
+            DataTable dt = new DataTable();
+            DataTable dt1 = new DataTable();
+            EstudiantePago estadoPago = new EstudiantePago();
+
+            try
+            {
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+                string qry = "SELECT p.idPago, p.monto, p.fechaPago, p.pagoRealizado " +
+                             "FROM Estudiantes es, Pagos p " +
+                             "WHERE es.cedula = " + ced + " " +
+                             "AND es.cedula = p.cedEstudiante";
+
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador1.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Estudiantes");
+                Adaptador1.Fill(ds1, "Pagos");
+
+
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Estudiantes"];
+                dt1 = ds1.Tables["Pagos"];
+                
+
+
+                foreach (DataRow drCurrent in dt1.Rows)
+                {
+                    estadoPago.setIdPago(drCurrent["idPago"].ToString());
+                    estadoPago.setMonto(drCurrent["monto"].ToString());
+                    estadoPago.setFechaPago(drCurrent["fechaPago"].ToString());
+                    estadoPago.setPagoRealizado(Int32.Parse(drCurrent["pagoRealizado"].ToString()));
+
+                    Console.WriteLine("Hola mundo");
+                }
+                
+                return estadoPago;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return estadoPago ;
+
+            }
+
+        }
     }
 }
