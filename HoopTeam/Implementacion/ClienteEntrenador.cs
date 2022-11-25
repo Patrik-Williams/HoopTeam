@@ -445,8 +445,8 @@ namespace HoopTeam.Implementacion
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
 
-                    string qry5 = "UPDATE EstudianteEquipo SET activo = 0 where cedEstudiante = " + ced + " and idEquipo = " + equipoViejo + ";";
-                    cmd.CommandText = qry5;
+                    string qry6 = "UPDATE EstudianteEquipo SET activo = 0 where cedEstudiante = " + ced + " and idEquipo = " + equipoViejo + ";";
+                    cmd.CommandText = qry6;
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                 }
