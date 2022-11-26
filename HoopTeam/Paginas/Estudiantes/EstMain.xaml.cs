@@ -20,11 +20,14 @@ namespace HoopTeam.Paginas
             lbInfo.Text = estudiante.getNombre() + " " + estudiante.getApellido1() + " " + estudiante.getApellido2();
             lbCorreo.Text = estudiante.getCorreo();
             lbCedula.Text = estudiante.getCedula();
+
+            
         }
 
         private void verPerfil_Tapped(object sender, EventArgs e)
         {
             DisplayAlert("Informacion", "PERFIL", "Ok");
+            
         }
 
 

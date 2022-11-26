@@ -413,7 +413,7 @@ namespace HoopTeam.Implementacion
             }
         }
 
-        public void EditarInfoEst(int ced, string nom, string ap1, string ap2, string correo, string contra, int equipoNuevo, int equipoViejo)
+        public void EditarInfoEst(int ced, string nom, string ap1, string ap2, string correo, string contra, int equipoNuevo, int equipoViejo, int pago)
         {
             try
             {
@@ -461,10 +461,22 @@ namespace HoopTeam.Implementacion
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
-                string qry5 = "UPDATE Pagos SET cupo= cupo+1 WHERE idEquipo=" + equipoViejo + "";
-                cmd.CommandText = qry4;
-                cmd.Connection = con;
-                cmd.ExecuteNonQuery();
+                if(pago == 1)
+                {
+                    string qry5 = "UPDATE Pagos SET pagoRealizado = " + pago + ", fechaPago = DATE_ADD(fechaPago, INTERVAL +1 MONTH) WHERE cedEstudiante=" + ced + "";
+                    cmd.CommandText = qry5;
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
+                }
+                if(pago == 0)
+                {
+                    string qry5 = "UPDATE Pagos SET pagoRealizado = " + pago + " WHERE cedEstudiante=" + ced + "";
+                    cmd.CommandText = qry5;
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
+                }
+
+               
 
 
             }
@@ -545,6 +557,39 @@ namespace HoopTeam.Implementacion
 
                 string qry3 = "UPDATE Equipos SET cupo= cupo-1 WHERE idEquipo=" + equipo+ "";
                 cmd.CommandText = qry3;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+
+        public void EditarCupo(int cupo, int equipo)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "UPDATE Equipos SET cupo= " + cupo + " WHERE idEquipo=" + equipo + "";
+                cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 

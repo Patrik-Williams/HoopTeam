@@ -23,6 +23,8 @@ namespace HoopTeam.Paginas.Entrenadores
         static string equipoNuevo { get; set; }
         static string equipoViejo { get; set; }
 
+        static int pago { get; set; }
+
 
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
 
@@ -81,6 +83,23 @@ namespace HoopTeam.Paginas.Entrenadores
             Debug.WriteLine("Equipo Viejo " + equipoViejo);
         }
 
+        private void OnPicker2SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Picker picker = sender as Picker;
+            var selectedItem = picker.SelectedItem;
+            if (selectedItem.ToString().Equals("Realizado"))
+            {
+                pago = 1;
+            }
+            if (selectedItem.ToString().Equals("Por Realizar"))
+            {
+                pago = 0;
+            }
+            Debug.WriteLine(selectedItem.ToString());
+            Debug.WriteLine(pago);
+            Debug.WriteLine("Pago " + pago);
+        }
+
         private void btnEditar(object sender, EventArgs e)
         {
             if (cbEquipo.SelectedItem == null || cbPago.SelectedItem == null)
@@ -98,7 +117,7 @@ namespace HoopTeam.Paginas.Entrenadores
                 int eqViejo = Int32.Parse(equipoViejo[0].ToString());
                 int eqNuevo = Int32.Parse(equipoNuevo[0].ToString());
 
-                clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo);
+                clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo, pago);
 
                 Volver();
             }

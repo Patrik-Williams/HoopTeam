@@ -29,7 +29,7 @@
                 </Frame>
 
 
-                <Frame BackgroundColor="#0B0B49" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Frame x:Name="perfil" BackgroundColor="#0B0B49" Margin="20,20" WidthRequest="1000" CornerRadius="20">
 
                     <!--On clicked para el frame-->
                     <Frame.GestureRecognizers>
@@ -58,7 +58,7 @@
                     </Grid>
                 </Frame>
 
-                <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Frame x:Name="entEquipos" BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="verEquipos_Tapped" NumberOfTapsRequired="1">
                         </TapGestureRecognizer>
@@ -79,7 +79,30 @@
                     </Grid>
                 </Frame>
 
-                <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Frame x:Name="todosEquipos" BackgroundColor="Green" Margin="20,20" WidthRequest="1000" CornerRadius="20" Padding="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="verTodosEquipos_Tapped" NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Frame BackgroundColor="#FFF"  WidthRequest="990" CornerRadius="20">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                            <StackLayout Grid.Column="2">
+                                <Label Margin="20,0,0,0" Text="Todos Los Equipos"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            </StackLayout>
+
+                        </Grid>
+                    </Frame>
+                </Frame>
+
+                <Frame x:Name="agenda" BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Grid >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -95,7 +118,7 @@
                     </Grid>
                 </Frame>
 
-                <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Frame x:Name="entEstudiantes" BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="verEstudiantes_Tapped" NumberOfTapsRequired="1">
                         </TapGestureRecognizer>
@@ -113,6 +136,72 @@
                             <Label Margin="20,0,0,0" Text="Estudiantes" x:Name="lb4" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                         </StackLayout>
                     </Grid>
+                </Frame>
+
+                <Frame x:Name="TodosEstudiantes" BackgroundColor="Green" Margin="20,20" WidthRequest="1000" CornerRadius="20" Padding="5">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="verTodosEstudiantes_Tapped" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+                    <Frame  BackgroundColor="#FFF"  WidthRequest="990" CornerRadius="20">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                            <StackLayout Grid.Column="2">
+                                <Label Margin="20,0,0,0" Text="Todos los Estudiantes"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </Frame>
+
+                <Frame x:Name="Entrenadores" BackgroundColor="Green" Margin="20,20" WidthRequest="1000" CornerRadius="20" Padding="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="verEntrenadores_Tapped" NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Frame  BackgroundColor="#FFF"  WidthRequest="990" CornerRadius="20">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/2257/2257061.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                            <StackLayout Grid.Column="2">
+                                <Label Margin="20,0,0,0" Text="Entrenadores"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </Frame>
+
+                <Frame x:Name="Canchas" BackgroundColor="Green" Margin="20,20" WidthRequest="1000" CornerRadius="20" Padding="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="verCanchas_Tapped" NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Frame  BackgroundColor="#FFF"  WidthRequest="990" CornerRadius="20">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1633/1633464.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                            <StackLayout Grid.Column="2">
+                                <Label Margin="20,0,0,0" Text="Canchas"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
                 </Frame>
 
             </StackLayout>

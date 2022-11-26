@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HoopTeam.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace HoopTeam.Paginas.Entrenadores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TodosEstudiantes : ContentPage
     {
+
+        Administrador adm = new Administrador();
         public TodosEstudiantes()
         {
             InitializeComponent();
@@ -19,7 +22,15 @@ namespace HoopTeam.Paginas.Entrenadores
 
         async void Sett()
         {
-            await Navigation.PushModalAsync(new EntEstudiantes(), true);
+            if (adm.getSuperUser())
+            {
+                await Navigation.PushModalAsync(new EntMain(), true);
+            }
+            else
+            {
+                await Navigation.PushModalAsync(new EntEstudiantes(), true);
+            }
+            
         }
         private void settings_Clicked(object sender, EventArgs e)
         {
@@ -28,6 +39,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void agregarEstudiantes_Tapped(object sender, EventArgs e)
         {
+
             await Navigation.PushModalAsync(new AgregarEst(), true);
         }
 

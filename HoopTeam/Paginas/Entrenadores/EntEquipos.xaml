@@ -44,7 +44,7 @@
                 </Grid>
             </Frame>
 
-            <CollectionView ItemsSource="{Binding EquiposEntrenador}" Margin="20,10,20,10">
+            <CollectionView ItemsSource="{Binding EquiposEntrenador}" SelectionMode="Single" SelectionChanged="CVCollectionChanged" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
                         <Grid Margin="0,2,0,2">
@@ -53,6 +53,12 @@
                                 <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
                             <Frame BackgroundColor="White" CornerRadius="20">
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="editarEquipo_Tapped" NumberOfTapsRequired="1">
+                                    </TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+
                                 <Grid  ColumnSpacing="10" RowSpacing="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -60,8 +66,13 @@
                                     </Grid.ColumnDefinitions>
 
 
-                                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png"
+
+
+                                    <StackLayout Grid.Column="1">
+                                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png"
                                         VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
+                                        <Label Text="Editar" FontSize="18" TextColor="#999" HorizontalOptions="Center"></Label>
+                                    </StackLayout>
 
                                     <StackLayout Orientation="Vertical" Grid.Column="2" Margin="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Start">
                                         <Grid>

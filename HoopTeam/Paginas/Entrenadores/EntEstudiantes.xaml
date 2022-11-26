@@ -68,9 +68,13 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
 
-
-                                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png"
+                                      
+                                    
+                                    <StackLayout Grid.Column="1">
+                                        <Image Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png"
                                         VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
+                                        <Label Text="Editar" FontSize="18" TextColor="#999" HorizontalOptions="Center"></Label>
+                                    </StackLayout>
 
                                     <StackLayout Orientation="Vertical" Grid.Column="2" Margin="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Start">
                                         <Label Text="{Binding NombreCompleto}"  FontSize="24" TextColor="Black" FontAttributes="Bold"></Label>
@@ -96,9 +100,10 @@
                                             <Label Grid.Column="1" Text="Estado de pago: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
                                             <Label Grid.Column="2" Text="{Binding  EstadoPago}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
-
                                     </StackLayout>
 
+
+                                    
                                 </Grid>
                             </Frame>
                         </Grid>

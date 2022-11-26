@@ -14,6 +14,7 @@ namespace HoopTeam.Paginas
     public partial class EntSettings : ContentPage
     {
         Entrenador entrenador = new Entrenador();
+        Administrador adm = new Administrador();
         public EntSettings()
         {
             InitializeComponent();
@@ -26,6 +27,11 @@ namespace HoopTeam.Paginas
             entrenador.setApellido2("");
             entrenador.setCorreo("");
             entrenador.setContrasenna("");
+
+            adm.setIdAdmin(0);
+            adm.setCorreo("");
+            adm.setContra("");
+
             await Navigation.PushModalAsync(new MainPage(), true);
         }
         private void LogOut_Clicked(object sender, EventArgs e)

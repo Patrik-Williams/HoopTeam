@@ -11,7 +11,7 @@ namespace HoopTeam.Implementacion
     {
         EstudianteEstatico est = new EstudianteEstatico();
         Entrenador ent = new Entrenador();
-
+        Administrador adm = new Administrador();
 
         MySqlCommand cmd = new MySqlCommand();//comandos
         MySqlConnection con;//conexion
@@ -32,6 +32,8 @@ namespace HoopTeam.Implementacion
             MySqlDataAdapter Adaptador = new MySqlDataAdapter();
             DataSet dsEntrenador = new DataSet();
             DataTable tbEntrenador = new DataTable();
+
+            
 
             DataSet dsEstudiante = new DataSet();
             DataTable tbEstudiante = new DataTable();
@@ -65,6 +67,7 @@ namespace HoopTeam.Implementacion
                         ent.setApellido2(drCurrent["apellido2"].ToString());
                         ent.setCorreo(drCurrent["correo"].ToString());
                         ent.setContrasenna(drCurrent["contrasenna"].ToString());
+                        adm.setSuperUser(false);
 
                         flag = "Ent";
                         return flag;
@@ -92,6 +95,7 @@ namespace HoopTeam.Implementacion
                             est.setGenero(drCurrent["genero"].ToString());
                             est.setCorreo(drCurrent["correo"].ToString());
                             est.setContrasenna(drCurrent["contrasenna"].ToString());
+                            adm.setSuperUser(false);
 
                             flag = "Est";
                             return flag;
@@ -107,11 +111,17 @@ namespace HoopTeam.Implementacion
                         cmd.ExecuteNonQuery();
                         tbAdmin = dsAdmin.Tables["Administrador"];
 
+                        
+
                         if (tbAdmin.Rows.Count != 0)
                         {
                             foreach (DataRow drCurrent in tbAdmin.Rows)
                             {
 
+                                adm.setIdAdmin(Int32.Parse(drCurrent["idAdmin"].ToString()));
+                                adm.setCorreo(drCurrent["correo"].ToString());
+                                adm.setContra(drCurrent["contrasenna"].ToString());
+                                adm.setSuperUser(true);
                                 flag = "Sup";
                                 return flag;
                             }

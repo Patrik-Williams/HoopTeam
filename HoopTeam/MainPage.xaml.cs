@@ -48,9 +48,10 @@ namespace HoopTeam
                     Ent();
 
                 }
-                else
+                else if(objetocliente.LogIn(correo, contra).Equals("Sup"))
                 {
-                    DisplayAlert("Error: ", objetocliente.LogIn(correo, contra), "OK");
+                    DisplayAlert("Información: ", "Bienvenido Administrador", "OK");
+                    Ent();
                 }
 
 
