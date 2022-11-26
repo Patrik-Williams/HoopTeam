@@ -28,6 +28,9 @@ namespace HoopTeam.Paginas.Entrenadores
         List<Canchas> canchas { get; set; }
         static string cancha { get; set; }
 
+        List<Agenda> agendas { get;set; }
+        static string descripcion { get; set; }
+
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
         ClienteAgenda clienteAgn = new ClienteAgenda();
         public AgregarAgenda()
@@ -54,7 +57,7 @@ namespace HoopTeam.Paginas.Entrenadores
             int idEquipo = Int32.Parse(txtEqp.Text);
             int idCancha = Int32.Parse(txtCn.Text);
             string fechaH = txtFechaHora.Text;
-            string descripcion = txtDescripcion.Text;
+            //string descripcion = txtDescripcion.Text;
 
 
             clienteAgn.AgregarAgenda(idAgenda, idEquipo,idCancha,fechaH,descripcion);
@@ -62,7 +65,16 @@ namespace HoopTeam.Paginas.Entrenadores
             Volver();
 
         }
-        
+        private void OnPickerSelectedIndexChangedDescripcion(object sender, EventArgs e)
+        {
+            Picker picker = sender as Picker;
+            var selectedItem = picker.SelectedItem;
+            descripcion = selectedItem.ToString();
+            Debug.WriteLine(selectedItem.ToString());
+            Debug.WriteLine(descripcion);
+
+        }
+
 
     }
 }
