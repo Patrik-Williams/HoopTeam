@@ -23,6 +23,7 @@ namespace HoopTeam.Paginas
             FechaPago.Text = estudiantePago.getFechaPago();
             if(estudiantePago.getPagoRealizado()==1) {
                 PagoRealizado.Text = "Activo";
+                
             }
             else
             {

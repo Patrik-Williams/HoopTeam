@@ -3,139 +3,136 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HoopTeam.Paginas.EstMain">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#999">
+        <ScrollView VerticalScrollBarVisibility="Default" >
+            <StackLayout BackgroundColor="#999" >
 
-            <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                       
-                    </Grid.ColumnDefinitions>
+                <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
 
-                    <!--<Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5107/5107718.png" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
+                        </Grid.ColumnDefinitions>
+
+                        <!--<Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5107/5107718.png" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
                    -->
 
 
 
 
-                    <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
-                    <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
+                        <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
+                        <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
 
 
-                </Grid>
-            </Frame>
-            
-            <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
-                <!--On clicked para el frame-->
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="verPerfil_Tapped" NumberOfTapsRequired="1">
-                    </TapGestureRecognizer>
-                </Frame.GestureRecognizers>
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
+                    </Grid>
+                </Frame>
 
-                    <StackLayout Grid.Column="1">
-                        <Image Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="150"></Image>
-                        <Label Text="Perfil" FontSize="18" TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold"></Label>
-                    </StackLayout>
-                    
-                    <Frame Grid.Column="2" Margin="20,0,0,0" BackgroundColor="#fff" CornerRadius="20" HasShadow="True">
+                <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <!--On clicked para el frame-->
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="verPerfil_Tapped" NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
 
-                        <StackLayout>
-                            <Label Margin="20,0,0,0" Text=" " x:Name="lbInfo" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
-                            <Label Margin="20,0,0,0" Text=" " x:Name="lbCorreo" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
-                            <Label Margin="20,0,0,0" Text=" " x:Name="lbCedula" FontAttributes="bold" FontSize="16" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
+                        <StackLayout Grid.Column="1">
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="150"></Image>
+                            <Label Text="Perfil" FontSize="18" TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold"></Label>
                         </StackLayout>
-                    </Frame>
-                </Grid>
-            </Frame>
-            
-            
-            
 
-            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="verEstudiantes_Tapped" NumberOfTapsRequired="1">
-                    </TapGestureRecognizer>
-                </Frame.GestureRecognizers>
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
+                        <Frame Grid.Column="2" Margin="20,0,0,0" BackgroundColor="#fff" CornerRadius="20" HasShadow="True">
 
-                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+                            <StackLayout>
+                                <Label Margin="20,0,0,0" Text=" " x:Name="lbInfo" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
+                                <Label Margin="20,0,0,0" Text=" " x:Name="lbCorreo" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
+                                <Label Margin="20,0,0,0" Text=" " x:Name="lbCedula" FontAttributes="bold" FontSize="16" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#000" />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </Frame>
 
-                    
+
+
+
+                <Frame BackgroundColor="#FFF" x:Name="Equipos" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="verEstudiantes_Tapped" NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+                       
                         <StackLayout Grid.Column="2" >
                             <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
 
-                        <StackLayout Margin="20,0,0,0" HorizontalOptions="Center" VerticalOptions="Center">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="auto"/>
-                      
-                                </Grid.ColumnDefinitions>
+                            <StackLayout Margin="20,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" x:Name="InfoEquipos">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
 
-                                <Label Grid.Column="1" Text="Id: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
-                                <Label Grid.Column="2" Text="" x:Name="lbId"  FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
-                            </Grid>
+                                    </Grid.ColumnDefinitions>
 
-                             <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="1" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
-                                <Label Grid.Column="2" Text="" x:Name="lbCategoria" FontSize="20" TextColor="Black"  HorizontalTextAlignment="Start"></Label>
-                            </Grid>
+                                    <Label Grid.Column="1" Text="Id: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                    <Label Grid.Column="2" Text="" x:Name="lbId"  FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
+                                </Grid>
 
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="1" Text="Genero: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
-                                <Label Grid.Column="2" Text="" x:Name="lbGenero"   FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
-                            </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                    <Label Grid.Column="2" Text="" x:Name="lbCategoria" FontSize="20" TextColor="Black"  HorizontalTextAlignment="Start"></Label>
+                                </Grid>
 
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1" Text="Genero: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                    <Label Grid.Column="2" Text="" x:Name="lbGenero"   FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
+                                </Grid>
 
+                            </StackLayout>
+                            <Label Margin="20,0,0,0" Text="No se habilitara hasta que realice su pago" x:Name="EstadoPago1" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                         </StackLayout>
-                    </StackLayout>
-                    
-                </Grid>
-            </Frame>
-            
-            
-            
-            
-            
 
-            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+                    </Grid>
+                </Frame>
 
 
-                    <StackLayout Grid.Column="2">
-                        <Label Margin="20,0,0,0" Text="Calendario" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                    </StackLayout>
-                </Grid>
-            </Frame>
+                <Frame BackgroundColor="#FFF" x:Name="Calendario" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                        <StackLayout Grid.Column="2">
+                            <Label Margin="20,0,0,0" Text="Calendario" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="No se habilitara hasta que realice su pago" x:Name="EstadoPago" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
 
 
 
-
-
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

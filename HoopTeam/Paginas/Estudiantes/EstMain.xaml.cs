@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using HoopTeam.Modelo;
 using HoopTeam.Paginas.Estudiantes;
+using HoopTeam.Modelo.Estudiantes;
 
 namespace HoopTeam.Paginas
 {
@@ -13,14 +14,34 @@ namespace HoopTeam.Paginas
     {
         Cliente objCliente = new Cliente();
         ClienteEstudiante objClienteEst = new ClienteEstudiante();
+        EstudiantePago estudiantePago = new EstudiantePago();
+
 
         EstudianteEstatico estudiante = new EstudianteEstatico();
         Equipos equipo = new Equipos();
         public EstMain()
         {
             InitializeComponent();
+            estudiantePago = objClienteEst.EstudianteEstadoPago(estudiante.getCedula());
             equipo = objClienteEst.getEquipo(estudiante.getCedula());
             //lbInfo.Text = objCliente.MostrarNombre(datos.getCedula(), "Estudiantes");
+            if (estudiantePago.getPagoRealizado()==1)
+            {
+                Equipos.IsEnabled = true;
+                Calendario.IsEnabled = true;
+                EstadoPago.IsVisible = false;
+                EstadoPago1.IsVisible = false;
+            }
+            if (estudiantePago.getPagoRealizado() == 0)
+            {
+                Equipos.IsEnabled = false;
+                Calendario.IsEnabled = false;
+                InfoEquipos.IsVisible = false;
+                //lb3.IsEnabled = false;
+                EstadoPago.IsVisible = true;
+                EstadoPago1.IsVisible = true;
+
+            }
             lbInfo.Text = estudiante.getNombre() + " " + estudiante.getApellido1() + " " + estudiante.getApellido2();
             lbCorreo.Text = estudiante.getCorreo();
             lbCedula.Text = estudiante.getCedula();
@@ -53,6 +74,7 @@ namespace HoopTeam.Paginas
         {
             await Navigation.PushModalAsync(new EstEquipos(), true);
         }
+
 
     }
 }
