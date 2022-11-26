@@ -128,7 +128,7 @@ namespace HoopTeam.Implementacion
                         }
                         else
                         {
-                            flag = "Usuario o contrasenna equivocada";
+                            flag = "Usuario o Contraseña equivocada";
                             return flag;
                         }
                     }

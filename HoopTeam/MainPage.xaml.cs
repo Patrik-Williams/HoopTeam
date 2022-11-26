@@ -53,6 +53,10 @@ namespace HoopTeam
                     DisplayAlert("Información: ", "Bienvenido Administrador", "OK");
                     Ent();
                 }
+                else
+                {
+                    DisplayAlert("Error: ", objetocliente.LogIn(correo, contra), "OK");
+                }
 
 
             }
