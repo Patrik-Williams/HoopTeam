@@ -60,7 +60,14 @@
                                     <Entry  Placeholder="Fecha y hora" x:Name="txtFechaHora" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Descripción" x:Name="lb15" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Partido o Entrenamiento" x:Name="txtDescripcion" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                    <Picker Margin="20,5,0,20" x:Name="aDescripcion" TextColor="Black" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedDescripcion">
+                                        <Picker.Items>
+                                            <x:String>Partido</x:String>
+                                            <x:String>Entrenamiento</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                    
+                                  <!--  <Entry  Placeholder="Partido o Entrenamiento" x:Name="txtDescripcion" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>-->
 
                                 </StackLayout>
                             </Grid>
