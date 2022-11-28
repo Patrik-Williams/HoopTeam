@@ -14,6 +14,8 @@ namespace HoopTeam.Paginas.Entrenadores
     public partial class EntCanchas : ContentPage
     {
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
+        static int ubicacion { get; set; }
+        int cancha { get; set; }
         public EntCanchas()
         {
             InitializeComponent();
@@ -30,11 +32,10 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void editarCancha_Tapped(object sender, EventArgs e)
         {
-            string result = await DisplayPromptAsync("Editar cancha", "Ubicación:", initialValue: cupo.ToString(), maxLength: 2, keyboard: Keyboard.Numeric);
+            string result = await DisplayPromptAsync("Editar cancha", "Ubicación:", initialValue: ubicacion.ToString(), maxLength: default, keyboard: Keyboard.Default);
             if (result != null)
             {
-                clienteEnt.EditarCancha(Int32.Parse(result), ubicacion);
-                clienteEnt.EditarCupo(Int32.Parse(result), equipo);
+                clienteEnt.EditarCancha(cancha, result);
                 InitializeComponent();
             }
 

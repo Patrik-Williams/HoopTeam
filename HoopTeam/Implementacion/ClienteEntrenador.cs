@@ -273,7 +273,7 @@ namespace HoopTeam.Implementacion
             }
         }
 
-        public void EditarCancha(int id, int ub)
+        public void EditarCancha(int id, string ub)
         {
             try
             {
