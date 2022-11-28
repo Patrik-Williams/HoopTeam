@@ -49,6 +49,12 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
                         <Grid Margin="0,2,0,2">
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="editarCancha_Tapped" NumberOfTapsRequired="1">
+                                </TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
+                            
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto" />
                                 <RowDefinition Height="auto" />
