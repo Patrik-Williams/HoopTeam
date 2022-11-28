@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using HoopTeam.Implementacion;
 
-namespace HoopTeam.Modelo.Entrenadores
+namespace HoopTeam.Modelo
 {
-    class Canchas
+    class Cancha
     {
-
-        public int idCanchas { get; set; }
+        public int idCancha { get; set; }
         public string ubicacion { get; set; }
+
     }
 }

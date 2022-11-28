@@ -25,7 +25,7 @@ namespace HoopTeam.Paginas.Entrenadores
         Entrenador ent = new Entrenador();
         static string genero { get; set; }
 
-        List<Canchas> canchas { get; set; }
+        List<Cancha> canchas { get; set; }
         static string cancha { get; set; }
 
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
@@ -58,7 +58,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
 
             clienteAgn.AgregarAgenda(idAgenda, idEquipo,idCancha,fechaH,descripcion);
-            DisplayAlert("Informacion", "Agenda agregada", "Ok");
+            DisplayAlert("Información", "Agenda agregada", "Aceptar");
             Volver();
 
         }

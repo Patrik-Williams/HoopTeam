@@ -119,6 +119,26 @@
                     </Grid>
                 </Frame>
 
+                <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="verCanchas_Tapped" NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1940/1940735.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                        <StackLayout Grid.Column="2">
+                            <Label Margin="20,0,0,0" Text="Canchas" x:Name="lb5" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
 
             </StackLayout>
         </ScrollView>

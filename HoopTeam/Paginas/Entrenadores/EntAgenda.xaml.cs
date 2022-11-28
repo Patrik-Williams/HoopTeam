@@ -19,15 +19,6 @@ namespace HoopTeam.Paginas.Entrenadores
             InitializeComponent();
         }
 
-        async void Sett()
-        {
-            await Navigation.PushModalAsync(new EntSettings(), true);
-        }
-
-        private void settings_Clicked(object sender, EventArgs e)
-        {
-            Sett();
-        }
         async void Agenda()
         {
             await Navigation.PushModalAsync(new AgregarAgenda(), true);
@@ -36,6 +27,11 @@ namespace HoopTeam.Paginas.Entrenadores
         private void agregarAgenda_Tapped(object sender, EventArgs e)
         {
             Agenda();
+        }
+
+        async void verAgenda_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new EntMain(),true);
         }
     }
 }
