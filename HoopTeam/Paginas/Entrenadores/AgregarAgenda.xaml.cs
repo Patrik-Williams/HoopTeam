@@ -39,7 +39,7 @@ namespace HoopTeam.Paginas.Entrenadores
         }
         async void Sett()
         {
-            await Navigation.PushModalAsync(new EntSettings(), true);
+            await Navigation.PushModalAsync(new EntAgenda(), true);
         }
         async void Volver()
         {
@@ -53,14 +53,14 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregarAgn(object sender, EventArgs e)
         {
-            int idAgenda = Int32.Parse(txtAgenda.Text);
+            //int idAgenda = Int32.Parse(txtAgenda.Text);
             int idEquipo = Int32.Parse(txtEqp.Text);
             int idCancha = Int32.Parse(txtCn.Text);
             string fechaH = txtFechaHora.Text;
             //string descripcion = txtDescripcion.Text;
 
 
-            clienteAgn.AgregarAgenda(idAgenda, idEquipo,idCancha,fechaH,descripcion);
+            clienteAgn.AgregarAgenda( idEquipo,idCancha,fechaH,descripcion);
             DisplayAlert("Informacion", "Agenda agregada", "Ok");
             Volver();
 
@@ -72,6 +72,7 @@ namespace HoopTeam.Paginas.Entrenadores
             descripcion = selectedItem.ToString();
             Debug.WriteLine(selectedItem.ToString());
             Debug.WriteLine(descripcion);
+            
 
         }
 

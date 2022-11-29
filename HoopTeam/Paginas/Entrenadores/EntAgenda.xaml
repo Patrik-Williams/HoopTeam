@@ -60,7 +60,7 @@
             </Frame>
 
 
-            <CollectionView ItemsSource="{Binding AgendaPorEntrenador}" Margin="20,10,20,10">
+            <CollectionView ItemsSource="{Binding AgendaPorEntrenador}" Margin="20,10,20,10" SelectionMode="Single" SelectionChanged="CVCollectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
                         <Grid Margin="0,2,0,2">
@@ -69,6 +69,12 @@
                                 <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
                             <Frame BackgroundColor="White" CornerRadius="20">
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="verEditAgn_Tapped" NumberOfTapsRequired="1">
+                                    </TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                
                                 <Grid  ColumnSpacing="10" RowSpacing="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
