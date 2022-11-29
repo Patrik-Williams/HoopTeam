@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace HoopTeam.Modelo
+namespace HoopTeam.Modelo.Entrenadores
 {
-    class Estudiante
+    class EntrenadorNO_Estatico
     {
         public string Cedula { get; set; }
         public string Nombre { get; set; }
@@ -12,7 +14,5 @@ namespace HoopTeam.Modelo
         public string Nacimiento { get; set; }
         public string Genero { get; set; }
         public string Correo { get; set; }
-        public string Contrasenna { get; set; }
-
     }
 }

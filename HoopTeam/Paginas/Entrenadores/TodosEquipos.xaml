@@ -112,6 +112,16 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <Frame BackgroundColor="#256B1C" x:Name="agregar" Margin="0,0,0,5" WidthRequest="100" HeightRequest="17" CornerRadius="20" HorizontalOptions="Center">
+                <!--On clicked para el frame-->
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="agregarEquipos_Tapped" NumberOfTapsRequired="1" >
+                    </TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+
+                <Label Text="Agregar"  FontAttributes="bold" FontSize="13" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+            </Frame>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

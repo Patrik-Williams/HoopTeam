@@ -17,6 +17,15 @@ namespace HoopTeam.Paginas.Entrenadores
         public TodosEquipos()
         {
             InitializeComponent();
+            if (adm.getSuperUser())
+            {
+                agregar.IsVisible = true;
+            }
+            else
+            {
+                agregar.IsVisible = false;
+            }
+
         }
 
         async void Sett()
@@ -37,6 +46,11 @@ namespace HoopTeam.Paginas.Entrenadores
             Sett();
         }
 
-        
+        private async void agregarEquipos_Tapped(object sender, EventArgs e)
+        {
+
+            await Navigation.PushModalAsync(new AgregarEquipos(), true);
+        }
+
     }
 }

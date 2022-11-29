@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HoopTeam.Paginas.Entrenadores.AgregarEquipos">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#999">
+                <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
+                        <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#256B1C" Margin="20,20,20,10" WidthRequest="1000" CornerRadius="20">
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2" VerticalOptions="Center">
+                            <Label Text="Agregar Estudiante"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <StackLayout>
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+                                <StackLayout Grid.Column="2">
+
+                                    <Label Margin="20,0,0,0" Text="Categoria" x:Name="lb1" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Categoria" x:Name="txtCedula" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+
+                                    <Label Margin="20,0,0,0" Text="Genero" x:Name="lb2" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Picker Margin="20,5,0,20" x:Name="cbGenero" TextColor="Black" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedGenero">
+                                        <Picker.Items>
+                                            <x:String>Masculino</x:String>
+                                            <x:String>Femenina</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+
+                                    <Label Margin="20,0,0,0" Text="Entrenador" x:Name="lb3" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Picker Margin="20,5,0,20" x:Name="cbEntrenador" TextColor="Black" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedEquipo"></Picker>
+                                   
+                                    <Label Margin="20,0,0,0" Text="Cupo" x:Name="lb4" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Cupo" x:Name="txtCupo" Keyboard="Numeric" MaxLength="2" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+
+                                </StackLayout>
+                            </Grid>
+
+                            <Grid Grid.Row="2" HorizontalOptions="Center" Margin="0,20,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="1" HorizontalOptions="Center" >
+                                    <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/148/148764.png" Margin="0,0,20,0" Clicked="btnAgregar" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
+                                    <!-- <Label Text="Editar" HorizontalOptions="Center" FontSize="14" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"></Label>-->
+                                </StackLayout>
+
+                            </Grid>
+                        </Grid>
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

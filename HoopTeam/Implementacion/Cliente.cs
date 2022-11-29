@@ -24,16 +24,8 @@ namespace HoopTeam.Implementacion
         public string LogIn(string correo, string contra)
         {
             string flag = "";
-
-
-
-            MySqlCommand cmd = new MySqlCommand();//comandos
-            MySqlConnection con;//conexion
-            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
             DataSet dsEntrenador = new DataSet();
             DataTable tbEntrenador = new DataTable();
-
-            
 
             DataSet dsEstudiante = new DataSet();
             DataTable tbEstudiante = new DataTable();
@@ -111,13 +103,11 @@ namespace HoopTeam.Implementacion
                         cmd.ExecuteNonQuery();
                         tbAdmin = dsAdmin.Tables["Administrador"];
 
-                        
-
+   
                         if (tbAdmin.Rows.Count != 0)
                         {
                             foreach (DataRow drCurrent in tbAdmin.Rows)
                             {
-
                                 adm.setIdAdmin(Int32.Parse(drCurrent["idAdmin"].ToString()));
                                 adm.setCorreo(drCurrent["correo"].ToString());
                                 adm.setContra(drCurrent["contrasenna"].ToString());
@@ -132,18 +122,12 @@ namespace HoopTeam.Implementacion
                             return flag;
                         }
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
                 return ex.Message;
-
             }
-
-
-
             return flag;
 
         }
