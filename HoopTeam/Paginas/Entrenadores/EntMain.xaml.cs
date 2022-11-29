@@ -54,5 +54,10 @@ namespace HoopTeam.Paginas
             await Navigation.PushModalAsync(new EntAgenda(), true);
         }
 
+        async private void verCanchas_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new EntCanchas(), true);
+        }
+
     }
 }

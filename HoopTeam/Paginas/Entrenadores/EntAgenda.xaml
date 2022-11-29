@@ -17,7 +17,7 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
+                    <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="verAgenda_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
                     <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
 
                 </Grid>

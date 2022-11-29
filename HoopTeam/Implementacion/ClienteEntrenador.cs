@@ -198,11 +198,117 @@ namespace HoopTeam.Implementacion
                 string txt = ex.Message;
                 return new List<Equipos>();
             }
-        } 
-          
-          
         }
+
+        public List<Cancha> GetCanchas()
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                List<Cancha> list = new List<Cancha>();
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+                string qry = "SELECT * FROM Canchas; ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Canchas");
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Canchas"];
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+                    Cancha ca = new Cancha();
+                    ca.idCancha = Int32.Parse(drCurrent["idCanchas"].ToString());
+                    ca.ubicacion = drCurrent["ubicacion"].ToString();
+
+                    list.Add(ca);
+
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                return new List<Cancha>();
+            }
+        }
+        public void AgregarCancha(int id, string ub)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet dsAgenda = new DataSet();
+                DataTable dtAgenda = new DataTable();
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "INSERT INTO Canchas Values(" + id + ", '" + ub + "');";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+            }
+        }
+
+        public void EditarCancha(int id, string ub)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "UPDATE Canchas SET ubicacion= " + ub + " WHERE idCancha=" + id + "";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+
+
     }
+}
 
 
 
