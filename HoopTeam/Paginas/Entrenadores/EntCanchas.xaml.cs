@@ -1,12 +1,11 @@
-﻿using System;
+﻿using HoopTeam.Implementacion;
+using HoopTeam.Modelo;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using HoopTeam.Implementacion;
 
 namespace HoopTeam.Paginas.Entrenadores
 {
@@ -14,8 +13,8 @@ namespace HoopTeam.Paginas.Entrenadores
     public partial class EntCanchas : ContentPage
     {
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
-        static int ubicacion { get; set; }
-        int cancha { get; set; }
+        static string ubicacion { get; set; }
+        static int cancha { get; set; }
         public EntCanchas()
         {
             InitializeComponent();
@@ -32,15 +31,34 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void editarCancha_Tapped(object sender, EventArgs e)
         {
-            string result = await DisplayPromptAsync("Editar cancha", "Ubicación:", initialValue: ubicacion.ToString(), maxLength: default, keyboard: Keyboard.Default);
+            string result = await DisplayPromptAsync("Editar cancha", "Ubicación:", initialValue: ubicacion, maxLength: default, keyboard: Keyboard.Default);
             if (result != null)
             {
                 clienteEnt.EditarCancha(cancha, result);
                 InitializeComponent();
             }
+        }
 
+        public async void eliminarCancha_Tapped(object sender, EventArgs e)
+        {
+            string result = await DisplayPromptAsync("Eliminar cancha", "Cancha:", initialValue: cancha.ToString(), maxLength: default, keyboard: Keyboard.Default);
+            if (result != null)
+            {
+                Debug.Write(result);
+                clienteEnt.EliminarCancha(Int32.Parse(result));
+                InitializeComponent();
+            }
+        }
 
-
+        public void CVCollectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            updateSelectionData(e.PreviousSelection, e.CurrentSelection);
+        }
+        void updateSelectionData(IReadOnlyList<Object> previouslySelected, IReadOnlyList<Object> currentSelected)
+        {
+            var selectedCancha = currentSelected.FirstOrDefault() as Cancha;
+            ubicacion = selectedCancha.ubicacion;
+            cancha = selectedCancha.idCancha;
         }
     }
 }

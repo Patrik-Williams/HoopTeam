@@ -292,7 +292,40 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "UPDATE Canchas SET ubicacion= " + ub + " WHERE idCancha=" + id + "";
+                string qry = "UPDATE Canchas SET ubicacion = '" + ub + "' WHERE idCanchas =" + id + ";";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+
+        public void EliminarCancha(int id)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "Delete from Canchas WHERE idCanchas =" + id + ";";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
