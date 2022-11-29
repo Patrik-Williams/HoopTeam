@@ -60,7 +60,7 @@ namespace HoopTeam.Paginas.Entrenadores
             //string descripcion = txtDescripcion.Text;
 
 
-            clienteAgn.AgregarAgenda(idAgenda, idEquipo,idCancha,fechaH,descripcion);
+            clienteAgn.AgregarAgenda( idEquipo,idCancha,fechaH,descripcion);
             DisplayAlert("Información", "Agenda agregada", "Aceptar");
             Volver();
 
