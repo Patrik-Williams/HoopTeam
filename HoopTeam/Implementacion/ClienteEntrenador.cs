@@ -182,7 +182,7 @@ namespace HoopTeam.Implementacion
                 foreach (DataRow drCurrent in dt.Rows)
                 {
                     Equipos eq = new Equipos();
-                    eq.idEquipo = Int32.Parse(drCurrent["idEquipo"].ToString());
+                    eq.idEquipo = drCurrent["idEquipo"].ToString();
                     eq.categoria = drCurrent["categoria"].ToString();
                     eq.genero = drCurrent["genero"].ToString();
                     eq.cedEntrenador = Int32.Parse(drCurrent["cedEntrenador"].ToString());
