@@ -94,13 +94,13 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HoopTeam\HoopTeam.csproj">
-      <Project>{DEE9227C-57D4-497F-A114-4EB5DC43140F}</Project>
-      <Name>HoopTeam</Name>
-    </ProjectReference>
+    <AndroidResource Include="Resources\drawable\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Logo.png" />
+    <ProjectReference Include="..\HoopTeam\HoopTeam.csproj">
+      <Project>{89bdfa1b-9702-43e3-83c8-c7ccdfb04c42}</Project>
+      <Name>HoopTeam</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

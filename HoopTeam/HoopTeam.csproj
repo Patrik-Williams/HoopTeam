@@ -11,10 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
     <PackageReference Include="MySql.Data" Version="8.0.31" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +25,19 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Paginas\Entrenadores\EditEstudiante.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Paginas\Entrenadores\AgregarAgenda.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Paginas\Entrenadores\EditAgenda.xaml"/>
+    <EmbeddedResource Update="Paginas\Entrenadores\AgregarCancha.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Paginas\Entrenadores\EntAgenda.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Paginas\Entrenadores\EntCanchas.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Paginas\Entrenadores\EntEquipos.xaml">
@@ -43,6 +56,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Paginas\Entrenadores\TodosEstudiantes.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Paginas\Estudiantes\EstAgenda.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Paginas\Estudiantes\EstMain.xaml">
