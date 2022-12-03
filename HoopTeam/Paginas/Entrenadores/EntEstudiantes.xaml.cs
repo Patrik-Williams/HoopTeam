@@ -19,7 +19,7 @@ namespace HoopTeam.Paginas.Entrenadores
         Entrenador ent = new Entrenador();
 
         string ced { get; set; }
-        string equipo { get; set; }
+        int equipo { get; set; }
 
 
         public EntEstudiantes()
@@ -60,7 +60,7 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             var selectedEstudiante = currentSelected.FirstOrDefault() as EstEntrenador;
             ced = selectedEstudiante.Cedula;
-            equipo = selectedEstudiante.IdEquipo + " " + selectedEstudiante.Categoria;
+            equipo = Int32.Parse(selectedEstudiante.IdEquipo);
             Debug.WriteLine(selectedEstudiante.NombreCompleto);
         }
 

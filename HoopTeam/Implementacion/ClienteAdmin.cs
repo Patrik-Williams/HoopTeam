@@ -12,7 +12,7 @@ namespace HoopTeam.Implementacion
     class ClienteAdmin
     {
 
-        public void AgregarEquipo(string categoria, string genero, int ent, string gen, int cupo)
+        public void AgregarEquipo(string categoria, string genero, int ent, int cupo)
         {
             try
             {
@@ -80,8 +80,6 @@ namespace HoopTeam.Implementacion
                     ent.Apellido1 = drCurrent["apellido1"].ToString();
                     ent.Apellido2 = drCurrent["apellido2"].ToString();
                     ent.NombreCompleto = ent.Nombre + " " + ent.Apellido1 + " " + ent.Apellido2;
-                    ent.Nacimiento = drCurrent["fechaNacimiento"].ToString();
-                    ent.Genero = drCurrent["genero"].ToString();
                     ent.Correo = drCurrent["correo"].ToString();
                    
                     list.Add(ent);
@@ -133,8 +131,6 @@ namespace HoopTeam.Implementacion
                     ent.Apellido1 = drCurrent["apellido1"].ToString();
                     ent.Apellido2 = drCurrent["apellido2"].ToString();
                     ent.NombreCompleto = ent.Nombre + " " + ent.Apellido1 + " " + ent.Apellido2;
-                    ent.Nacimiento = drCurrent["fechaNacimiento"].ToString();
-                    ent.Genero = drCurrent["genero"].ToString();
                     ent.Correo = drCurrent["correo"].ToString();
 
                     

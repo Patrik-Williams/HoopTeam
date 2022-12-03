@@ -50,7 +50,7 @@
                                 <StackLayout Grid.Column="2">
 
                                     <Label Margin="20,0,0,0" Text="Categoria" x:Name="lb1" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Categoria" x:Name="txtCedula" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                    <Entry  Placeholder="Categoria" x:Name="txtCate" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Genero" x:Name="lb2" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Picker Margin="20,5,0,20" x:Name="cbGenero" TextColor="Black" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedGenero">
@@ -61,7 +61,7 @@
                                     </Picker>
 
                                     <Label Margin="20,0,0,0" Text="Entrenador" x:Name="lb3" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Picker Margin="20,5,0,20" x:Name="cbEntrenador" TextColor="Black" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedEquipo"></Picker>
+                                    <Picker Margin="20,5,0,20" x:Name="cbEntrenador" Title="" TextColor="Black" TitleColor="#444" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedEntrenador"></Picker>
                                    
                                     <Label Margin="20,0,0,0" Text="Cupo" x:Name="lb4" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Cupo" x:Name="txtCupo" Keyboard="Numeric" MaxLength="2" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>

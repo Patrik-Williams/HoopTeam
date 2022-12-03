@@ -20,15 +20,15 @@ namespace HoopTeam.Paginas.Entrenadores
         Estudiante est = new Estudiante();
         Equipos eq = new Equipos();
         List<Equipos> equipos = new List<Equipos>();
-        static string equipoNuevo { get; set; }
-        static string equipoViejo { get; set; }
+        static int equipoNuevo { get; set; }
+        static int equipoViejo { get; set; }
 
         static int pago { get; set; }
 
 
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
 
-        public EditEstudiante(string ced, string eqAc)
+        public EditEstudiante(string ced, int eqAc)
         {
             InitializeComponent();
             est = clienteEnt.GetEstudiante(ced);
@@ -38,19 +38,20 @@ namespace HoopTeam.Paginas.Entrenadores
 
             foreach (Equipos e in equipos)
             {   
-                if(e.idEquipo == Int32.Parse(eqAc[0].ToString()))
+                /*if(e.idEquipo == Int32.Parse(eqAc[0].ToString()))
                 {
                     cbEquipo.Items.Add(e.idEquipo.ToString() + " " + e.categoria.ToString() + " (ACTUAL)");
+                    
                 }
                 else
                 {
                     cbEquipo.Items.Add(e.idEquipo.ToString() + " " + e.categoria.ToString());
-                }
-                
+                }*/
+
+                cbEquipo.Items.Add(e.idEquipo.ToString());
             }
             Debug.WriteLine("Equipo Viejo " + equipoViejo);
             Debug.WriteLine(eqAc);
-            Debug.WriteLine(eqAc[0]);
 
             txtNombre.Text = est.Nombre;
             txtApellido1.Text = est.Apellido1;
@@ -77,9 +78,27 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             Picker picker = sender as Picker;
             var selectedItem = picker.SelectedItem;
-            equipoNuevo = selectedItem.ToString();
-            Debug.WriteLine(selectedItem.ToString());
-            Debug.WriteLine(equipoNuevo);
+            equipoNuevo = Int32.Parse(selectedItem.ToString());
+
+            foreach (Equipos eq in equipos)
+            {
+                if (eq.idEquipo == equipoNuevo)
+                {
+                    if(equipoNuevo == equipoViejo)
+                    {
+                        cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString() + " (ACTUAL)";
+
+                    }else
+                    {
+                        cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString();
+                    }
+                    
+                }
+                
+            }
+
+            Debug.WriteLine(selectedItem.ToString() + " Selected");
+            Debug.WriteLine("Nuevo " + equipoNuevo);
             Debug.WriteLine("Equipo Viejo " + equipoViejo);
         }
 
@@ -114,8 +133,8 @@ namespace HoopTeam.Paginas.Entrenadores
                 string ap2 = txtApellido2.Text;
                 string correo = txtCorreo.Text;
                 string contra = txtContraseña.Text;
-                int eqViejo = Int32.Parse(equipoViejo[0].ToString());
-                int eqNuevo = Int32.Parse(equipoNuevo[0].ToString());
+                int eqViejo = equipoViejo;
+                int eqNuevo = equipoNuevo;
 
                 clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo, pago);
 

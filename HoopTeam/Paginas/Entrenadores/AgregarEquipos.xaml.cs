@@ -17,8 +17,11 @@ namespace HoopTeam.Paginas.Entrenadores
         List<EntrenadorNO_Estatico> entrenadores = new List<EntrenadorNO_Estatico>();
 
         EntrenadorNO_Estatico ent = new EntrenadorNO_Estatico();
+        static int cedEnt { get; set; }
 
         ClienteAdmin clienteAdm = new ClienteAdmin();
+
+        static string gen { get; set; }
         public AgregarEquipos()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace HoopTeam.Paginas.Entrenadores
         }
         async void Sett()
         {
-            await Navigation.PushModalAsync(new TodosEstudiantes(), true);
+            await Navigation.PushModalAsync(new TodosEquipos(), true);
         }
 
         private void settings_Clicked(object sender, EventArgs e)
@@ -47,9 +50,14 @@ namespace HoopTeam.Paginas.Entrenadores
             string ap2 = txtApellido2.Text;
             string correo = txtCorreo.Text;
             string contra = txtContraseña.Text;
-
             clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, Int32.Parse(equipo[0].ToString()));
             DisplayAlert("Informacion", "Estudiante agregado", "Ok");*/
+
+            string categoria = txtCate.Text;
+            int cupo = Int32.Parse(txtCupo.Text);
+
+            clienteAdm.AgregarEquipo(categoria, gen[0].ToString(), cedEnt, cupo);
+            DisplayAlert("Informacion", "Equipo agregado", "Ok");
             Sett();
 
         }
@@ -57,29 +65,22 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             Picker picker = sender as Picker;
             var selectedItem = picker.SelectedItem;
-            /*genero = selectedItem.ToString();
-            Debug.WriteLine(selectedItem.ToString());
-            Debug.WriteLine(genero);
-            Debug.WriteLine(genero[0].ToString());
-
-            equipos = clienteEnt.GetEquiposGen_Ent(genero[0].ToString(), Int32.Parse(ent.getCedula()));
-            cbEquipo.Items.Clear();
-            foreach (Equipos eq in equipos)
-            {
-
-                cbEquipo.Items.Add(eq.idEquipo.ToString() + " " + eq.categoria.ToString());
-            }*/
+            gen = selectedItem.ToString();
 
         }
 
-        private void OnPickerSelectedIndexChangedEquipo(object sender, EventArgs e)
+        private void OnPickerSelectedIndexChangedEntrenador(object sender, EventArgs e)
         {
-            /*Picker picker = sender as Picker;
+            Picker picker = sender as Picker;
             var selectedItem = picker.SelectedItem;
-            equipo = selectedItem.ToString();
-            Debug.WriteLine(selectedItem.ToString());
-            Debug.WriteLine(equipo);*/
-
+            cedEnt = Int32.Parse(selectedItem.ToString());
+            foreach (EntrenadorNO_Estatico et in entrenadores)
+            {
+                if(Int32.Parse(et.Cedula) == cedEnt)
+                {
+                    cbEntrenador.Title = et.NombreCompleto;
+                }
+            }
         }
     }
 }
