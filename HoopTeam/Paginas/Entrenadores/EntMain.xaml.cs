@@ -23,10 +23,12 @@ namespace HoopTeam.Paginas
             lbCedula.Text = entrenador.getCedula();
         }
 
-        private void verPerfil_Tapped(object sender, EventArgs e)
+
+        async private void verPerfil_Tapped(object sender, EventArgs e)
         {
-            DisplayAlert("Informacion", "PERFIL", "Ok");
+            await Navigation.PushModalAsync(new EntEditar(),true);
         }
+
 
 
         async void Sett()
@@ -48,10 +50,7 @@ namespace HoopTeam.Paginas
         {
             await Navigation.PushModalAsync(new EntEquipos(), true);
         }
-        async private void verAgenda_Tapped(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new EntAgenda(), true);
-        }
+     
 
     }
 }

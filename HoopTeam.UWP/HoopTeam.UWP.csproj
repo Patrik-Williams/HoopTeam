@@ -145,12 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.12"/>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.12" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HoopTeam\HoopTeam.csproj">
-      <Project>{DEE9227C-57D4-497F-A114-4EB5DC43140F}</Project>
+      <Project>{89bdfa1b-9702-43e3-83c8-c7ccdfb04c42}</Project>
       <Name>HoopTeam</Name>
     </ProjectReference>
   </ItemGroup>
