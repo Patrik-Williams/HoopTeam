@@ -560,6 +560,10 @@ namespace HoopTeam.Implementacion
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
+                string qry4 = "INSERT INTO Pagos (cedEstudiante, fechaPago, pagoRealizado, monto) values ("+ced+ ", curdate(), 1, 15000 );";
+                cmd.CommandText = qry4;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
 
             }
             catch (Exception ex)
