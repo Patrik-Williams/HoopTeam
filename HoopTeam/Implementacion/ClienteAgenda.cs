@@ -9,10 +9,11 @@ using MySql.Data.MySqlClient;
 
 namespace HoopTeam.Implementacion
 {
-   class ClienteAgenda
+    class ClienteAgenda
     {
         Agenda agn = new Agenda();
       
+
         public List<Agenda> GetAgendaEstudiante(string est)
         {
             try
@@ -184,18 +185,20 @@ namespace HoopTeam.Implementacion
                 return new List<Agenda>();
             }
         }
-        public Agenda GetAgendaE(string ent)
+        public Agenda AgendaE(string idA)
         {
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand();//comandos
-                MySqlConnection con;//conexion
-                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
-                Agenda est = new Agenda();
-                DataSet ds = new DataSet();
-                DataTable dt = new DataTable();
+            try { 
 
 
+            MySqlCommand cmd = new MySqlCommand();//comandos
+            MySqlConnection con;//conexion
+            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+            Agenda est = new Agenda();
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            
+            
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
                                           "username = admin; " +
@@ -203,12 +206,7 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "select ag.idAgenda, concat(eq.categoria, ' ', eq.genero) as Equipo, ag.descripcion, ag.fechayHora, ca.idCanchas, ca.ubicacion " +
-                "from Entrenador en, Equipos eq, Agenda ag, Canchas ca " +
-                "where en.cedula =" + ent + " " +
-                "and en.cedula = eq.cedEntrenador " +
-                "and eq.idEquipo = ag.idEquipo " +
-                "and ag.idCanchas = ca.idCanchas; ";
+                string qry = "SELECT * FROM Agenda where idAgenda = '" + idA + "'";
 
                 cmd.CommandText = qry;
                 cmd.Connection = con;
@@ -231,17 +229,65 @@ namespace HoopTeam.Implementacion
                     
                 }
                 return agn;
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                return new Agenda();
+            }
+           
 
+
+        }
+        public string idAgenda(string idA)
+        {
+            string flag = "";
+
+            MySqlCommand cmd = new MySqlCommand();//comandos
+            MySqlConnection con;//conexion
+            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "SELECT * FROM Agenda where idAgenda = '"+idA+"'";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Agenda");
+                cmd.ExecuteNonQuery();
+                dt = ds.Tables["Agenda"];
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+                    agn.idAgenda = drCurrent["idAgenda"].ToString();
+                    agn.Equipo = drCurrent["Equipo"].ToString();
+                    agn.Cancha = drCurrent["idCanchas"].ToString();
+                    agn.FechaHora = drCurrent["fechayHora"].ToString();
+                    agn.Descripcion = drCurrent["descripcion"].ToString();
+
+                    flag = "Agn";
+                }
 
             }
             catch(Exception ex)
             {
                 string txt = ex.Message;
-                return new Agenda();
             }
-        }
+            return flag;
+            }
 
-        public void AgregarAgenda( int idEqp, int idCn, string fecha, string dcp)
+
+        public void AgregarAgenda(int idEqp, int idCn, string fecha, string dcp)
         {
             try
             {
@@ -276,16 +322,19 @@ namespace HoopTeam.Implementacion
                 string txt = ex.Message;
             }
         }
-        public void EditarAgenda(int idA, string idEq, string idC,string FechaH, string descripcion)
+        public string EditarAgenda(string idA, string idEq, string idC, string FechaH, string descripcion)
         {
+            string flag = "";
+
+
+            MySqlCommand cmd = new MySqlCommand();//comandos
+            MySqlConnection con;//conexion
+            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
             try
             {
-                MySqlCommand cmd = new MySqlCommand();//comandos
-                MySqlConnection con;//conexion
-                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
-
-                DataSet ds = new DataSet();
-                DataTable dt = new DataTable();
 
 
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
@@ -295,18 +344,27 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "UPDATE Agenda set idEquipo = '" + idEq + "'idCanchas'" + idC +"'fechayHora"+FechaH+ "'descripcion'" + descripcion + "'where idAgenda= " + idA + " ";
+                string qry = "UPDATE Agenda set idEquipo = '" + idEq + "', idCanchas = '" + idC + "', fechayHora = " + FechaH + "', descripcion = '" + descripcion + "' where idAgenda= " + idA + ";";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
-                cmd.ExecuteNonQuery();
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Agenda");
+                cmd.ExecuteNonQuery(); 
+
+                dt = ds.Tables["Agenda"];
+
+                
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string txt = ex.Message;
             }
+            return flag;
         }
-        public void EliminarAgenda(int idA)
+
+
+        public void EliminarAgenda(string idA)
         {
             try
             {
@@ -325,7 +383,7 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "DELETE FROM Agenda where idAgenda ='" + idA + " ";
+                string qry = "DELETE FROM Agenda where idAgenda ='" + idA + "'";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
@@ -338,3 +396,5 @@ namespace HoopTeam.Implementacion
         }
     }
 }
+    
+
