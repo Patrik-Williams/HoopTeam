@@ -72,6 +72,10 @@
             </Frame>
 
             <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="verAgenda_Tapped" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                </Frame.GestureRecognizers>
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>

@@ -98,10 +98,19 @@ namespace HoopTeam.Paginas
             //await Navigation.PushModalAsync(new TodosEquipos(), true);
         }
 
+        //METODOS JOSE 
+
+        async private void verAgenda_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new EntAgenda(), true);
+        }
+
         async private void verCanchas_Tapped(object sender, EventArgs e)
         {
-            //await Navigation.PushModalAsync(new TodosEquipos(), true);
+            await Navigation.PushModalAsync(new EntCanchas(), true);
         }
+
+
 
     }
 }
