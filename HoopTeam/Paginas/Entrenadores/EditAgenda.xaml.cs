@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,26 +20,24 @@ namespace HoopTeam.Paginas.Entrenadores
     public partial class EditAgenda : ContentPage
     {
         Agenda agn = new Agenda();
-        Equipos eqp = new Equipos();
-        List<Equipos> equipos = new List<Equipos>();
-        //  static string eqpN { get; set; }
-        //  static string eqpV { get; set; }
-        List<Agenda> agendas { get; set; }
-        static string descripcion { get; set; }
-
+        AgendaEstatico agnE = new AgendaEstatico();
         ClienteAgenda clienteA = new ClienteAgenda();
 
 
-        public EditAgenda(string ent)
+        public EditAgenda( Agenda agenda)
         {
-            agn = clienteA.GetAgendaE(ent);
 
-
+            this.agn = agenda;
             InitializeComponent();
 
+
+            
             txtEqp.Text = agn.Equipo;
             txtCn.Text = agn.Cancha;
             txtFechaHora.Text = agn.FechaHora;
+            txtDesc.Text = agn.Descripcion;
+
+          
 
         }
         async void Sett()
@@ -54,34 +54,30 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             await Navigation.PushModalAsync(new EntAgenda(), true);
         }
-        private void OnPickerSelectedIndexChangedDescripcion(object sender, EventArgs e)
-            {
-            Picker picker = sender as Picker;
-            var selectedItem = picker.SelectedItem;
-            descripcion = selectedItem.ToString();
-            Debug.WriteLine(selectedItem.ToString());
-            Debug.WriteLine(descripcion);
-            
-            }
-
+  
         private void btnEditarA(object sender, EventArgs e)
         {
-            if(aDescripcion.SelectedItem == null )
-            {
-                DisplayAlert("Alerta", "Seleccion una descripcion", "OK");
-            }
-                else
-           {
-            int Agenda = Int32.Parse(agn.idAgenda);
+            ClienteAgenda clienteA = new ClienteAgenda();
+                
+           
+            string Agenda = agn.idAgenda;
             string Equipo = txtEqp.Text;
             string Cancha = txtCn.Text;
             string FechaHora = txtFechaHora.Text;
+            string Descripcion = txtDesc.Text;
 
-                clienteA.EditarAgenda(Agenda, Equipo, Cancha, FechaHora, descripcion);
+            try
+            {
+
+                clienteA.EditarAgenda(Agenda, Equipo, Cancha, FechaHora, Descripcion);
 
                 VolverA();
-
-           }
+            }
+            catch(Exception ex)
+            {
+                DisplayAlert("Información Actualizada", "Agenda", "OK");
+            }
+           
 
         }
         private async void ShowExitDialog()
@@ -89,7 +85,7 @@ namespace HoopTeam.Paginas.Entrenadores
             var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al agenda?", "Si", "NO");
             if (answer)
             {
-                clienteA.EliminarAgenda(Int32.Parse(agn.idAgenda));
+                clienteA.EliminarAgenda(agn.idAgenda);
                 DisplayAlert("Informacion", "Estudiante eliminado", "Ok");
                 VolverA();
             }
