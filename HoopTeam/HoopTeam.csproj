@@ -21,7 +21,7 @@
     <EmbeddedResource Update="Paginas\Entrenadores\AgregarAgenda.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Paginas\Entrenadores\EditAgenda.xaml">
+    <EmbeddedResource Update="Paginas\Entrenadores\EditAgenda.xaml"/>
     <EmbeddedResource Update="Paginas\Entrenadores\AgregarCancha.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
