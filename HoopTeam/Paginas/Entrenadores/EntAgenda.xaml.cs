@@ -22,7 +22,7 @@ namespace HoopTeam.Paginas.Entrenadores
         Agenda agn = new Agenda();
 
         string idA { get; set; }
-        string idEqp { get; set; }
+        int idEqp { get; set; }
         public EntAgenda()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace HoopTeam.Paginas.Entrenadores
         async private void verEditAgn_Tapped(object sender, EventArgs e)
         {
             
-            await Navigation.PushModalAsync(new EditAgenda(agn), true);
+            await Navigation.PushModalAsync(new EditAgenda(agn,idA,idEqp), true);
         }
         public void CVCollectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -52,7 +52,8 @@ namespace HoopTeam.Paginas.Entrenadores
             var selectedAgenda = currentSelected.FirstOrDefault() as Agenda;
             agn = selectedAgenda;
 
-            //idEqp = selectedAgenda.Equipo + " " + selectedAgenda.Cancha;
+            idEqp = selectedAgenda.idEquipo;
+
             Debug.WriteLine(selectedAgenda.Descripcion);
             Debug.WriteLine(selectedAgenda.Equipo);
             Debug.WriteLine(selectedAgenda.Cancha);

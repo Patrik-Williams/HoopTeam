@@ -4,7 +4,7 @@ using HoopTeam.Paginas.Estudiantes;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using HoopTeam.Paginas.Estudiantes;
+
 
 namespace HoopTeam.Paginas
 {

@@ -104,8 +104,8 @@ namespace HoopTeam.Implementacion
 
                 string qry = "SELECT es.cedula as Cedula, concat(es.nombre, ' ', es.apellido1, ' ', es.apellido2) as Nombre ,eq.idEquipo, eq.categoria, eq.genero, p.pagoRealizado " +
                     "FROM Estudiantes es, Entrenador en, Equipos eq, EstudianteEquipo ee, Pagos p " +
-                    "WHERE en.cedula = "+ ent +" " +
-                    "AND en.cedula = eq.cedEntrenador "  +
+                    "WHERE en.cedula = " + ent + " " +
+                    "AND en.cedula = eq.cedEntrenador " +
                     "AND eq.idequipo = ee.idequipo " +
                     "AND ee.cedestudiante = es.cedula " +
                     "AND ee.activo = 1 " +
@@ -125,10 +125,10 @@ namespace HoopTeam.Implementacion
 
                 // Adaptador.Fill(ds, "Estudiantes");
                 Adaptador2.Fill(ds2, "Estudiantes");
-                Adaptador.Fill(ds, "Entrenador"); 
-                Adaptador1.Fill(ds1, "Equipos");    
+                Adaptador.Fill(ds, "Entrenador");
+                Adaptador1.Fill(ds1, "Equipos");
                 Adaptador4.Fill(ds3, "Pagos");
-               
+
                 cmd.ExecuteNonQuery();
 
                 dt2 = ds2.Tables["Estudiantes"];
@@ -150,14 +150,14 @@ namespace HoopTeam.Implementacion
 
                     Debug.WriteLine(Int32.Parse(drCurrent["pagoRealizado"].ToString()));
 
-                    if (Int32.Parse(drCurrent["pagoRealizado"].ToString()) == 1){
-                       est.EstadoPago = "Realizado";
+                    if (Int32.Parse(drCurrent["pagoRealizado"].ToString()) == 1) {
+                        est.EstadoPago = "Realizado";
                     }
                     else
                     {
                         est.EstadoPago = "Por Realizar";
                     }
-                    
+
 
                     list.Add(est);
                 }
@@ -438,7 +438,7 @@ namespace HoopTeam.Implementacion
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
-                if(equipoNuevo != equipoViejo)
+                if (equipoNuevo != equipoViejo)
                 {
                     string qry2 = "INSERT INTO EstudianteEquipo (fechaInicio, cedEstudiante, idEquipo, activo )values( curdate(), " + ced + ", " + equipoNuevo + ", 1)";
                     cmd.CommandText = qry2;
@@ -461,14 +461,14 @@ namespace HoopTeam.Implementacion
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
-                if(pago == 1)
+                if (pago == 1)
                 {
                     string qry5 = "UPDATE Pagos SET pagoRealizado = " + pago + ", fechaPago = DATE_ADD(fechaPago, INTERVAL +1 MONTH) WHERE cedEstudiante=" + ced + "";
                     cmd.CommandText = qry5;
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                 }
-                if(pago == 0)
+                if (pago == 0)
                 {
                     string qry5 = "UPDATE Pagos SET pagoRealizado = " + pago + " WHERE cedEstudiante=" + ced + "";
                     cmd.CommandText = qry5;
@@ -476,7 +476,7 @@ namespace HoopTeam.Implementacion
                     cmd.ExecuteNonQuery();
                 }
 
-               
+
 
 
             }
@@ -525,7 +525,7 @@ namespace HoopTeam.Implementacion
 
             }
         }
-        }
+
 
         public List<Cancha> GetCanchas()
         {
@@ -667,8 +667,8 @@ namespace HoopTeam.Implementacion
         }
 
 
-    }
-}
+
+
 
 
 
@@ -703,12 +703,12 @@ namespace HoopTeam.Implementacion
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
-                string qry3 = "UPDATE Equipos SET cupo= cupo-1 WHERE idEquipo=" + equipo+ "";
+                string qry3 = "UPDATE Equipos SET cupo= cupo-1 WHERE idEquipo=" + equipo + "";
                 cmd.CommandText = qry3;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
 
-                string qry4 = "INSERT INTO Pagos (cedEstudiante, fechaPago, pagoRealizado, monto) values ("+ced+ ", curdate(), 1, 15000 );";
+                string qry4 = "INSERT INTO Pagos (cedEstudiante, fechaPago, pagoRealizado, monto) values (" + ced + ", curdate(), 1, 15000 );";
                 cmd.CommandText = qry4;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
@@ -752,12 +752,14 @@ namespace HoopTeam.Implementacion
                 string txt = ex.Message;
 
             }
-        }
+        
+    }
+
 
         //metodos de Jose 
 
 
-        public List<Cancha> GetCanchas()
+        public List<Cancha> GetCanchas1()
         {
             try
             {
@@ -800,7 +802,7 @@ namespace HoopTeam.Implementacion
                 return new List<Cancha>();
             }
         }
-        public void AgregarCancha(int id, string ub)
+        public void AgregarCancha1(int id, string ub)
         {
             try
             {
@@ -830,7 +832,7 @@ namespace HoopTeam.Implementacion
             }
         }
 
-        public void EditarCancha(int id, string ub)
+        public void EditarCancha1(int id, string ub)
         {
             try
             {
@@ -863,7 +865,7 @@ namespace HoopTeam.Implementacion
             }
         }
 
-        public void EliminarCancha(int id)
+        public void EliminarCancha1(int id)
         {
             try
             {

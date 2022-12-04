@@ -45,6 +45,8 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
+                                
+                                
 
                                 <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/4650/4650661.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
                                 <StackLayout Grid.Column="2">
@@ -52,13 +54,13 @@
                                    
 
                                     <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb17" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Equipo" x:Name="txtEqp" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                    <Picker Margin="20,5,0,20" x:Name="aEqp" Title="Equipo" TextColor="Black" BackgroundColor="#aaa"  SelectedIndexChanged="OnPickerASelectedIndexChanged"/>
 
                                     <Label Margin="20,0,0,0" Text="Cancha" x:Name="lb16" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Cancha" x:Name="txtCn" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Fecha y Hora" x:Name="lb14" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Fecha y hora" x:Name="txtFechaHora" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                    <Entry  Placeholder="Fecha y hora" x:Name="txtFechaHora" IsEnabled="False" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Descripción" x:Name="lb15" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Descripción" x:Name="txtDesc" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>

@@ -81,6 +81,10 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
 
+                                    <StackLayout Grid.Column="1">
+                                        <Label Text="Editar" FontSize="18" TextColor="#999" HorizontalOptions="Center"></Label>
+                                    </StackLayout>
+
 
                                     <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png"
                                             VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>

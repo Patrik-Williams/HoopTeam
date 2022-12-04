@@ -21,23 +21,46 @@ namespace HoopTeam.Paginas.Entrenadores
     {
         Agenda agn = new Agenda();
         AgendaEstatico agnE = new AgendaEstatico();
+        Equipos eq = new Equipos();
+        List<Agenda> agnd = new List<Agenda>();
+        List<Equipos> equipos = new List<Equipos>();
+        static int eqNuevo { get; set; }
+        static int eqViejo { get; set; }
+
+
         ClienteAgenda clienteA = new ClienteAgenda();
 
 
-        public EditAgenda( Agenda agenda)
+        public EditAgenda(Agenda agenda, string idA, int idE)
         {
 
             this.agn = agenda;
+            
+
             InitializeComponent();
 
+           //agn = clienteA.AgendaE(idA);
+           equipos = clienteA.GetEquiposA(agn.idEquipo);
+
+
+           eqViejo = idE;
 
             
-            txtEqp.Text = agn.Equipo;
-            txtCn.Text = agn.Cancha;
-            txtFechaHora.Text = agn.FechaHora;
-            txtDesc.Text = agn.Descripcion;
+           //txtEqp.Text = agn.Equipo;
+           txtCn.Text = agn.Cancha;
+           txtFechaHora.Text = agn.FechaHora;
+           txtDesc.Text = agn.Descripcion;
 
-          
+           foreach(Equipos eq in equipos)
+            {
+
+                aEqp.Items.Add(eq.idEquipo.ToString());
+            }
+
+            Debug.WriteLine("Equipo Viejo " + eqViejo);
+            Debug.WriteLine(idE);
+
+         
 
         }
         async void Sett()
@@ -54,22 +77,52 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             await Navigation.PushModalAsync(new EntAgenda(), true);
         }
-  
+        private void OnPickerASelectedIndexChanged(object sender, EventArgs e)
+        {
+            Picker picker = sender as Picker;
+            var selectedItem = picker.SelectedItem;
+            eqNuevo = Int32.Parse(selectedItem.ToString());
+
+            foreach(Equipos eq in equipos)
+            {
+                if(eq.idEquipo == eqNuevo)
+                {
+                    if(eqNuevo==eqViejo)
+                    {
+                        aEqp.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString() + "(Actual)";
+
+                    }
+                    else
+                    {
+                        aEqp.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString();
+                    }
+                }
+            }
+
+            Debug.WriteLine(selectedItem.ToString() + "Selected");
+            Debug.WriteLine("Nuevo " + eqNuevo);
+            Debug.WriteLine("Equipo Viejo " + eqViejo);
+
+        }
+
+
         private void btnEditarA(object sender, EventArgs e)
         {
             ClienteAgenda clienteA = new ClienteAgenda();
                 
            
             string Agenda = agn.idAgenda;
-            string Equipo = txtEqp.Text;
+           // string Equipo = txtEqp.Text;
             string Cancha = txtCn.Text;
             string FechaHora = txtFechaHora.Text;
             string Descripcion = txtDesc.Text;
+            int equipoViejo = eqViejo;
+            int equipoNuevo = eqNuevo;
 
             try
             {
 
-                clienteA.EditarAgenda(Agenda, Equipo, Cancha, FechaHora, Descripcion);
+              //clienteA.EditarAgenda(Agenda, Cancha, FechaHora, Descripcion,equipoViejo,equipoNuevo);
 
                 VolverA();
             }

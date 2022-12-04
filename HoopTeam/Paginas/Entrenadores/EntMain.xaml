@@ -187,7 +187,10 @@
                     </Frame>
                 </Frame>
 
+
+
                 <Frame x:Name="Canchas" BackgroundColor="Green" Margin="20,20" WidthRequest="1000" CornerRadius="20" Padding="5">
+                    
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="verCanchas_Tapped" NumberOfTapsRequired="1">
                         </TapGestureRecognizer>
