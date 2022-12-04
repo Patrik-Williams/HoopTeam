@@ -1,5 +1,6 @@
 ﻿using HoopTeam.Implementacion;
 using HoopTeam.Modelo;
+using HoopTeam.Paginas.Estudiantes;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,14 +22,11 @@ namespace HoopTeam.Paginas
             lbInfo.Text = estudiante.getNombre() + " " + estudiante.getApellido1() + " " + estudiante.getApellido2();
             lbCorreo.Text = estudiante.getCorreo();
             lbCedula.Text = estudiante.getCedula();
-
-            
         }
 
         private void verPerfil_Tapped(object sender, EventArgs e)
         {
             DisplayAlert("Informacion", "PERFIL", "Ok");
-            
         }
 
 

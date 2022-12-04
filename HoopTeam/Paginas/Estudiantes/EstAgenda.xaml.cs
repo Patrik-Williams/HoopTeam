@@ -21,7 +21,7 @@ namespace HoopTeam.Paginas.Estudiantes
 
         async void Sett()
         {
-            await Navigation.PushModalAsync(new EstSettings(), true);
+            await Navigation.PushModalAsync(new EstMain(), true);
         }
 
         private void settings_Clicked(object sender, EventArgs e)

@@ -28,7 +28,7 @@
                     </Grid>
                 </Frame>
 
-
+                <!--Perfil IAN -->
                 <Frame x:Name="perfil" BackgroundColor="#0B0B49" Margin="20,20" WidthRequest="1000" CornerRadius="20">
 
                     <!--On clicked para el frame-->
@@ -57,7 +57,7 @@
                         </Frame>
                     </Grid>
                 </Frame>
-
+                <!--Equipos ent IAN -->
                 <Frame x:Name="entEquipos" BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="verEquipos_Tapped" NumberOfTapsRequired="1">
@@ -78,7 +78,7 @@
 
                     </Grid>
                 </Frame>
-
+                <!--todos equipos IAN -->
                 <Frame x:Name="todosEquipos" BackgroundColor="Green" Margin="20,20" WidthRequest="1000" CornerRadius="20" Padding="5">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="verTodosEquipos_Tapped" NumberOfTapsRequired="1">
@@ -102,8 +102,8 @@
                     </Frame>
                 </Frame>
 
-                <Frame x:Name="agenda" BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
-                <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <!--Agenda JOSE  -->
+                <Frame BackgroundColor="#FFF" x:Name="agenda" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="verAgenda_Tapped" NumberOfTapsRequired="1">
                         </TapGestureRecognizer>
@@ -177,7 +177,7 @@
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/2257/2257061.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+                            <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/4244/4244208.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
 
 
                             <StackLayout Grid.Column="2">
@@ -199,7 +199,7 @@
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1633/1633464.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+                            <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1940/1940735.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
 
 
                             <StackLayout Grid.Column="2">
