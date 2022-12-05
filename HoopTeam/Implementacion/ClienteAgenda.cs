@@ -240,7 +240,7 @@ namespace HoopTeam.Implementacion
 
 
         }
-        public List<Equipos> GetEquiposA(int idA)
+        public List<Equipos> GetEquiposA(int ent)
         {
             try
             {
@@ -259,7 +259,8 @@ namespace HoopTeam.Implementacion
                                        "database =HoopTeam");
                 con.Open();
 
-                string qry = "SELECT * FROM Equipos Where idEquipo= '" + idA + "'and (cupo > 0)";
+                //concatenar equipos con agenda para editar
+                string qry = "SELECT * FROM Equipos Where cedEntrenador= '" + ent + "' ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -370,7 +371,7 @@ namespace HoopTeam.Implementacion
                 string txt = ex.Message;
             }
         }
-        public string EditarAgenda(string idA, string idC, string FechaH, string descripcion, int idEqN, int ideqV)
+        public string EditarAgenda(string idA, string idC, string descripcion)
         {
             string flag = "";
 
@@ -392,7 +393,7 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "UPDATE Agenda set idCanchas = '" + idC + "', fechayHora = " + FechaH + "', descripcion = '" + descripcion + "' where idAgenda= " + idA + ";";
+                string qry = "UPDATE Agenda set idCanchas = '" + idC + "', descripcion = '" + descripcion + "' where idAgenda= " + idA + ";";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
