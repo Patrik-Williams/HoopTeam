@@ -58,7 +58,7 @@ namespace HoopTeam.Paginas.Estudiantes
 
             try
             {
-                objClienteE.actualizarEstudiante(nom, ap1, ap2, correo, con, gen, fecha, ced);
+                objClienteE.actualizarEstudiante(nom, ap1, ap2, correo, con, gen, ced);
                 DisplayAlert("Información: ", "Datos actualizados", "OK");
                 Sett();
             }
