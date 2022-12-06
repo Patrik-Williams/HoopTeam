@@ -13,6 +13,7 @@ namespace HoopTeam.Implementacion
     class ClienteAgenda
     {
         Agenda agn = new Agenda();
+        Cancha cancha = new Cancha();
       
 
         public List<Agenda> GetAgendaEstudiante(string est)
@@ -288,6 +289,52 @@ namespace HoopTeam.Implementacion
                 return new List<Equipos>();
             }
         }
+        public List<Cancha> GetCanchasA()
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                List<Cancha> list = new List<Cancha>();
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                       "port = 3306; " +
+                                       "username = admin; " +
+                                       "password = hoopteamAdmin;" +
+                                       "database =HoopTeam");
+                con.Open();
+
+                //concatenar equipos con agenda para editar
+                string qry = "SELECT * FROM Canchas; ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Canchas");
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Canchas"];
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+                    Cancha cn = new Cancha();
+                    cn.idCancha = Int32.Parse(drCurrent["idCanchas"].ToString());
+                    cn.ubicacion = drCurrent["ubicacion"].ToString();
+
+
+                    list.Add(cn);
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                return new List<Cancha>();
+            }
+        }
         public string idAgenda(string idA)
         {
             string flag = "";
@@ -336,7 +383,7 @@ namespace HoopTeam.Implementacion
             }
 
 
-        public void AgregarAgenda(int idEqp, int idCn, string fecha, string dcp)
+        public void AgregarAgenda(string idEqp, string idCn, string fecha, string dcp)
         {
             try
             {

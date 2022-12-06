@@ -19,11 +19,9 @@ namespace HoopTeam.Paginas.Entrenadores
     {
         Agenda agn = new Agenda();
         Equipos eqp = new Equipos();
-        List<Equipos> equipos = new List<Equipos>();
-        static string equipo { get; set; }
-
         Entrenador ent = new Entrenador();
-        static string genero { get; set; }
+        List<Equipos> equipos = new List<Equipos>();
+        static string idEquipo { get; set; }
 
         List<Cancha> canchas { get; set; }
         static string cancha { get; set; }
@@ -36,6 +34,19 @@ namespace HoopTeam.Paginas.Entrenadores
         public AgregarAgenda()
         {
             InitializeComponent();
+            equipos = clienteAgn.GetEquiposA(Int32.Parse(ent.getCedula()));
+            canchas = clienteAgn.GetCanchasA();
+            foreach (Equipos eq in equipos)
+            {
+
+
+                cbEquipo.Items.Add(eq.idEquipo.ToString());
+            }
+
+            foreach (Cancha cn in canchas)
+            {
+                cbCancha.Items.Add(cn.idCancha.ToString());
+            }
         }
         async void Sett()
         {
@@ -54,13 +65,13 @@ namespace HoopTeam.Paginas.Entrenadores
         private void btnAgregarAgn(object sender, EventArgs e)
         {
             //int idAgenda = Int32.Parse(txtAgenda.Text);
-            int idEquipo = Int32.Parse(txtEqp.Text);
-            int idCancha = Int32.Parse(txtCn.Text);
+            //int idEquipo = Int32.Parse(txtEqp.Text);
+            //int idCancha = Int32.Parse(txtCn.Text);
             string fechaH = txtFechaHora.Text;
             //string descripcion = txtDescripcion.Text;
 
 
-            clienteAgn.AgregarAgenda( idEquipo,idCancha,fechaH,descripcion);
+            clienteAgn.AgregarAgenda( idEquipo,cancha,fechaH,descripcion);
             DisplayAlert("Información", "Agenda agregada", "Aceptar");
             Volver();
 
@@ -75,7 +86,39 @@ namespace HoopTeam.Paginas.Entrenadores
             
 
         }
+        private void OnPickerSelectedIndexChangedEquipo1(object sender, EventArgs e)
+        {
+            Picker picker = sender as Picker;
+            var selectedItem = picker.SelectedItem;
+            idEquipo = selectedItem.ToString();
+            Debug.WriteLine(selectedItem.ToString());
+            Debug.WriteLine(idEquipo);
 
+            equipos = clienteAgn.GetEquiposA(Int32.Parse(ent.getCedula()));
+            //cbEquipo.Items.Clear();
+
+            foreach(Equipos eq in equipos)
+            {
+                cbEquipo.Items.Add(eq.idEquipo.ToString());
+            }
+        }
+        private void OnPickerSelectedIndexChangedCanchas(object sender, EventArgs e)
+        {
+            Picker picker = sender as Picker;
+            var selectedItem = picker.SelectedItem;
+            cancha = selectedItem.ToString();
+            Debug.WriteLine(selectedItem.ToString());
+            Debug.WriteLine(cancha);
+
+            canchas = clienteAgn.GetCanchasA();
+            //cbEquipo.Items.Clear();
+
+            foreach (Cancha cn in canchas)
+            {
+                cbCancha.Items.Add(cn.idCancha.ToString());
+            }
+
+        }
 
     }
 }
