@@ -78,12 +78,14 @@
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout Grid.Column="1">
+                                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png"
+                                            VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
                                         <Label Text="Editar" FontSize="18" TextColor="#999" HorizontalOptions="Center"></Label>
+                                        
                                     </StackLayout>
 
 
-                                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png"
-                                            VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
+                                    
 
                                     <StackLayout Orientation="Vertical" Grid.Column="2" Margin="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Start">
                                         <Grid>
@@ -134,12 +136,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Frame BackgroundColor="#256B1C"  Margin="0,0,0,5" WidthRequest="100" HeightRequest="17" CornerRadius="20" HorizontalOptions="Center">
 
-                
-
-                <Label Text="Agregar"  FontAttributes="bold" FontSize="13" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
-            </Frame>
 
         </StackLayout>
 

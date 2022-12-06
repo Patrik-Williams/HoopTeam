@@ -25,8 +25,6 @@ namespace HoopTeam.Paginas.Entrenadores
         public EntEstudiantes()
         {
             InitializeComponent();
-
-
         }
 
         async void Sett()

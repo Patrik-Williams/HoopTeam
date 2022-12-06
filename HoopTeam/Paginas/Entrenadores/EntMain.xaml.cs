@@ -99,7 +99,7 @@ namespace HoopTeam.Paginas
 
         async private void verEntrenadores_Tapped(object sender, EventArgs e)
         {
-            //await Navigation.PushModalAsync(new TodosEquipos(), true);
+            await Navigation.PushModalAsync(new TodosEntrenadores(), true);
         }
 
         //METODOS JOSE 
@@ -120,6 +120,6 @@ namespace HoopTeam.Paginas
         }
 
 
-  
+
     }
 }

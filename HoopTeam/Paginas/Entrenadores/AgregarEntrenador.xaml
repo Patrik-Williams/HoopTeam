@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HoopTeam.Paginas.Entrenadores.AgregarEst">
+             x:Class="HoopTeam.Paginas.Entrenadores.AgregarEntrenador">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="#999">
@@ -23,10 +23,10 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
                         <StackLayout Grid.Column="1" VerticalOptions="Center">
-                            <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/4244/4244208.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                         </StackLayout>
                         <StackLayout Grid.Column="2" VerticalOptions="Center">
-                            <Label Text="Agregar Estudiante"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+                            <Label Text="Agregar Entrenador"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                         </StackLayout>
                     </Grid>
                 </Frame>
@@ -60,26 +60,12 @@
 
                                     <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Apellido2" x:Name="txtApellido2" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
-
-                                    <Label Margin="20,0,0,0" Text="Fecha de nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Fecha de nacimiento" x:Name="txtNacimiento" IsEnabled="False" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
-
-                                    <Label Margin="20,0,0,0" Text="Genero" x:Name="lb9" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Picker Margin="20,5,0,20" x:Name="cbGenero" TextColor="Black" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedGenero">
-                                        <Picker.Items>
-                                            <x:String>Masculino</x:String>
-                                            <x:String>Femenina</x:String>
-                                        </Picker.Items>
-                                    </Picker>
-
+                                    
                                     <Label Margin="20,0,0,0" Text="Correo" x:Name="lb6" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Correo" x:Name="txtCorreo" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb7" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Contraseña" x:Name="txtContraseña" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
-
-                                    <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb8" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Picker Margin="20,5,0,20" x:Name="cbEquipo" TextColor="Black" TitleColor="#444" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedEquipo"></Picker>
 
                                 </StackLayout>
                             </Grid>

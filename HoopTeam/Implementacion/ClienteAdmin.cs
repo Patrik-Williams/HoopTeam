@@ -31,7 +31,7 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "INSERT INTO Equipos (categoria, genero, cedEntrenador, cupo) values ('" + categoria + "', '" + genero + "', " + ent + ", " + cupo + ")";
+                string qry = "INSERT INTO Equipos (categoria, genero, cedEntrenador, cupo, activo) values ('" + categoria + "', '" + genero + "', " + ent + ", " + cupo + ", 1)";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
@@ -64,7 +64,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Entrenador";
+                string qry = "SELECT * FROM Entrenador where activo = 1";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -115,7 +115,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Entrenador where cedula = " + ced + ";";
+                string qry = "SELECT * FROM Entrenador where cedula = " + ced + " and activo = 1;";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -144,6 +144,225 @@ namespace HoopTeam.Implementacion
             {
                 string txt = ex.Message;
                 return new EntrenadorNO_Estatico();
+            }
+        }
+        public void EliminarEquipo(int idEquipo)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+
+                string qry = "Update Equipos set activo = 0 where idEquipo = "+idEquipo+"";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+                string qry2 = "UPDATE EstudianteEquipo SET activo = 0 where idEquipo = "+idEquipo+"";
+                cmd.CommandText = qry2;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+
+        public void EditarEquipo(string cate, string gen, int ent, int cupo, int idEquipo)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "UPDATE Equipos set categoria = '"+cate+"', genero = '"+gen+"', cedEntrenador = "+ent+", cupo = "+cupo+" where  idEquipo = "+idEquipo+" ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+
+        public void AgregarEntrenador(int ced, string nom, string ap1, string ap2, string correo, string contra)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "INSERT INTO Entrenador (cedula, nombre, apellido1, apellido2, correo, contrasenna, activo) values ("+ced+", '"+nom+"', '"+ap1+"', '"+ap2+"', '"+correo+"', '"+contra+"', 1)";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+        public void EditarEntrenador(int ced, string nom, string ap1, string ap2, string correo, string contra)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                string qry = "UPDATE Entrenador set nombre = '"+nom+"', apellido1 = '"+ap1+"', apellido2 = '"+ap2+"', correo = '"+correo+"' where cedula = "+ced+"";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
+            }
+        }
+
+        public int verificarEquipoEnt(int ced)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+
+                string qry = "select count(*) as cant from Equipos where cedEntrenador = "+ced+" and activo = 1 ";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Equipos");
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Equipos"];
+                int cant = 0;
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+
+                    cant = Int32.Parse(drCurrent["cant"].ToString());
+
+
+                    Debug.Write("Hola mundo");
+                    Console.WriteLine("Hola mundo");
+                }
+                return cant;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                int i = 0;
+                return i;
+
+            }
+        }
+
+        public void EliminarEntrenador(int ced)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+
+                string qry = "Update Entrenador set activo = 0 where cedula = "+ced+"";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+
             }
         }
     }

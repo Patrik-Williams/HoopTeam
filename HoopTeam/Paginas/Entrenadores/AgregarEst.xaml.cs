@@ -17,7 +17,7 @@ namespace HoopTeam.Paginas.Entrenadores
     public partial class AgregarEst : ContentPage
     {
         List<Equipos> equipos = new List<Equipos>();
-        static string equipo { get; set; }
+        static int equipo { get; set; }
 
         Entrenador ent = new Entrenador();
         static string genero { get; set; }
@@ -49,16 +49,25 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregar(object sender, EventArgs e)
         {
-            int ced = Int32.Parse(txtCedula.Text);
-            string nom = txtNombre.Text;
-            string ap1 = txtApellido1.Text;
-            string ap2 = txtApellido2.Text;
-            string correo = txtCorreo.Text;
-            string contra = txtContraseña.Text;
+            if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "" || cbEquipo.SelectedItem == null || cbGenero.SelectedItem == null)
+            {
+                DisplayAlert("Alerta", "Debe llenar todos los datos", "Aceptar");
+            }
+            else
+            {
+                int ced = Int32.Parse(txtCedula.Text);
+                string nom = txtNombre.Text;
+                string ap1 = txtApellido1.Text;
+                string ap2 = txtApellido2.Text;
+                string correo = txtCorreo.Text;
+                string contra = txtContraseña.Text;
 
-            clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, Int32.Parse(equipo[0].ToString()));
-            DisplayAlert("Informacion", "Estudiante agregado", "Ok");
-            Volver();
+                clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, equipo);
+                DisplayAlert("Informacion", "Estudiante agregado", "Ok");
+                Volver();
+            }
+
+            
 
         }
         private void OnPickerSelectedIndexChangedGenero(object sender, EventArgs e)
@@ -74,8 +83,7 @@ namespace HoopTeam.Paginas.Entrenadores
             cbEquipo.Items.Clear();
             foreach (Equipos eq in equipos)
             {
-
-              cbEquipo.Items.Add(eq.idEquipo.ToString() + " " + eq.categoria.ToString());
+                cbEquipo.Items.Add(eq.idEquipo.ToString());    
             }
 
         }
@@ -84,7 +92,16 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             Picker picker = sender as Picker;
             var selectedItem = picker.SelectedItem;
-            equipo = selectedItem.ToString();
+            equipo = Int32.Parse(selectedItem.ToString());
+
+            foreach (Equipos eq in equipos)
+            {
+                if (eq.idEquipo == equipo)
+                {
+                    cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString();
+                }
+            }
+
             Debug.WriteLine(selectedItem.ToString());
             Debug.WriteLine(equipo);
 
