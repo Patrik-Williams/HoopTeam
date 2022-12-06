@@ -337,7 +337,7 @@ namespace HoopTeam.Implementacion
                 con.Open();
 
                 //concatenar equipos con agenda para editar
-                string qry = "SELECT * FROM Equipos Where cedEntrenador= '" + ent + "' ";
+                string qry = "SELECT * FROM Equipos Where cedEntrenador= '" + ent + "' and activo = 1 ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -494,7 +494,7 @@ namespace HoopTeam.Implementacion
                 string txt = ex.Message;
             }
         }
-        public string EditarAgenda(string idA, string idC, string descripcion)
+        public string EditarAgenda(string idA, string descripcion)
         {
             string flag = "";
 
@@ -516,7 +516,8 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "UPDATE Agenda set idCanchas = '" + idC + "', descripcion = '" + descripcion + "' where idAgenda= " + idA + ";";
+                string qry = "UPDATE Agenda set descripcion = '" + descripcion + "' where idAgenda= " + idA + ";";
+                
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;

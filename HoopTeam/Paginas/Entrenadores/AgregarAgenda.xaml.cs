@@ -34,12 +34,11 @@ namespace HoopTeam.Paginas.Entrenadores
         public AgregarAgenda()
         {
             InitializeComponent();
+
             equipos = clienteAgn.GetEquiposA(Int32.Parse(ent.getCedula()));
             canchas = clienteAgn.GetCanchasA();
             foreach (Equipos eq in equipos)
             {
-
-
                 cbEquipo.Items.Add(eq.idEquipo.ToString());
             }
 
@@ -64,6 +63,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregarAgn(object sender, EventArgs e)
         {
+
             //int idAgenda = Int32.Parse(txtAgenda.Text);
             //int idEquipo = Int32.Parse(txtEqp.Text);
             //int idCancha = Int32.Parse(txtCn.Text);
@@ -94,13 +94,7 @@ namespace HoopTeam.Paginas.Entrenadores
             Debug.WriteLine(selectedItem.ToString());
             Debug.WriteLine(idEquipo);
 
-            equipos = clienteAgn.GetEquiposA(Int32.Parse(ent.getCedula()));
-            //cbEquipo.Items.Clear();
 
-            foreach(Equipos eq in equipos)
-            {
-                cbEquipo.Items.Add(eq.idEquipo.ToString());
-            }
         }
         private void OnPickerSelectedIndexChangedCanchas(object sender, EventArgs e)
         {
@@ -110,13 +104,6 @@ namespace HoopTeam.Paginas.Entrenadores
             Debug.WriteLine(selectedItem.ToString());
             Debug.WriteLine(cancha);
 
-            canchas = clienteAgn.GetCanchasA();
-            //cbEquipo.Items.Clear();
-
-            foreach (Cancha cn in canchas)
-            {
-                cbCancha.Items.Add(cn.idCancha.ToString());
-            }
 
         }
 

@@ -22,7 +22,7 @@
                 </Grid>
             </Frame>
 
-            <Label Text="Settings" TextColor="Black" FontSize="30" HorizontalOptions="Center"></Label>
+            <Label Text="Ajustes" TextColor="Black" FontSize="30" HorizontalOptions="Center"></Label>
 
             <ImageButton Source="https://cdn-icons-png.flaticon.com/512/992/992680.png" Clicked="LogOut_Clicked" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="50"></ImageButton>
 
