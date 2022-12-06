@@ -63,6 +63,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregarAgn(object sender, EventArgs e)
         {
+
             //int idAgenda = Int32.Parse(txtAgenda.Text);
             //int idEquipo = Int32.Parse(txtEqp.Text);
             //int idCancha = Int32.Parse(txtCn.Text);

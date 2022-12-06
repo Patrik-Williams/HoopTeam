@@ -57,7 +57,7 @@
                                     <Picker Margin="20,5,0,20" x:Name="cbEquipo" Title="Equipo" TextColor="Black" BackgroundColor="#aaa"  SelectedIndexChanged="OnPickerASelectedIndexChanged"/>
 
                                     <Label Margin="20,0,0,0" Text="Cancha" x:Name="lb16" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Cancha" x:Name="txtCn" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                    <Picker  x:Name="cbCancha" BackgroundColor="#eee" Margin="20,10,0,20" TextColor="#000" SelectedIndexChanged="OnPickerSelectedIndexChangedCanchas"/>
 
                                     <Label Margin="20,0,0,0" Text="Fecha y hora" x:Name="lb14" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Fecha y hora" x:Name="txtFechaHora" IsEnabled="False" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>

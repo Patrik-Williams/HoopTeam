@@ -31,7 +31,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregarCancha(object sender, EventArgs e)
         {
-            //int idCancha = Int32.Parse(txtCancha.Text);
+ 
             string ubicacion = txtUbicacion.Text;
 
             clienteEnt.AgregarCancha( ubicacion);
