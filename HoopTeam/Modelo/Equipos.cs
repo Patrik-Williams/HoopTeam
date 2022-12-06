@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HoopTeam.Modelo.Entrenadores
 {
-    class Equipos
+    public class Equipos
     {
         public int idEquipo { get; set; }
         public string categoria { get; set; }

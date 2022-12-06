@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HoopTeam.Modelo.Entrenadores
 {
-    class EntrenadorNO_Estatico
+    public class EntrenadorNO_Estatico
     {
         public string Cedula { get; set; }
         public string Nombre { get; set; }

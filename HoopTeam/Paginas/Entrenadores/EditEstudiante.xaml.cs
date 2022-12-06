@@ -38,15 +38,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
             foreach (Equipos e in equipos)
             {   
-                /*if(e.idEquipo == Int32.Parse(eqAc[0].ToString()))
-                {
-                    cbEquipo.Items.Add(e.idEquipo.ToString() + " " + e.categoria.ToString() + " (ACTUAL)");
-                    
-                }
-                else
-                {
-                    cbEquipo.Items.Add(e.idEquipo.ToString() + " " + e.categoria.ToString());
-                }*/
+
 
                 cbEquipo.Items.Add(e.idEquipo.ToString());
             }
@@ -159,5 +151,7 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             ShowExitDialog();
         }
+
+
     }
 }

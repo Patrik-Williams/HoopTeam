@@ -192,7 +192,7 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
                 string qry = "SELECT e.idEquipo, e.categoria, e.genero, e.cedEntrenador, e.cupo, concat(et.nombre, ' ', et.apellido1, ' ', et.apellido2) as Nombre FROM Equipos e, Entrenador et " +
-                    "WHERE e.cedEntrenador = et.cedula;";
+                    "WHERE e.cedEntrenador = et.cedula and e.activo = 1;";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
 
@@ -243,7 +243,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Equipos Where cedEntrenador = " + ent + " ";
+                string qry = "SELECT * FROM Equipos Where cedEntrenador = " + ent + " and activo = 1";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -336,7 +336,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Equipos Where genero = '" + gen + "' and (cupo > 0) ";
+                string qry = "SELECT * FROM Equipos Where genero = '" + gen + "' and (cupo > 0) and activo = 1 ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -383,7 +383,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-                string qry = "SELECT * FROM Equipos Where genero = '" + gen + "' and cedEntrenador = " + ent + " and (cupo > 0) ";
+                string qry = "SELECT * FROM Equipos Where genero = '" + gen + "' and cedEntrenador = " + ent + " and (cupo > 0) and activo = 1;";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;
@@ -665,14 +665,6 @@ namespace HoopTeam.Implementacion
 
             }
         }
-
-
-
-
-
-
-
-
 
         public void AgregarEstudiante(int ced, string nom, string ap1, string ap2, string gen, string correo, string contra, int equipo)
         {
