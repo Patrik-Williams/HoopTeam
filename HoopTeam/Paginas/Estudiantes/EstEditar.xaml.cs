@@ -50,15 +50,15 @@ namespace HoopTeam.Paginas.Estudiantes
             string nom = txtNombre.Text;
             string ap1 = txtApellido1.Text;
             string ap2 = txtApellido2.Text;
+            string gen = txtGenero.Text;
             string correo = txtCorreo.Text;
             string con = txtContraseña.Text;
             string fecha = txtFecha.Text;
-            string gen = txtGenero.Text;
             string ced = estudiante.getCedula();
 
             try
             {
-                objClienteE.actualizarEstudiante(nom, ap1, ap2, correo, con, gen, ced);
+                objClienteE.actualizarEstudiante(nom, ap1, ap2, gen,correo, con, ced);
                 DisplayAlert("Información: ", "Datos actualizados", "OK");
                 Sett();
             }
