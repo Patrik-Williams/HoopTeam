@@ -92,9 +92,9 @@
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="1" Text="{Binding descripcion}" FontSize="26" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="1" Text="{Binding Descripcion}" FontSize="26" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
                                             <Label Grid.Column="2" Text="de " FontSize="26" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="3" Text="{Binding idEquipo}" FontSize="26" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="3" Text="{Binding Equipo}" FontSize="26" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
 
                                         </Grid>
 
@@ -104,7 +104,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Column="1" Text="Cancha: " FontSize="18" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="2" Text="{Binding idCanchas}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Cancha}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
 
                                         <Grid>
@@ -113,7 +113,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Column="1" Text="Ubicación: " FontSize="18" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="2" Text="{Binding ubicacion}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Ubicacion}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
 
                                         <Grid>
@@ -122,7 +122,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Column="1" Text="Fecha y hora: " FontSize="18" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="2" Text="{Binding fechayHora}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                            <Label Grid.Column="2" Text="{Binding FechaHora}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
 
                                     </StackLayout>
