@@ -337,7 +337,7 @@ namespace HoopTeam.Implementacion
                 con.Open();
 
                 //concatenar equipos con agenda para editar
-                string qry = "SELECT * FROM Equipos Where cedEntrenador= '" + ent + "' ";
+                string qry = "SELECT * FROM Equipos Where cedEntrenador= '" + ent + "' and activo = 1 ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 Adaptador.SelectCommand = cmd;

@@ -141,7 +141,7 @@ namespace HoopTeam.Paginas.Entrenadores
             if (answer)
             {
                 clienteA.EliminarAgenda(agn.idAgenda);
-                DisplayAlert("Informacion", "Estudiante eliminado", "Ok");
+                DisplayAlert("Informacion", "Agenda eliminado", "Ok");
                 VolverA();
             }
         }

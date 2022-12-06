@@ -2,7 +2,9 @@
 using HoopTeam.Paginas;
 using System;
 using Xamarin.Forms;
-
+using Xamarin.Essentials;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HoopTeam
 {
@@ -26,7 +28,7 @@ namespace HoopTeam
 
         private void ver_clicked(object sender, EventArgs e)
         {
-
+            
             Cliente objetocliente = new Cliente();
 
             string correo = "";

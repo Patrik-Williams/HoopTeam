@@ -136,12 +136,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Frame BackgroundColor="#256B1C"  Margin="0,0,0,5" WidthRequest="100" HeightRequest="17" CornerRadius="20" HorizontalOptions="Center">
 
-                
-
-                <Label Text="Agregar"  FontAttributes="bold" FontSize="13" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
-            </Frame>
 
         </StackLayout>
 
