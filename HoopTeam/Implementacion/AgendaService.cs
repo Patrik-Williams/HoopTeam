@@ -29,5 +29,12 @@ namespace HoopTeam.Implementacion
             agendas = clienteAg.GetAgendaEntrenador(ent);
             return agendas;
         }
+
+        public List<Agenda> GetAg()
+        {
+            List<Agenda> agendas = new List<Agenda>();
+            agendas = clienteAg.GetAgenda();
+            return agendas;
+        }
     }
 }

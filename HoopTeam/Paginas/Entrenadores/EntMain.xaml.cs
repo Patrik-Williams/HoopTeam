@@ -33,7 +33,9 @@ namespace HoopTeam.Paginas
                 todosEquipos.IsVisible = true;
                 entEquipos.IsVisible = false;
 
+                todaAgenda.IsVisible = true;
                 agenda.IsVisible = false;
+
                 Entrenadores.IsVisible = true;
                 Canchas.IsVisible = true;
             }
@@ -49,7 +51,9 @@ namespace HoopTeam.Paginas
                 todosEquipos.IsVisible = false;
                 entEquipos.IsVisible = true;
 
+                todaAgenda.IsVisible = false;
                 agenda.IsVisible = true;
+
                 Entrenadores.IsVisible = false;
                 Canchas.IsVisible = false;
             }
@@ -103,6 +107,11 @@ namespace HoopTeam.Paginas
         async private void verAgenda_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new EntAgenda(), true);
+        }
+
+        async private void verTodaAgenda_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new TodaAgenda(), true);
         }
 
         async private void verCanchas_Tapped(object sender, EventArgs e)

@@ -30,7 +30,7 @@
     <EmbeddedResource Update="Paginas\Entrenadores\AgregarAgenda.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Paginas\Entrenadores\EditAgenda.xaml"/>
+    <EmbeddedResource Update="Paginas\Entrenadores\EditAgenda.xaml" />
     <EmbeddedResource Update="Paginas\Entrenadores\AgregarCancha.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -52,6 +52,9 @@
     <EmbeddedResource Update="Paginas\Entrenadores\EntSettings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Paginas\Entrenadores\TodaAgenda.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Paginas\Entrenadores\TodosEquipos.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -59,6 +62,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Paginas\Estudiantes\EstAgenda.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Paginas\Estudiantes\EstEquipos.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Paginas\Estudiantes\EstMain.xaml">
