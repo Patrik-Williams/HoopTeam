@@ -21,6 +21,7 @@ namespace HoopTeam.Paginas.Entrenadores
     {
         Agenda agn = new Agenda();
         AgendaEstatico agnE = new AgendaEstatico();
+        Entrenador ent = new Entrenador();
         Equipos eq = new Equipos();
         List<Agenda> agnd = new List<Agenda>();
         List<Equipos> equipos = new List<Equipos>();
@@ -34,16 +35,16 @@ namespace HoopTeam.Paginas.Entrenadores
         public EditAgenda(Agenda agenda, string idA, int idE)
         {
 
-            this.agn = agenda;
+          
             
 
             InitializeComponent();
+            this.agn = agenda;
 
-           //agn = clienteA.AgendaE(idA);
-           equipos = clienteA.GetEquiposA(agn.idEquipo);
+            //agn = clienteA.AgendaE(idA);
+            equipos = clienteA.GetEquiposA(Int32.Parse(ent.getCedula()));
 
-
-           eqViejo = idE;
+            eqViejo = idE;
 
             
            //txtEqp.Text = agn.Equipo;
@@ -53,8 +54,9 @@ namespace HoopTeam.Paginas.Entrenadores
 
            foreach(Equipos eq in equipos)
             {
-
-                aEqp.Items.Add(eq.idEquipo.ToString());
+                
+                
+               cbEquipo.Items.Add(eq.idEquipo.ToString());
             }
 
             Debug.WriteLine("Equipo Viejo " + eqViejo);
@@ -89,12 +91,12 @@ namespace HoopTeam.Paginas.Entrenadores
                 {
                     if(eqNuevo==eqViejo)
                     {
-                        aEqp.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString() + "(Actual)";
+                        cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString() + "(Actual)";
 
                     }
                     else
                     {
-                        aEqp.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString();
+                        cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString();
                     }
                 }
             }
@@ -116,13 +118,13 @@ namespace HoopTeam.Paginas.Entrenadores
             string Cancha = txtCn.Text;
             string FechaHora = txtFechaHora.Text;
             string Descripcion = txtDesc.Text;
-            int equipoViejo = eqViejo;
-            int equipoNuevo = eqNuevo;
+            //int equipoViejo = eqViejo;
+            //int equipoNuevo = eqNuevo;
 
             try
             {
 
-              //clienteA.EditarAgenda(Agenda, Cancha, FechaHora, Descripcion,equipoViejo,equipoNuevo);
+              clienteA.EditarAgenda(Agenda, Cancha, Descripcion);
 
                 VolverA();
             }
