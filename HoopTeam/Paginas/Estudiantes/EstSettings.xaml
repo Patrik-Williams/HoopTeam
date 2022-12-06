@@ -21,10 +21,128 @@
                     <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
                 </Grid>
             </Frame>
-            
+
+            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/3417/3417892.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+                    <StackLayout Grid.Column="2" >
+                        <Label Margin="20,0,0,0" Text=" Cuentas Bancarias " FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+
+                        <StackLayout Margin="20,0,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="1" Text="BCR " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="CR91015201001024318318"   FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" Text="BN   " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="  CR70015100010010438860"  FontSize="20" TextColor="Black"  HorizontalTextAlignment="Start"></Label>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" Text="BAC " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="CR90016101002710184261"    FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
+                            </Grid>
+
+
+                        </StackLayout>
+                    </StackLayout>
+
+                </Grid>
+            </Frame>
+
+            <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5575/5575913.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                    <StackLayout Grid.Column="2" >
+                        <Label Margin="20,0,0,0" Text="Estado de Pago" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+
+                        <StackLayout Margin="20,0,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" Text="Estado: " FontSize="23" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="" x:Name="PagoRealizado"   FontSize="22" TextColor="Black"  HorizontalOptions="Start"></Label>
+                            </Grid>
+
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="1" Text="IdPago: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="" x:Name="IdPago"  FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" Text="Monto: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="" x:Name="Monto" FontSize="20" TextColor="Black"  HorizontalTextAlignment="Start"></Label>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" Text="Fecha de Pago: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                <Label Grid.Column="2" Text="" x:Name="FechaPago"   FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
+                            </Grid>
+
+
+
+
+                        </StackLayout>
+                    </StackLayout>
+
+                </Grid>
+            </Frame>
+
+
+
+
             <Label Text="Settings" TextColor="Black" FontSize="30" HorizontalOptions="Center"></Label>
 
             <ImageButton Source="https://cdn-icons-png.flaticon.com/512/992/992680.png" Clicked="LogOut_Clicked" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50"></ImageButton>
+
+
+
 
         </StackLayout>
     </ContentPage.Content>

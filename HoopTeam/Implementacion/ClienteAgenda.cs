@@ -187,6 +187,71 @@ namespace HoopTeam.Implementacion
                 return new List<Agenda>();
             }
         }
+
+        public List<Agenda> GetAgenda()
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+                MySqlDataAdapter Adaptador1 = new MySqlDataAdapter();
+
+                DataSet ds = new DataSet();
+                DataSet ds1 = new DataSet();
+
+                DataTable dt = new DataTable();
+                DataTable dt1 = new DataTable();
+
+                List<Agenda> list = new List<Agenda>();
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+
+                string qry = "SELECT ag.idAgenda, ag.idEquipo, ag.idCanchas, ag.fechayHora, " +
+                              "ag.descripcion, ca.ubicacion " +
+                              "from Agenda ag, Canchas ca " +
+                              "where ag.idCanchas = ca.idCanchas; ";
+
+                Adaptador.SelectCommand = cmd;
+                Adaptador1.SelectCommand = cmd;
+                
+                Adaptador.Fill(ds, "Agenda");
+                Adaptador1.Fill(ds1, "Canchas");
+
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Agenda"];
+                dt1 = ds1.Tables["Canchas"];
+
+                //Hacer un dt y un ds para cada una de las tablas de la consulta
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+                    Agenda ag = new Agenda();
+                    ag.idAgenda = drCurrent["idAgenda"].ToString();
+                    ag.Equipo = drCurrent["idEquipo"].ToString();
+                    ag.Cancha = drCurrent["idCanchas"].ToString();
+                    ag.Ubicacion = drCurrent["ubicacion"].ToString();
+                    ag.FechaHora = drCurrent["fechayHora"].ToString();
+                    ag.Descripcion = drCurrent["descripcion"].ToString();
+
+                    list.Add(ag);
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                return new List<Agenda>();
+            }
+        }
+
         public Agenda AgendaE(string idA)
         {
             try { 
