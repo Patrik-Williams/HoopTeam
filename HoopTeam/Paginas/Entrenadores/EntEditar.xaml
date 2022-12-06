@@ -29,7 +29,7 @@
 
 
                         <StackLayout Grid.Column="2" VerticalOptions="Center">
-                            <Label Text="Editar Perfil" FontAttributes="Bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF"/>
+                            <Label Text="Editar perfil" FontAttributes="Bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF"/>
                         </StackLayout>
 
                     </Grid>

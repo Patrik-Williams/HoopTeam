@@ -38,7 +38,7 @@
 
 
                     <StackLayout Grid.Column="2" VerticalOptions="Center">
-                        <Label Text="Mis Equipos"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+                        <Label Text="Mis equipos"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                     </StackLayout>
 
                 </Grid>
@@ -89,7 +89,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="1" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                            <Label Grid.Column="1" Text="Categoría: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
                                             <Label Grid.Column="2" Text="{Binding categoria}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                             <Label Grid.Column="3" Text="{Binding genero}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>

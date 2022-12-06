@@ -26,7 +26,7 @@
                             <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                         </StackLayout>
                         <StackLayout Grid.Column="2" VerticalOptions="Center">
-                            <Label Text="Editar Estudiante"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+                            <Label Text="Editar estudiante"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                         </StackLayout>
                     </Grid>
                 </Frame>
@@ -70,11 +70,11 @@
                                     <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb8" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Picker Margin="20,5,0,20" x:Name="cbEquipo" Title="" TitleColor="#444" TextColor="Black" BackgroundColor="#aaa" SelectedIndexChanged="OnPickerSelectedIndexChanged"></Picker>
 
-                                    <Label Margin="20,0,0,0" Text="Pago Realizado" x:Name="lb9" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Label Margin="20,0,0,0" Text="Pago realizado" x:Name="lb9" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Picker Margin="20,5,0,20" x:Name="cbPago" Title="Equipo" TextColor="Black" BackgroundColor="#aaa" SelectedIndexChanged="OnPicker2SelectedIndexChanged" >
                                         <Picker.Items>
                                             <x:String>Realizado</x:String>
-                                            <x:String>Por Realizar</x:String>
+                                            <x:String>Por realizar</x:String>
                                         </Picker.Items >
                                     </Picker>
                                         
