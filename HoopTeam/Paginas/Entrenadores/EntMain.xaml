@@ -102,6 +102,29 @@
                     </Frame>
                 </Frame>
 
+                <Frame x:Name="todaAgenda" BackgroundColor="Green" Margin="20,20" WidthRequest="1000" CornerRadius="20" Padding="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="verTodaAgenda_Tapped" NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Frame BackgroundColor="#FFF"  WidthRequest="990" CornerRadius="20">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+
+                            <StackLayout Grid.Column="2">
+                                <Label Margin="20,0,0,0" Text="Toda la agenda"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            </StackLayout>
+
+                        </Grid>
+                    </Frame>
+                </Frame>
+
                 <!--Agenda JOSE  -->
                 <Frame BackgroundColor="#FFF" x:Name="agenda" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Frame.GestureRecognizers>

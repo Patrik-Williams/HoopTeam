@@ -40,6 +40,7 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
+                //App.Current.MainPage.DisplayAlert("Alert", "your message", "OK");
 
             }
         }

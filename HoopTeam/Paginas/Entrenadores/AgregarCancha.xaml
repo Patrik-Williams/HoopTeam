@@ -47,8 +47,8 @@
 
                                 <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8927/8927654.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
                                 <StackLayout Grid.Column="2">
-                                    <Label Margin="20,0,0,0" Text="Número cancha" x:Name="lb10" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Número cancha" x:Name="txtCancha" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                 <!--   <Label Margin="20,0,0,0" Text="Número cancha" x:Name="lb10" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Entry  Placeholder="Número cancha" x:Name="txtCancha" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>-->
 
                                     <Label Margin="20,0,0,0" Text="Ubicación" x:Name="lb17" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Ubicación" x:Name="txtUbicacion" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>

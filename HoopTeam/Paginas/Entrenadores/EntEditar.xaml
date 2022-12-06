@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HoopTeam.Paginas.Entrenadores.EntEditar">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#999">
+                <Frame HeightRequest="40" WidthRequest="1000" BackgroundColor="#FFFFFF">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
+                        <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/919/919465.png" HorizontalOptions="Start" WidthRequest="60"></Image>
+                        </StackLayout>
+
+
+                        <StackLayout Grid.Column="2" VerticalOptions="Center">
+                            <Label Text="Editar Perfil" FontAttributes="Bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF"/>
+                        </StackLayout>
+
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#FFF" Margin=" 20,20" WidthRequest="1000" CornerRadius="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+                        <StackLayout Grid.Column="2">
+
+                            <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb20" FontAttributes="Bold" FontSize="30" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121"/>
+                            <Entry Placeholder="Nombre" Text=" " x:Name="lblN" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+                            <Label Margin=" 20,0,0,0" Text="Apellido 1" x:Name="lb21" FontAttributes="Bold" FontSize="30" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121"/>
+                            <Entry Placeholder="Apellido 1" Text=" " x:Name="lbA1" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+                            <Label Margin=" 20,0,0,0" Text="Apellido 2" x:Name="lb22" FontAttributes="Bold" FontSize="30" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121"/>
+                            <Entry Placeholder="Apellido 2" Text=" " x:Name="lbA2" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+                            <Label Margin=" 20,0,0,0" Text="Correo" x:Name="lb23" FontAttributes="Bold" FontSize="30" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121"/>
+                            <Entry Placeholder="Correo" Text=" " x:Name="lbCor" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+                            <Label Margin=" 20,0,0,0" Text="Contraseña" x:Name="lb24" FontAttributes="Bold" FontSize="30" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121"/>
+                            <Entry Placeholder="Contraseña" Text=" " x:Name="lbCon" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+
+                            <StackLayout Margin="20,20" HorizontalOptions="Center">
+
+                                <ImageButton Source="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" Margin="0,0,20,0" Clicked="do_Change" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
+
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

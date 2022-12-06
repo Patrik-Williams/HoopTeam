@@ -10,8 +10,96 @@ namespace HoopTeam.Implementacion
 {
     class ClienteEntrenador
     {
+        
         Entrenador ent = new Entrenador();
+        MySqlCommand cmd = new MySqlCommand();//comandos
+        MySqlConnection con;//conexion
+        MySqlDataAdapter Adaptador = new MySqlDataAdapter();
 
+        public ClienteEntrenador()
+        {
+        }
+        public string LogIn(string correo, string contra)
+        {
+            string flag = " ";
+
+            MySqlCommand cmd = new MySqlCommand();//comandos
+            MySqlConnection con;//conexion
+            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                       "port = 3306; " +
+                                       "username = admin; " +
+                                       "password = hoopteamAdmin;" +
+                                       "database =HoopTeam");
+                con.Open();
+
+                string qry = "SELECT * FROM Entrenador where correo= '" + correo + "'and contrasenna= '" + contra + "'";
+                cmd.CommandText = qry;
+                cmd.Connection = con;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Entrenador");
+                cmd.ExecuteNonQuery();
+                dt = ds.Tables["Entrenador"];
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {
+                    ent.setCedula(drCurrent["cedula"].ToString());
+                    ent.setNombre(drCurrent["nombre"].ToString());
+                    ent.setApellido1(drCurrent["apellido1"].ToString());
+                    ent.setApellido2(drCurrent["apellido2"].ToString());
+                    ent.setCorreo(drCurrent["Correo"].ToString());
+                    ent.setContrasenna(drCurrent["Contraseña"].ToString());
+
+                    flag = "Ent";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+            }
+            return flag;
+        }
+        public string actualizarEntrenador(string Nom, string apE1, string apE2, string cor, string con, string ced)
+        {
+            string flag = " ";
+
+            MySqlCommand cmd = new MySqlCommand();//comandos
+            MySqlConnection con1;//conexion
+            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            try
+            {
+                con1 = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                   "port = 3306; " +
+                                   "username = admin; " +
+                                   "password = hoopteamAdmin;" +
+                                   "database =HoopTeam");
+                con1.Open();
+                string qry = "UPDATE Entrenador set nombre= '" + Nom + "', apellido1 = '" + apE1 + "', apellido2 = '" + apE2 + "', correo = '" + cor + "', contrasenna ='" + con + "' where cedula = " + ced + " ";
+                cmd.CommandText = qry;
+                cmd.Connection = con1;
+                Adaptador.SelectCommand = cmd;
+                Adaptador.Fill(ds, "Entrenador");
+                cmd.ExecuteNonQuery();
+
+                dt = ds.Tables["Entrenador"];
+
+                this.LogIn(cor, con);
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+            }
+            return flag;
+        }
 
         public List<Estudiante> GetEstudiantes()
         {
@@ -570,7 +658,7 @@ namespace HoopTeam.Implementacion
                 return new List<Cancha>();
             }
         }
-        public void AgregarCancha(int id, string ub)
+        public void AgregarCancha( string ub)
         {
             try
             {
@@ -588,7 +676,7 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "INSERT INTO Canchas Values(" + id + ", '" + ub + "');";
+                string qry = "INSERT INTO Canchas (ubicacion)values( '" + ub + "');";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
@@ -662,7 +750,8 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
-
+                Console.WriteLine("Error eliminando cancha");
+                Console.WriteLine("Cancha asociada a una agenda"+ex);
             }
         }
 
@@ -709,6 +798,8 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
+                Console.WriteLine("Error agregando estudiante"+ex);
+           
 
             }
         }
@@ -742,7 +833,7 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
-
+                Console.WriteLine("Error actualizando cupo" + ex);
             }
         
     }
@@ -792,6 +883,7 @@ namespace HoopTeam.Implementacion
             {
                 string txt = ex.Message;
                 return new List<Cancha>();
+                
             }
         }
         public void AgregarCancha1(int id, string ub)
@@ -821,6 +913,7 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
+                Console.WriteLine("Error agregando cancha" + ex);
             }
         }
 
@@ -853,6 +946,7 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
+                Console.WriteLine("Error actualizando cancha" + ex);
 
             }
         }

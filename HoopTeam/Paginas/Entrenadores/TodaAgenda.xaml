@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:HoopTeam.Modelo"
-             x:Class="HoopTeam.Paginas.Entrenadores.EntAgenda">
+             xmlns:vm="clr-namespace:HoopTeam.Modelo.Entrenadores"
+             x:Class="HoopTeam.Paginas.Entrenadores.TodaAgenda">
     <ContentPage.BindingContext>
-        <vm:AgendaPorEntrenadorViewModel></vm:AgendaPorEntrenadorViewModel>
+        <vm:AgendaAdminViewModel></vm:AgendaAdminViewModel>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
@@ -60,7 +60,7 @@
             </Frame>
 
 
-            <CollectionView ItemsSource="{Binding AgendaPorEntrenador}" Margin="20,10,20,10" SelectionMode="Single" SelectionChanged="CVCollectionChanged">
+            <CollectionView ItemsSource="{Binding AgendaAdmin}" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
                         <Grid Margin="0,2,0,2">
@@ -70,11 +70,7 @@
                             </Grid.RowDefinitions>
                             <Frame BackgroundColor="White" CornerRadius="20">
 
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="verEditAgn_Tapped" NumberOfTapsRequired="1">
-                                    </TapGestureRecognizer>
-                                </Frame.GestureRecognizers>
-                                
+
                                 <Grid  ColumnSpacing="10" RowSpacing="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -85,8 +81,11 @@
                                         <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png"
                                             VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
                                         <Label Text="Editar" FontSize="18" TextColor="#999" HorizontalOptions="Center"></Label>
+                                        
                                     </StackLayout>
 
+
+                                    
 
                                     <StackLayout Orientation="Vertical" Grid.Column="2" Margin="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Start">
                                         <Grid>
@@ -136,13 +135,10 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            
+
             <Frame BackgroundColor="#256B1C"  Margin="0,0,0,5" WidthRequest="100" HeightRequest="17" CornerRadius="20" HorizontalOptions="Center">
 
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="agregarAgenda_Tapped" NumberOfTapsRequired="1" >
-                    </TapGestureRecognizer>
-                </Frame.GestureRecognizers>
+                
 
                 <Label Text="Agregar"  FontAttributes="bold" FontSize="13" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
             </Frame>
