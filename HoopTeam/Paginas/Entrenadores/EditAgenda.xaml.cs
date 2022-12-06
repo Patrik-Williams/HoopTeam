@@ -28,6 +28,12 @@ namespace HoopTeam.Paginas.Entrenadores
         static int eqNuevo { get; set; }
         static int eqViejo { get; set; }
 
+        static int cNueva { get; set; }
+        static int cVieja { get; set; }
+
+        List<Cancha> canchas { get; set; }
+        static string cancha { get; set; }
+
 
         ClienteAgenda clienteA = new ClienteAgenda();
 
@@ -43,12 +49,13 @@ namespace HoopTeam.Paginas.Entrenadores
 
             //agn = clienteA.AgendaE(idA);
             equipos = clienteA.GetEquiposA(Int32.Parse(ent.getCedula()));
+            canchas = clienteA.GetCanchasA();
 
             eqViejo = idE;
 
             
            //txtEqp.Text = agn.Equipo;
-           txtCn.Text = agn.Cancha;
+           //txtCn.Text = agn.Cancha;
            txtFechaHora.Text = agn.FechaHora;
            txtDesc.Text = agn.Descripcion;
 
@@ -57,6 +64,10 @@ namespace HoopTeam.Paginas.Entrenadores
                 
                 
                cbEquipo.Items.Add(eq.idEquipo.ToString());
+            }
+            foreach (Cancha cn in canchas)
+            {
+                cbCancha.Items.Add(cn.idCancha.ToString());
             }
 
             Debug.WriteLine("Equipo Viejo " + eqViejo);
@@ -106,42 +117,44 @@ namespace HoopTeam.Paginas.Entrenadores
             Debug.WriteLine("Equipo Viejo " + eqViejo);
 
         }
+        private void OnPickerSelectedIndexChangedCanchas(object sender, EventArgs e)
+        {
+            Picker picker = sender as Picker;
+            var selectedItem = picker.SelectedItem;
+            cancha = selectedItem.ToString();
+            Debug.WriteLine(selectedItem.ToString());
+            Debug.WriteLine(cancha);
+
+        }
 
 
         private void btnEditarA(object sender, EventArgs e)
         {
             ClienteAgenda clienteA = new ClienteAgenda();
-                
-           
-            string Agenda = agn.idAgenda;
-           // string Equipo = txtEqp.Text;
-            string Cancha = txtCn.Text;
-            string FechaHora = txtFechaHora.Text;
-            string Descripcion = txtDesc.Text;
-            //int equipoViejo = eqViejo;
-            //int equipoNuevo = eqNuevo;
-
             try
-            {
 
-              clienteA.EditarAgenda(Agenda, Cancha, Descripcion);
+            {
+                string Agenda = agn.idAgenda;
+                // string Cancha = txtCn.Text;
+                string FechaHora = txtFechaHora.Text;
+                string Descripcion = txtDesc.Text;
+                clienteA.EditarAgenda(Agenda, Descripcion);
 
                 VolverA();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                DisplayAlert("Información Actualizada", "Agenda", "OK");
+                string txt = ex.Message;
             }
-           
 
         }
         private async void ShowExitDialog()
         {
-            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al agenda?", "Si", "NO");
+            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar la agenda?", "Si", "NO");
             if (answer)
             {
                 clienteA.EliminarAgenda(agn.idAgenda);
-                DisplayAlert("Informacion", "Estudiante eliminado", "Ok");
+                DisplayAlert("Informacion", "Agenda eliminada", "Ok");
                 VolverA();
             }
         }
