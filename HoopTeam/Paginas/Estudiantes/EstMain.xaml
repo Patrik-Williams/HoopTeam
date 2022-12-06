@@ -80,7 +80,7 @@
 
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="1" Text="Id: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                    <Label Grid.Column="1" Text="ID: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
                                     <Label Grid.Column="2" Text="" x:Name="lbId"  FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
                                 </Grid>
 
@@ -89,7 +89,7 @@
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="1" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                    <Label Grid.Column="1" Text="Categoría: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
                                     <Label Grid.Column="2" Text="" x:Name="lbCategoria" FontSize="20" TextColor="Black"  HorizontalTextAlignment="Start"></Label>
                                 </Grid>
 
@@ -98,12 +98,12 @@
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="1" Text="Genero: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                    <Label Grid.Column="1" Text="Género: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
                                     <Label Grid.Column="2" Text="" x:Name="lbGenero"   FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
                                 </Grid>
 
                             </StackLayout>
-                            <Label Margin="20,0,0,0" Text="No se habilitara hasta que realice su pago" x:Name="EstadoPago1" FontAttributes="bold" FontSize="25" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#6f6f6f" />
+                            <Label Margin="20,0,0,0" Text="No se habilitará hasta que realice su pago" x:Name="EstadoPago1" FontAttributes="bold" FontSize="25" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#6f6f6f" />
                         </StackLayout>
 
                     </Grid>
@@ -125,7 +125,7 @@
 
                         <StackLayout Grid.Column="2">
                             <Label Margin="20,0,0,0" Text="Calendario" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                            <Label Margin="20,0,0,0" Text="No se habilitara hasta que realice su pago" x:Name="EstadoPago" FontAttributes="bold" FontSize="25" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#6f6f6f" />
+                            <Label Margin="20,0,0,0" Text="No se habilitará hasta que realice su pago" x:Name="EstadoPago" FontAttributes="bold" FontSize="25" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#6f6f6f" />
                         </StackLayout>
                     </Grid>
                 </Frame>
