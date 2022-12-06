@@ -662,7 +662,8 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
-
+                Console.WriteLine("Error eliminando cancha");
+                Console.WriteLine("Cancha asociada a una agenda"+ex);
             }
         }
 
@@ -717,6 +718,8 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
+                Console.WriteLine("Error agregando estudiante"+ex);
+           
 
             }
         }
@@ -750,7 +753,7 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
-
+                Console.WriteLine("Error actualizando cupo" + ex);
             }
         
     }
@@ -800,6 +803,7 @@ namespace HoopTeam.Implementacion
             {
                 string txt = ex.Message;
                 return new List<Cancha>();
+                
             }
         }
         public void AgregarCancha1(int id, string ub)
@@ -829,6 +833,7 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
+                Console.WriteLine("Error agregando cancha" + ex);
             }
         }
 
@@ -861,6 +866,7 @@ namespace HoopTeam.Implementacion
             catch (Exception ex)
             {
                 string txt = ex.Message;
+                Console.WriteLine("Error actualizando cancha" + ex);
 
             }
         }
