@@ -54,9 +54,9 @@ namespace HoopTeam.Paginas
 
         }
 
-        private void verPerfil_Tapped(object sender, EventArgs e)
+        async private void verPerfil_Tapped(object sender, EventArgs e)
         {
-            DisplayAlert("Informacion", "PERFIL", "Ok");
+            await Navigation.PushModalAsync(new EstEditar(), true);
         }
 
 
