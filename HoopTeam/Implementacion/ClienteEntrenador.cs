@@ -570,7 +570,7 @@ namespace HoopTeam.Implementacion
                 return new List<Cancha>();
             }
         }
-        public void AgregarCancha(int id, string ub)
+        public void AgregarCancha( string ub)
         {
             try
             {
@@ -588,7 +588,7 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "INSERT INTO Canchas Values(" + id + ", '" + ub + "');";
+                string qry = "INSERT INTO Canchas (ubicacion)values( '" + ub + "');";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
