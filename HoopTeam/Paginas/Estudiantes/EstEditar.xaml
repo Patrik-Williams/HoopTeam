@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HoopTeam.Paginas.Estudiantes.EstEditar">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout BackgroundColor="#999">
+                <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
+                        <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
+                        </StackLayout>
+
+
+
+                        <StackLayout Grid.Column="2" VerticalOptions="Center">
+                            <Label Text="Editar Perfil"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+                        </StackLayout>
+
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+
+                        <StackLayout Grid.Column="2">
+
+                            <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Entry  Placeholder="Nombre" Text=" " x:Name="txtNombre" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+
+                            <Label Margin="20,0,0,0" Text="Apellido 1" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Entry  Placeholder="Apellido1" Text=" " x:Name="txtApellido1" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+
+                            <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Entry  Placeholder="Apellido2" Text=" " x:Name="txtApellido2" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+                            <Label Margin="20,0,0,0" Text="Fecha de Nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Entry  Placeholder="fecha" Text=" " IsEnabled="False" x:Name="txtFecha" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+                            <Label Margin="20,0,0,0" Text="Genero" x:Name="lb6" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Entry  Placeholder="Genero" Text=" " x:Name="txtGenero" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+
+                            <Label Margin="20,0,0,0" Text="Correo" x:Name="lb7" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Entry  Placeholder="Correo" Text=" " x:Name="txtCorreo" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+
+                            <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb8" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Entry  Placeholder="Contraseña" Text=" " x:Name="txtContraseña" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+
+                            <StackLayout Margin="20,20" HorizontalOptions="Center">
+
+                                <ImageButton Source="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" Margin="0,0,20,0" Clicked="ver_Cambios" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Grid>
+
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
