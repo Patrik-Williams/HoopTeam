@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using HoopTeam.Paginas;
+using Xamarin.Forms;
 
 namespace HoopTeam
 {
@@ -9,6 +10,7 @@ namespace HoopTeam
             InitializeComponent();
 
             MainPage = new MainPage();
+            //MainPage = new OlvideContraseña(123456, "Entrenador", "ianwm230902@gmail.com");
         }
 
         protected override void OnStart()

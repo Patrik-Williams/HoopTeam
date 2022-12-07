@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HoopTeam.Paginas.OlvideContraseña">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#999">
+            <Frame VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="350" HeightRequest="550" Margin="20,120" CornerRadius="20" BackgroundColor="#FFFFFF">
+                <StackLayout>
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="80"></Image>
+                    <Label Text="HoopTeam" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Center"  FontFamily="Arial" TextColor="#FF8200"/>
+
+                    <Label Text="Olvidé mi contraseña" FontAttributes="bold"  FontFamily="Arial" FontSize="30" HorizontalTextAlignment="Center" Margin="0,20,0,20" TextColor="#427AFD"></Label>
+
+                    <!--Olvide contra-->
+                    <Label Text="Nueva Contraseña" TextColor="#444" x:Name="lbContra"></Label>
+                    <Entry  Placeholder="Contraseña" IsPassword="True" x:Name="txtConta" BackgroundColor="#eee" Margin="0,0,0,15" PlaceholderColor="#555" TextColor="#000"/>
+
+                    <Label Text="Verifique la Contraseña" TextColor="#444" x:Name="lbVerContra"></Label>
+                    <Entry Placeholder="Verifique la contraseña" IsPassword="True" x:Name="txtVerContra" BackgroundColor="#eee" Margin="0,0,0,0" PlaceholderColor="#555" TextColor="#000"/>
+
+                    <!--Verificacion de codigo-->
+                    <Label x:Name="lbVerCodigo" Text="Digite el código enviado a su correo:" TextColor="#444" HorizontalOptions="Center" FontSize="19" FontFamily="arial" FontAttributes="Bold, Italic" Margin="0,20,0,0"></Label>
+                    <Entry Placeholder="Código de verificación" x:Name="txtVerCodigo" HorizontalTextAlignment="Center" WidthRequest="50" BackgroundColor="#eee" Margin="0,10,0,0" PlaceholderColor="#555" TextColor="#000" Keyboard="Numeric"/>
+     
+                    <!--boton de verificar codigo-->
+                    <Button x:Name="btnVerCod" CornerRadius="10" FontAttributes="Bold" Text="Verificar código" Margin="0,60,0,0" Background="#FF8200" Clicked="ver_codigo"  TextColor="#fff" />
+
+                    <!--Mostrar contras-->
+                    <StackLayout x:Name="mostrarContras" Margin="0, 10, 0, 10">
+                        <Grid Margin="0,10,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="1" x:Name="verPass" CheckedChanged="verPass_CheckedChanged" ></CheckBox>
+                            <Label Grid.Column="2" Text="Mostrar contraseñas" VerticalOptions="Center" TextColor="Black"></Label>
+                        </Grid>
+                    </StackLayout>
+
+                    <!--boton de cambiar contra-->
+                    <Button x:Name="btnCambiarCont" CornerRadius="10" FontAttributes="Bold" Text="Cambiar contraseña" Margin="0,60,0,0" Background="#FF8200" Clicked="cambiar_contra"  TextColor="#fff" />
+                    
+
+                        <StackLayout Margin="0,10,0,0">
+                        <!--<Button CornerRadius="10" FontAttributes="Bold" Text="Iniciar sesión" Background="#FF8200" Clicked="ver_clicked"  TextColor="#fff" />-->
+                        <!--<Button CornerRadius="10" FontAttributes="Bold" Text="Estudiante" BackgroundColor="#D28282" Clicked="ButtonEst_Clicked"  TextColor="#fff" />-->
+                    </StackLayout>
+
+
+                </StackLayout>
+
+
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

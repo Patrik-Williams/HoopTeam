@@ -23,7 +23,25 @@
 
                         <CheckBox Grid.Column="1" x:Name="verPass" CheckedChanged="verPass_CheckedChanged" ></CheckBox>
                         <Label Grid.Column="2" Text="Mostrar contraseña" VerticalOptions="Center" TextColor="Black"></Label>
+
+
                     </Grid>
+                    <Label HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                
+                                <Span Text="¿Olvidó su contraseña?"
+                                        TextColor="Blue"
+                                           TextDecorations="Underline" >
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="olvidoContra" ></TapGestureRecognizer>
+                                        
+                                    </Span.GestureRecognizers>
+                                </Span>
+                                
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                 </StackLayout>
                 
 

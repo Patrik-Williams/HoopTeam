@@ -114,10 +114,13 @@ namespace HoopTeam.Implementacion
                     "from EstudianteEquipo ee, Estudiantes es, Equipos eq " +
                     "where es.cedula = ee.cedEstudiante " +
                     "and ee.idEquipo = eq.idEquipo " +
+                    "and es.activo = 1 " +
+                    "and ee.activo = 1 " +
                     "and eq.idEquipo in ( " +
                     "SELECT eq.idEquipo " +
                     "FROM EstudianteEquipo ee, Equipos eq, Estudiantes es " +
                     " WHERE es.cedula =" + ced + " " +
+                    "and ee.activo = 1 " +
                     "and es.cedula = ee.cedEstudiante " +
                     "and ee.idEquipo = eq.idEquipo); ";
 
