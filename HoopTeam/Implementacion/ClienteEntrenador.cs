@@ -116,7 +116,8 @@ namespace HoopTeam.Implementacion
                                           "port = 3306; " +
                                           "username = admin; " +
                                           "password = hoopteamAdmin;" +
-                                          "database = HoopTeam");
+                                          "database = HoopTeam;" +
+                                          "Convert Zero Datetime=True;");
                 con.Open();
                 string qry = "SELECT * FROM Estudiantes where activo = 1";
                 cmd.CommandText = qry;
