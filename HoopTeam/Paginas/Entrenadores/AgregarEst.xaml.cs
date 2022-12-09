@@ -24,6 +24,8 @@ namespace HoopTeam.Paginas.Entrenadores
 
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
 
+        Administrador adm = new Administrador();
+
         
 
         public AgregarEst()   
@@ -61,7 +63,6 @@ namespace HoopTeam.Paginas.Entrenadores
                 string ap2 = txtApellido2.Text;
                 string correo = txtCorreo.Text;
                 string contra = txtContraseña.Text;
-
                 clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, equipo);
                 DisplayAlert("Informacion", "Estudiante agregado", "Ok");
                 Volver();
@@ -79,7 +80,16 @@ namespace HoopTeam.Paginas.Entrenadores
             Debug.WriteLine(genero);
             Debug.WriteLine(genero[0].ToString());
 
-            equipos = clienteEnt.GetEquiposGen_Ent(genero[0].ToString(), Int32.Parse(ent.getCedula()));
+            if (adm.getSuperUser())
+            {
+                equipos = clienteEnt.GetEquiposGenero(genero[0].ToString());
+            }
+            else
+            {
+                equipos = clienteEnt.GetEquiposGen_Ent(genero[0].ToString(), Int32.Parse(ent.getCedula()));
+            }
+            
+
             cbEquipo.Items.Clear();
             foreach (Equipos eq in equipos)
             {
