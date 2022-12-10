@@ -131,9 +131,12 @@ namespace HoopTeam.Paginas.Entrenadores
         private void btnEditarA(object sender, EventArgs e)
         {
             ClienteAgenda clienteA = new ClienteAgenda();
-            try
-
+            if (txtDesc.Text == "" )
             {
+                DisplayAlert("Alerta", "Debe llenar todos los datos", "Aceptar");
+            }
+            else
+             {
                 string Agenda = agn.idAgenda;
                 // string Cancha = txtCn.Text;
                 string FechaHora = txtFechaHora.Text;
@@ -142,15 +145,12 @@ namespace HoopTeam.Paginas.Entrenadores
 
                 VolverA();
             }
-            catch (Exception ex)
-            {
-                string txt = ex.Message;
-            }
+        
 
         }
         private async void ShowExitDialog()
         {
-            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar la agenda?", "Si", "NO");
+            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea eliminar la agenda?", "Si", "NO");
             if (answer)
             {
                 clienteA.EliminarAgenda(agn.idAgenda);

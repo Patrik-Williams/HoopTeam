@@ -40,24 +40,27 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void do_Change(object sender, EventArgs e)
         {
+
             ClienteEntrenador entC = new ClienteEntrenador();
 
-            string nomE = lblN.Text;
-            string ApE = lbA1.Text;
-            string Ap2E = lbA2.Text;
-            string Cor = lbCor.Text;
-            string Con = lbCon.Text;
-            string ced = ent.getCedula();
-
-            try
+            if (lblN.Text == "" || lbA1.Text == "" || lbA2.Text == "" || lbCor.Text == "" || lbCon.Text == "")
             {
+                DisplayAlert("Alerta", "Debe llenar todos los datos", "Aceptar");
+            }
+            else
+            {
+                string nomE = lblN.Text;
+                string ApE = lbA1.Text;
+                string Ap2E = lbA2.Text;
+                string Cor = lbCor.Text;
+                string Con = lbCon.Text;
+                string ced = ent.getCedula();
+
+
+
                 entC.actualizarEntrenador(nomE, ApE, Ap2E, Cor, Con, ced);
                 DisplayAlert("Información: ", "Datos Actualizados", "OK");
                 Sett();
-            }
-            catch (Exception ex)
-            {
-                DisplayAlert("Actualizada Correctamente", "Perfil", "OK");
             }
         }
     }
