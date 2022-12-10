@@ -49,10 +49,10 @@
 
                                 <StackLayout Grid.Column="2">
 
-                                    <Label Margin="20,0,0,0" Text="Categoría" x:Name="lb1" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Label Margin="20,0,0,0" Text="Categoria" x:Name="lb1" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Categoria" x:Name="txtCate" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
-                                    <Label Margin="20,0,0,0" Text="Género" x:Name="lb2" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Label Margin="20,0,0,0" Text="Genero" x:Name="lb2" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Picker Margin="20,5,0,20" x:Name="cbGenero" TextColor="Black"  TitleColor="#444" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedGenero">
                                         <Picker.Items>
                                             <x:String>Masculino</x:String>
