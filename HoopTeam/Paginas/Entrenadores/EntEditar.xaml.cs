@@ -45,7 +45,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
             if (lblN.Text == "" || lbA1.Text == "" || lbA2.Text == "" || lbCor.Text == "" || lbCon.Text == "")
             {
-                DisplayAlert("Alerta", "Debe llenar todos los datos", "Aceptar");
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
             }
             else
             {

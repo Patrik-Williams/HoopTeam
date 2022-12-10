@@ -55,7 +55,7 @@ namespace HoopTeam
             }
             catch (Exception ex)
             {
-                DisplayAlert("Faild", ex.Message, "OK");
+                DisplayAlert("Failed", ex.Message, "OK");
 
                 
             }
@@ -96,7 +96,7 @@ namespace HoopTeam
             }
             else
             {
-                DisplayAlert("Datos errones", "Por favor, llena toda la información", "Ok");
+                DisplayAlert("Datos erroneos", "Por favor, llena toda la información", "Ok");
 
             }
         }

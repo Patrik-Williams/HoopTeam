@@ -138,11 +138,11 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void ShowExitDialog()
         {
-            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al estudiante?", "Si", "No");
+            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al estudiante?", "Sí", "No");
             if (answer)
             {
                 clienteEnt.EliminarEstudiante(Int32.Parse(est.Cedula));
-                DisplayAlert("Informacion", "Estudiante eliminado", "Ok");
+                DisplayAlert("Información", "Estudiante eliminado", "Ok");
                 Volver();
             }
         }
