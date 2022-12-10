@@ -41,7 +41,15 @@ namespace HoopTeam.Paginas.Entrenadores
 
         async void Volver()
         {
-            await Navigation.PushModalAsync(new EntEstudiantes(), true);
+            if (adm.getSuperUser())
+            {
+                await Navigation.PushModalAsync(new TodosEstudiantes(), true);
+            }
+            else
+            {
+                await Navigation.PushModalAsync(new EntEstudiantes(), true);
+            }
+            
         }
 
         private void settings_Clicked(object sender, EventArgs e)
@@ -64,7 +72,7 @@ namespace HoopTeam.Paginas.Entrenadores
                 string correo = txtCorreo.Text;
                 string contra = txtContraseña.Text;
                 clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, equipo);
-                DisplayAlert("Informacion", "Estudiante agregado", "Ok");
+                DisplayAlert("Información", "Estudiante agregado", "Ok");
                 Volver();
             }
 

@@ -37,8 +37,6 @@
                         <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                     </StackLayout>
 
-
-
                     <StackLayout Grid.Column="2" VerticalOptions="Center">
                         <Label Text="Estudiantes"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                     </StackLayout>
@@ -77,15 +75,15 @@
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Column="1" Text="Fecha de nacimiento: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="2" Text="{Binding Nacimiento}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Nacimiento}" FontSize="20" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="1" Text="Genero: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="2" Text="{Binding Genero}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                            <Label Grid.Column="1" Text="Género: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Genero}" FontSize="20" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -93,7 +91,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Column="1" Text="Correo: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="2" Text="{Binding Correo}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Correo}" FontSize="20" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
 
                                     </StackLayout>

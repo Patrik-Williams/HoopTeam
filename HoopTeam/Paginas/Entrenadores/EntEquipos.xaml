@@ -54,11 +54,6 @@
                             </Grid.RowDefinitions>
                             <Frame BackgroundColor="White" CornerRadius="20">
 
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="editarEquipo_Tapped" NumberOfTapsRequired="1">
-                                    </TapGestureRecognizer>
-                                </Frame.GestureRecognizers>
-
                                 <Grid  ColumnSpacing="10" RowSpacing="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -69,6 +64,10 @@
 
 
                                     <StackLayout Grid.Column="1">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="editarEquipo_Tapped" NumberOfTapsRequired="1">
+                                            </TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
                                         <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png"
                                         VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
                                         <Label Text="Editar" FontSize="18" TextColor="#999" HorizontalOptions="Center"></Label>
@@ -81,7 +80,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Column="1" Text="Equipo: " FontSize="24" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
-                                        <Label Grid.Column="2"  Text="{Binding idEquipo}" FontSize="24" TextColor="Black" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="2"  Text="{Binding idEquipo}" FontSize="24" TextColor="Black" FontAttributes="Bold"></Label>
                                         </Grid>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -89,7 +88,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="1" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                            <Label Grid.Column="1" Text="Categoría: " FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
                                             <Label Grid.Column="2" Text="{Binding categoria}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                             <Label Grid.Column="3" Text="{Binding genero}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>

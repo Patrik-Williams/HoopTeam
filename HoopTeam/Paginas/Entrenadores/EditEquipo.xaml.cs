@@ -71,11 +71,11 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void ShowExitDialog()
         {
-           var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea eliminar este equipo?", "Si", "No");
+           var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea eliminar este equipo?", "Sí", "No");
             if (answer)
             {
                 clienteAdm.EliminarEquipo(equipo.idEquipo);
-                DisplayAlert("Informacion", "Equipo eliminado", "Ok");
+                DisplayAlert("Información", "Equipo eliminado", "Ok");
                 Volver();
             }
         }
