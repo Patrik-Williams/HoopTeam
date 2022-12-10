@@ -49,7 +49,7 @@
 
                                 <StackLayout Grid.Column="2">
 
-                                    <Label Margin="20,0,0,0" Text="Cédula" x:Name="lb10" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                    <Label Margin="20,0,0,0" Text="Cedula" x:Name="lb10" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Cédula" x:Name="txtCedula" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
