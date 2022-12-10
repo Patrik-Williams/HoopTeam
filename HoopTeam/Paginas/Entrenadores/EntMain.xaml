@@ -95,7 +95,7 @@
 
 
                             <StackLayout Grid.Column="2">
-                                <Label Margin="20,0,0,0" Text="Todos los equipos"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                <Label Margin="20,0,0,0" Text="Equipos" VerticalOptions="Center"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             </StackLayout>
 
                         </Grid>
@@ -118,7 +118,7 @@
 
 
                             <StackLayout Grid.Column="2">
-                                <Label Margin="20,0,0,0" Text="Toda la agenda"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                <Label Margin="20,0,0,0" Text="Calendario" VerticalOptions="Center" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             </StackLayout>
 
                         </Grid>
@@ -182,7 +182,7 @@
 
 
                             <StackLayout Grid.Column="2">
-                                <Label Margin="20,0,0,0" Text="Todos los estudiantes"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                <Label Margin="20,0,0,0" Text="Estudiantes" VerticalOptions="Center" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             </StackLayout>
                         </Grid>
                     </Frame>
@@ -204,7 +204,7 @@
 
 
                             <StackLayout Grid.Column="2">
-                                <Label Margin="20,0,0,0" Text="Entrenadores"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                <Label Margin="20,0,0,0" Text="Entrenadores" VerticalOptions="Center" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             </StackLayout>
                         </Grid>
                     </Frame>
@@ -229,7 +229,7 @@
 
 
                             <StackLayout Grid.Column="2">
-                                <Label Margin="20,0,0,0" Text="Canchas"  FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                                <Label Margin="20,0,0,0" Text="Canchas" VerticalOptions="Center" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             </StackLayout>
                         </Grid>
                     </Frame>

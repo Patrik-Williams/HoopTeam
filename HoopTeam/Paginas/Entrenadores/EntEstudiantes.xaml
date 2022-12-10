@@ -38,7 +38,7 @@
 
 
                     <StackLayout Grid.Column="2" VerticalOptions="Center">
-                        <Label Text="Mis Estudiantes"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+                        <Label Text="Mis estudiantes"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                     </StackLayout>
 
                 </Grid>
@@ -56,12 +56,6 @@
                             </Grid.RowDefinitions>
                             <Frame BackgroundColor="White" CornerRadius="20">
 
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="verEditEst_Tapped" NumberOfTapsRequired="1">
-                                    </TapGestureRecognizer>
-
-                                </Frame.GestureRecognizers>
-
                                 <Grid  ColumnSpacing="10" RowSpacing="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -71,6 +65,11 @@
                                       
                                     
                                     <StackLayout Grid.Column="1">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="verEditEst_Tapped" NumberOfTapsRequired="1">
+                                            </TapGestureRecognizer>
+
+                                        </StackLayout.GestureRecognizers>
                                         <Image Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png"
                                         VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
                                         <Label Text="Editar" FontSize="18" TextColor="#999" HorizontalOptions="Center"></Label>
@@ -86,7 +85,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="1" Text="Equipo: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="1" Text="Equipo: " FontSize="18" TextColor="Black" FontAttributes="Bold"></Label>
                                             <Label Grid.Column="2" Text="{Binding IdEquipo}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                             <Label Grid.Column="3" Text="{Binding Categoria}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                             <Label Grid.Column="4" Text="{Binding Genero}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
@@ -97,7 +96,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="1" Text="Estado de pago: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="1" Text="Estado de pago: " FontSize="18" TextColor="Black" FontAttributes="Bold"></Label>
                                             <Label Grid.Column="2" Text="{Binding  EstadoPago}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
                                     </StackLayout>

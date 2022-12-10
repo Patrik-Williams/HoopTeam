@@ -76,17 +76,17 @@ namespace HoopTeam
 
                 if (objetocliente.LogIn(correo, contra).Equals("Est"))
                 {
-                    DisplayAlert("Información: ", "Bienvenido Estudiante", "OK");
+                    DisplayAlert("Información: ", "Bienvenido estudiante", "OK");
                     Est();
                 }
                 else if (objetocliente.LogIn(correo, contra).Equals("Ent"))
                 {
-                    DisplayAlert("Información: ", "Bienvenido Entrenador", "OK");
+                    DisplayAlert("Información: ", "Bienvenido entrenador", "OK");
                     Ent();
                 }
                 else if(objetocliente.LogIn(correo, contra).Equals("Sup"))
                 {
-                    DisplayAlert("Información: ", "Bienvenido Administrador", "OK");
+                    DisplayAlert("Información: ", "Bienvenido administrador", "OK");
                     Ent();
                 }
                 else
