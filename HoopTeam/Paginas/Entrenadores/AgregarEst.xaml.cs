@@ -41,7 +41,15 @@ namespace HoopTeam.Paginas.Entrenadores
 
         async void Volver()
         {
-            await Navigation.PushModalAsync(new EntEstudiantes(), true);
+            if (adm.getSuperUser())
+            {
+                await Navigation.PushModalAsync(new TodosEstudiantes(), true);
+            }
+            else
+            {
+                await Navigation.PushModalAsync(new EntEstudiantes(), true);
+            }
+            
         }
 
         private void settings_Clicked(object sender, EventArgs e)
@@ -51,9 +59,9 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregar(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "" || cbEquipo.SelectedItem == null || cbGenero.SelectedItem == null)
+            if (txtCedula.Text == "" || txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "" || cbEquipo.SelectedItem == null || cbGenero.SelectedItem == null)
             {
-                DisplayAlert("Alerta", "Debe llenar todos los datos", "Aceptar");
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
             }
             else
             {

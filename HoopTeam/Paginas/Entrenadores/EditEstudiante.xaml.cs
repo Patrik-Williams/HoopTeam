@@ -116,7 +116,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnEditar(object sender, EventArgs e)
         {
-            if (cbEquipo.SelectedItem == null || cbPago.SelectedItem == null)
+            if (cbEquipo.SelectedItem == null || cbPago.SelectedItem == null || txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" ||txtContraseña.Text=="")
             {
                 DisplayAlert("Alerta", "Debe seleccionar un equipo y Estado de pago", "Aceptar");
             }
@@ -142,11 +142,11 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void ShowExitDialog()
         {
-            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al estudiante?", "Si", "No");
+            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al estudiante?", "Sí", "No");
             if (answer)
             {
                 clienteEnt.EliminarEstudiante(Int32.Parse(est.Cedula));
-                DisplayAlert("Informacion", "Estudiante eliminado", "Ok");
+                DisplayAlert("Información", "Estudiante eliminado", "Ok");
                 Volver();
             }
         }

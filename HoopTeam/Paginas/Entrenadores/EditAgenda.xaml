@@ -28,7 +28,7 @@
                             <Image Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                         </StackLayout>
                         <StackLayout Grid.Column="2" VerticalOptions="Center">
-                            <Label Text="Editar Agenda"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+                            <Label Text="Editar agenda"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                         </StackLayout>
                     </Grid>
                 </Frame>
@@ -54,7 +54,7 @@
                                    
 
                                     <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb17" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Picker Margin="20,5,0,20" x:Name="cbEquipo" Title="Equipo" TextColor="Black" BackgroundColor="#aaa"  SelectedIndexChanged="OnPickerASelectedIndexChanged"/>
+                                    <Picker Margin="20,5,0,20" x:Name="cbEquipo" TextColor="Black" BackgroundColor="#aaa"  SelectedIndexChanged="OnPickerASelectedIndexChanged"/>
 
                                     <Label Margin="20,0,0,0" Text="Cancha" x:Name="lb16" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Picker  x:Name="cbCancha" BackgroundColor="#eee" Margin="20,10,0,20" TextColor="#000" SelectedIndexChanged="OnPickerSelectedIndexChangedCanchas"/>

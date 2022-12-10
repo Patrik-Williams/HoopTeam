@@ -54,9 +54,9 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnEditar(object sender, EventArgs e)
         {
-            if (cbEntrenador.SelectedItem == null || cbGenero.SelectedItem == null)
+            if (cbEntrenador.SelectedItem == null || cbGenero.SelectedItem == null || txtCate.Text == "" || txtCupo.Text == "" )
             {
-                DisplayAlert("Alerta", "Debe seleccionar un Entrenador y el genero", "Aceptar");
+                DisplayAlert("Alerta", "Debe seleccionar un Entrenador, genero y categoria", "Aceptar");
             }
             else
             {
@@ -71,11 +71,11 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void ShowExitDialog()
         {
-           var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea eliminar este equipo?", "Si", "No");
+           var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea eliminar este equipo?", "Sí", "No");
             if (answer)
             {
                 clienteAdm.EliminarEquipo(equipo.idEquipo);
-                DisplayAlert("Informacion", "Equipo eliminado", "Ok");
+                DisplayAlert("Información", "Equipo eliminado", "Ok");
                 Volver();
             }
         }

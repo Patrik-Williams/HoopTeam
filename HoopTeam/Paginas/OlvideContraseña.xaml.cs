@@ -65,7 +65,7 @@ namespace HoopTeam.Paginas
             }
             catch (Exception ex)
             {
-                DisplayAlert("Faild", ex.Message, "OK");
+                DisplayAlert("Failed", ex.Message, "OK");
 
 
             }

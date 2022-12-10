@@ -63,6 +63,18 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregarAgn(object sender, EventArgs e)
         {
+            if(cbEquipo.SelectedItem == null || cbCancha.SelectedItem == null || aDescripcion.SelectedItem == null)
+            {
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");   
+            }
+            else
+            {
+                //int idAgenda = Int32.Parse(txtAgenda.Text);
+                //int idEquipo = Int32.Parse(txtEqp.Text);
+                //int idCancha = Int32.Parse(txtCn.Text);
+                string fechaH = txtFechaHora.Text;
+                //string descripcion = txtDescripcion.Text;
+
 
             //int idAgenda = Int32.Parse(txtAgenda.Text);
             //int idEquipo = Int32.Parse(txtEqp.Text);
@@ -76,7 +88,7 @@ namespace HoopTeam.Paginas.Entrenadores
             DisplayAlert("Información", "Agenda agregada", "Aceptar");
             Volver();
 
-        }
+            } }
         private void OnPickerSelectedIndexChangedDescripcion(object sender, EventArgs e)
         {
             Picker picker = sender as Picker;

@@ -89,7 +89,7 @@
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="1" Text="Categoría: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                    <Label Grid.Column="1" Text="Categoria: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
                                     <Label Grid.Column="2" Text="" x:Name="lbCategoria" FontSize="20" TextColor="Black"  HorizontalTextAlignment="Start"></Label>
                                 </Grid>
 
@@ -98,7 +98,7 @@
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="1" Text="Género: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
+                                    <Label Grid.Column="1" Text="Genero: " FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
                                     <Label Grid.Column="2" Text="" x:Name="lbGenero"   FontSize="20" TextColor="Black"  HorizontalOptions="Start"></Label>
                                 </Grid>
 
