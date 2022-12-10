@@ -44,6 +44,10 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregar(object sender, EventArgs e)
         {
+            if (txtCate.Text == "" )
+            {
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
+            }
             /*int ced = Int32.Parse(txtCedula.Text);
             string nom = txtNombre.Text;
             string ap1 = txtApellido1.Text;
@@ -52,14 +56,14 @@ namespace HoopTeam.Paginas.Entrenadores
             string contra = txtContraseña.Text;
             clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, Int32.Parse(equipo[0].ToString()));
             DisplayAlert("Informacion", "Estudiante agregado", "Ok");*/
+            else {
+                string categoria = txtCate.Text;
+                int cupo = Int32.Parse(txtCupo.Text);
 
-            string categoria = txtCate.Text;
-            int cupo = Int32.Parse(txtCupo.Text);
-
-            clienteAdm.AgregarEquipo(categoria, gen[0].ToString(), cedEnt, cupo);
-            DisplayAlert("Informacion", "Equipo agregado", "Ok");
-            Sett();
-
+                clienteAdm.AgregarEquipo(categoria, gen[0].ToString(), cedEnt, cupo);
+                DisplayAlert("Informacion", "Equipo agregado", "Ok");
+                Sett();
+            }
         }
         private void OnPickerSelectedIndexChangedGenero(object sender, EventArgs e)
         {

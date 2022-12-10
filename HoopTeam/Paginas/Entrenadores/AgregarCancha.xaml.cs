@@ -31,13 +31,18 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregarCancha(object sender, EventArgs e)
         {
- 
-            string ubicacion = txtUbicacion.Text;
+            if (txtUbicacion.Text == "")
+            {
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
+            }
+            else
+       { 
+        string ubicacion = txtUbicacion.Text;
 
-            clienteEnt.AgregarCancha( ubicacion);
+        clienteEnt.AgregarCancha(ubicacion);
             DisplayAlert("Información", "Cancha agregada", "Aceptar");
-            Volver();
-
-        }
+        Volver();
+       }
+     }
     }
 }
