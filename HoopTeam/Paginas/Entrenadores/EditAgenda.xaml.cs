@@ -56,7 +56,7 @@ namespace HoopTeam.Paginas.Entrenadores
             
            //txtEqp.Text = agn.Equipo;
            //txtCn.Text = agn.Cancha;
-           txtFechaHora.Text = agn.FechaHora;
+           //txtFechaHora.Text = agn.FechaHora;
            txtDesc.Text = agn.Descripcion;
 
            foreach(Equipos eq in equipos)

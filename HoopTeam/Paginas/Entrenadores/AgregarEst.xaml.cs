@@ -63,7 +63,8 @@ namespace HoopTeam.Paginas.Entrenadores
                 string ap2 = txtApellido2.Text;
                 string correo = txtCorreo.Text;
                 string contra = txtContraseña.Text;
-                clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, equipo);
+                DateTime fecha = fechaNacimiento.Date;
+                clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, fecha, genero[0].ToString(), correo, contra, equipo);
                 DisplayAlert("Informacion", "Estudiante agregado", "Ok");
                 Volver();
             }

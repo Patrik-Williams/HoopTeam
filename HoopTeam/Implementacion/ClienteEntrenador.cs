@@ -136,7 +136,7 @@ namespace HoopTeam.Implementacion
                     est.Apellido1 = drCurrent["apellido1"].ToString();
                     est.Apellido2 = drCurrent["apellido2"].ToString();
                     est.NombreCompleto = est.Nombre + " " + est.Apellido1 + " " + est.Apellido2;
-                    est.Nacimiento = drCurrent["fechaNacimiento"].ToString();
+                    est.Nacimiento = DateTime.Parse(drCurrent["fechaNacimiento"].ToString());
                     est.Genero = drCurrent["genero"].ToString();
                     est.Correo = drCurrent["correo"].ToString();
                     est.Contrasenna = drCurrent["contrasenna"].ToString();
@@ -394,8 +394,8 @@ namespace HoopTeam.Implementacion
                     est.Nombre = drCurrent["nombre"].ToString();
                     est.Apellido1 = drCurrent["apellido1"].ToString();
                     est.Apellido2 = drCurrent["apellido2"].ToString();
-                    est.Genero = drCurrent["genero"].ToString();
-                    est.Nacimiento = drCurrent["fechaNacimiento"].ToString();
+                    est.Genero = drCurrent["genero"].ToString();                 
+                    est.Nacimiento = DateTime.Parse( drCurrent["fechaNacimiento"].ToString());
                     est.Correo = drCurrent["correo"].ToString();
                     est.Contrasenna = drCurrent["contrasenna"].ToString();
                 }
@@ -502,7 +502,7 @@ namespace HoopTeam.Implementacion
             }
         }
 
-        public void EditarInfoEst(int ced, string nom, string ap1, string ap2, string correo, string contra, int equipoNuevo, int equipoViejo, int pago)
+        public void EditarInfoEst(int ced, string nom, string ap1, string ap2, DateTime fecha, string correo, string contra, int equipoNuevo, int equipoViejo, int pago)
         {
             try
             {
@@ -522,7 +522,7 @@ namespace HoopTeam.Implementacion
                 con.Open();
 
                 string qry = "UPDATE Estudiantes set Nombre = '" + nom + "', Apellido1 ='" + ap1 + "', Apellido2 ='" + ap2 + "'" +
-                    ", correo= '" + correo + "', " + "contrasenna = '" + contra + "' where cedula = " + ced + " ";
+                    ", fechaNacimiento = '"+fecha.ToString("yyyy-MM-dd")+"', correo= '" + correo + "', " + "contrasenna = '" + contra + "' where cedula = " + ced + " ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();
@@ -756,7 +756,7 @@ namespace HoopTeam.Implementacion
             }
         }
 
-        public void AgregarEstudiante(int ced, string nom, string ap1, string ap2, string gen, string correo, string contra, int equipo)
+        public void AgregarEstudiante(int ced, string nom, string ap1, string ap2, DateTime fecha, string gen, string correo, string contra, int equipo)
         {
             try
             {
@@ -775,7 +775,7 @@ namespace HoopTeam.Implementacion
                                           "database =HoopTeam");
                 con.Open();
 
-                string qry = "INSERT INTO Estudiantes Values(" + ced + ", '" + nom + "', '" + ap1 + "', '" + ap2 + "', curdate(), '" + gen + "', '" + correo + "', '" + contra + "', 1);";
+                string qry = "INSERT INTO Estudiantes Values(" + ced + ", '" + nom + "', '" + ap1 + "', '" + ap2 + "', '"+fecha.ToString("yyyy-MM-dd") +"', '" + gen + "', '" + correo + "', '" + contra + "', 1);";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
                 cmd.ExecuteNonQuery();

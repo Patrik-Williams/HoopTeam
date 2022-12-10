@@ -62,8 +62,9 @@
                                     <Entry  Placeholder="Apellido2" x:Name="txtApellido2" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Fecha de nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Fecha de nacimiento" x:Name="txtNacimiento" IsEnabled="False" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
-
+                                    <!--<Entry  Placeholder="Contraseña" x:Name="txtNacimiento" IsEnabled="False" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>-->
+                                    <DatePicker x:Name="fechaNacimiento" TextColor="#444"  Margin="20,10,0,20"></DatePicker>
+                                    
                                     <Label Margin="20,0,0,0" Text="Género" x:Name="lb9" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Picker Margin="20,5,0,20" x:Name="cbGenero" TextColor="Black" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedGenero">
                                         <Picker.Items>

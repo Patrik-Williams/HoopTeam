@@ -48,9 +48,12 @@ namespace HoopTeam.Paginas.Entrenadores
             txtNombre.Text = est.Nombre;
             txtApellido1.Text = est.Apellido1;
             txtApellido2.Text = est.Apellido2;
-            txtNacimiento.Text = est.Nacimiento;
+            //txtNacimiento.Text = est.Nacimiento.ToString();
             txtCorreo.Text = est.Correo;
             txtContraseña.Text = est.Contrasenna;
+            fechaNacimiento.Date = est.Nacimiento;
+            //DisplayAlert("Info", est.Nacimiento.ToString("yyyy-MM-dd"), "OK");
+
         }
         async void Sett()
         {
@@ -127,8 +130,9 @@ namespace HoopTeam.Paginas.Entrenadores
                 string contra = txtContraseña.Text;
                 int eqViejo = equipoViejo;
                 int eqNuevo = equipoNuevo;
+                DateTime date = fechaNacimiento.Date;
 
-                clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo, pago);
+                clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, date, correo, contra, eqNuevo, eqViejo, pago);
 
                 Volver();
             }
