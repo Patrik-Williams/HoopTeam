@@ -5,8 +5,7 @@ using System.Text;
 using HoopTeam.Modelo;
 using MySql.Data.MySqlClient;
 using HoopTeam.Modelo.Entrenadores;
-
-
+using System.Diagnostics;
 
 namespace HoopTeam.Implementacion
 {
@@ -106,7 +105,7 @@ namespace HoopTeam.Implementacion
                     ag.Equipo = drCurrent["Equipo"].ToString();
                     ag.Cancha = drCurrent["idCanchas"].ToString();
                     ag.Ubicacion = drCurrent["ubicacion"].ToString();
-                    ag.FechaHora = drCurrent["fechayHora"].ToString();
+                    ag.FechaHora = DateTime.Parse(drCurrent["fechayHora"].ToString());
                     ag.Descripcion = drCurrent["descripcion"].ToString();
 
                     //Agrega el objeto a la lista 
@@ -203,7 +202,7 @@ namespace HoopTeam.Implementacion
                     ag.Equipo = drCurrent["Equipo"].ToString();
                     ag.Cancha = drCurrent["idCanchas"].ToString();
                     ag.Ubicacion = drCurrent["ubicacion"].ToString();
-                    ag.FechaHora = drCurrent["fechayHora"].ToString();
+                    ag.FechaHora = DateTime.Parse(drCurrent["fechayHora"].ToString());
                     ag.Descripcion = drCurrent["descripcion"].ToString();
 
                     //Agrega objeto a la lista 
@@ -291,7 +290,7 @@ namespace HoopTeam.Implementacion
                     ag.Equipo = drCurrent["Equipo"].ToString();
                     ag.Cancha = drCurrent["idCanchas"].ToString();
                     ag.Ubicacion = drCurrent["ubicacion"].ToString();
-                    ag.FechaHora = drCurrent["fechayHora"].ToString();
+                    ag.FechaHora = DateTime.Parse(drCurrent["fechayHora"].ToString());
                     ag.Descripcion = drCurrent["descripcion"].ToString();
 
                     //Agrega objeto a la lista 
@@ -357,7 +356,7 @@ namespace HoopTeam.Implementacion
                     ag.Equipo = drCurrent["Equipo"].ToString();
                     ag.Cancha = drCurrent["idCanchas"].ToString();
                     ag.Ubicacion = drCurrent["ubicacion"].ToString();
-                    ag.FechaHora = drCurrent["fechayHora"].ToString();
+                    ag.FechaHora = DateTime.Parse(drCurrent["fechayHora"].ToString());
                     ag.Descripcion = drCurrent["descripcion"].ToString();
 
                     
@@ -542,7 +541,7 @@ namespace HoopTeam.Implementacion
                     agn.idAgenda = drCurrent["idAgenda"].ToString();
                     agn.Equipo = drCurrent["Equipo"].ToString();
                     agn.Cancha = drCurrent["idCanchas"].ToString();
-                    agn.FechaHora = drCurrent["fechayHora"].ToString();
+                    agn.FechaHora = DateTime.Parse(drCurrent["fechayHora"].ToString());
                     agn.Descripcion = drCurrent["descripcion"].ToString();
 
                     flag = "Agn";
@@ -558,7 +557,7 @@ namespace HoopTeam.Implementacion
             }
 
 
-        public void AgregarAgenda(string idEqp, string idCn, string fecha, string dcp)
+        public void AgregarAgenda(string idEqp, string idCn, string fechaHora, string dcp)
         {
             try
             {

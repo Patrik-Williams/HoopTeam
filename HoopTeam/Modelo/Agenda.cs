@@ -12,7 +12,9 @@ namespace HoopTeam.Modelo
         public int idEquipo { get; set; }
         public string Cancha { get; set; }
         public string Ubicacion { get; set; }
-        public string FechaHora { get; set; }
+        //public string FechaHora { get; set; }
+
+        public DateTime FechaHora { get; set; }
         public string Descripcion { get; set; }
     }
 }

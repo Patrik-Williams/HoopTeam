@@ -31,9 +31,9 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregar(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "")
+            if (txtCedula.Text == "" || txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "")
             {
-                DisplayAlert("Alerta", "Debe llenar todos los datos", "Aceptar");
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
             }
             else
             { 
@@ -46,7 +46,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
                 //clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, equipo);
                 clienteAdm.AgregarEntrenador(ced, nom, ap1, ap2, correo, contra);
-                DisplayAlert("Informacion", "Entrenador agregado", "Ok");
+                DisplayAlert("Información", "Entrenador agregado", "Ok");
                 Sett();
             }
 

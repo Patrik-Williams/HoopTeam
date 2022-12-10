@@ -39,7 +39,7 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "")
             {
-                DisplayAlert("Alerta", "Debe llenar todos los datos", "Aceptar");
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
             }
             else
             {
@@ -57,16 +57,16 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void ShowExitDialog()
         {
-            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al estudiante?", "Si", "No");
+            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea eliminar al entrenador?", "Sí", "No");
             if (answer)
             {
                 if (clienteAdm.verificarEquipoEnt(Int32.Parse(entrenador.Cedula)) > 0) 
                 {
-                    DisplayAlert("Alerta", "El entrenador tiene un equipo a su nombre, cambie el equipo de entrenador para eliminar", "Ok");
+                    DisplayAlert("Alerta", "El entrenador tiene un equipo a su nombre. Cambie el equipo de entrenador para poder eliminar.", "Ok");
                 }else
                 {
                     clienteAdm.EliminarEntrenador(Int32.Parse(entrenador.Cedula));
-                    DisplayAlert("Informacion", "Entrenador eliminado", "Ok");
+                    DisplayAlert("Información", "Entrenador eliminado", "Ok");
                     Sett();
                 }
                 //clienteEnt.EliminarEstudiante(Int32.Parse(est.Cedula));

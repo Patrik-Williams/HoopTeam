@@ -24,6 +24,8 @@ namespace HoopTeam.Paginas.Entrenadores
 
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
 
+        Administrador adm = new Administrador();
+
         
 
         public AgregarEst()   
@@ -39,7 +41,15 @@ namespace HoopTeam.Paginas.Entrenadores
 
         async void Volver()
         {
-            await Navigation.PushModalAsync(new EntEstudiantes(), true);
+            if (adm.getSuperUser())
+            {
+                await Navigation.PushModalAsync(new TodosEstudiantes(), true);
+            }
+            else
+            {
+                await Navigation.PushModalAsync(new EntEstudiantes(), true);
+            }
+            
         }
 
         private void settings_Clicked(object sender, EventArgs e)
@@ -49,9 +59,9 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnAgregar(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "" || cbEquipo.SelectedItem == null || cbGenero.SelectedItem == null)
+            if (txtCedula.Text == "" || txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "" || cbEquipo.SelectedItem == null || cbGenero.SelectedItem == null)
             {
-                DisplayAlert("Alerta", "Debe llenar todos los datos", "Aceptar");
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
             }
             else
             {
@@ -61,8 +71,8 @@ namespace HoopTeam.Paginas.Entrenadores
                 string ap2 = txtApellido2.Text;
                 string correo = txtCorreo.Text;
                 string contra = txtContraseña.Text;
-
-                clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, equipo);
+                DateTime fecha = fechaNacimiento.Date;
+                clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, fecha, genero[0].ToString(), correo, contra, equipo);
                 DisplayAlert("Informacion", "Estudiante agregado", "Ok");
                 Volver();
             }
@@ -79,7 +89,16 @@ namespace HoopTeam.Paginas.Entrenadores
             Debug.WriteLine(genero);
             Debug.WriteLine(genero[0].ToString());
 
-            equipos = clienteEnt.GetEquiposGen_Ent(genero[0].ToString(), Int32.Parse(ent.getCedula()));
+            if (adm.getSuperUser())
+            {
+                equipos = clienteEnt.GetEquiposGenero(genero[0].ToString());
+            }
+            else
+            {
+                equipos = clienteEnt.GetEquiposGen_Ent(genero[0].ToString(), Int32.Parse(ent.getCedula()));
+            }
+            
+
             cbEquipo.Items.Clear();
             foreach (Equipos eq in equipos)
             {

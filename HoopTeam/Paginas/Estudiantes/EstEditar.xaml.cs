@@ -15,8 +15,8 @@ namespace HoopTeam.Paginas.Estudiantes
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EstEditar : ContentPage
     {
-
-        ClienteEstudiante cEnt = new ClienteEstudiante();
+        ClienteEntrenador cEnt = new ClienteEntrenador();
+        ClienteEstudiante cEst = new ClienteEstudiante();
         EstudianteEstatico estudiante = new EstudianteEstatico();
         public EstEditar()
         {
@@ -42,11 +42,22 @@ namespace HoopTeam.Paginas.Estudiantes
         {
             Sett();
         }
+        async void Volver()
+        {
+            await Navigation.PushModalAsync(new EstMain(), true);
+        }
         private void ver_Cambios(object sender, EventArgs e)
         {
-            //al hacer click hace el cambio de datos
-            ClienteEstudiante objClienteE = new ClienteEstudiante();
+            if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtGenero.Text== "" || txtCorreo.Text=="" || txtContraseña.Text == ""  ) 
+            {
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
+            }
+       
+          
+            else
+            {
 
+            
             string nom = txtNombre.Text;
             string ap1 = txtApellido1.Text;
             string ap2 = txtApellido2.Text;
@@ -56,17 +67,14 @@ namespace HoopTeam.Paginas.Estudiantes
             string fecha = txtFecha.Text;
             string ced = estudiante.getCedula();
 
-            try
-            {
-                objClienteE.actualizarEstudiante(nom, ap1, ap2, gen,correo, con, ced);
-                DisplayAlert("Información: ", "Datos actualizados", "OK");
-                Sett();
-            }
-            catch (Exception ex)
-            {
-                DisplayAlert("Información Actualizada", "Perfil", "OK");
-            }
+          
 
+
+                cEst.actualizarEstudiante(nom, ap1, ap2, gen, correo, con, ced);
+                DisplayAlert("Información: ", "Datos actualizados", "OK");
+                Volver();
+
+            }
         }
     }
 }

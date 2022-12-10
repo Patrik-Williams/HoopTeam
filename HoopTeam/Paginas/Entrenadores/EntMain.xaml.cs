@@ -38,6 +38,8 @@ namespace HoopTeam.Paginas
 
                 Entrenadores.IsVisible = true;
                 Canchas.IsVisible = true;
+
+                perfil.IsEnabled = false;
             }
             else if (adm.getSuperUser()==false)
             {

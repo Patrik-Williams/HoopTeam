@@ -54,8 +54,11 @@
                                     <Picker  x:Name="cbCancha" BackgroundColor="#eee" Margin="20,10,0,20" TextColor="#000" SelectedIndexChanged="OnPickerSelectedIndexChangedCanchas"/>
 
                                     <Label Margin="20,0,0,0" Text="Fecha y hora" x:Name="lb14" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Fecha y hora" x:Name="txtFechaHora" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
+                                    
+                                    <DatePicker x:Name="fechaAgenda" TextColor="#444"  BackgroundColor="#aaa" Margin="20,10,0,20"></DatePicker>
 
+                                    <TimePicker x:Name="horaAgenda" TextColor="#444" BackgroundColor="#aaa" Margin="20,10,0,20"></TimePicker>
+                                    
                                     <Label Margin="20,0,0,0" Text="Descripción" x:Name="lb15" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Picker Margin="20,5,0,20" x:Name="aDescripcion" TextColor="Black" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedDescripcion">
                                         <Picker.Items>

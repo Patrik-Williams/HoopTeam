@@ -48,9 +48,12 @@ namespace HoopTeam.Paginas.Entrenadores
             txtNombre.Text = est.Nombre;
             txtApellido1.Text = est.Apellido1;
             txtApellido2.Text = est.Apellido2;
-            txtNacimiento.Text = est.Nacimiento;
+            //txtNacimiento.Text = est.Nacimiento.ToString();
             txtCorreo.Text = est.Correo;
             txtContraseña.Text = est.Contrasenna;
+            fechaNacimiento.Date = est.Nacimiento;
+            //DisplayAlert("Info", est.Nacimiento.ToString("yyyy-MM-dd"), "OK");
+
         }
         async void Sett()
         {
@@ -113,7 +116,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnEditar(object sender, EventArgs e)
         {
-            if (cbEquipo.SelectedItem == null || cbPago.SelectedItem == null)
+            if (cbEquipo.SelectedItem == null || cbPago.SelectedItem == null || txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" ||txtContraseña.Text=="")
             {
                 DisplayAlert("Alerta", "Debe seleccionar un equipo y Estado de pago", "Aceptar");
             }
@@ -127,8 +130,9 @@ namespace HoopTeam.Paginas.Entrenadores
                 string contra = txtContraseña.Text;
                 int eqViejo = equipoViejo;
                 int eqNuevo = equipoNuevo;
+                DateTime date = fechaNacimiento.Date;
 
-                clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo, pago);
+                clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, date, correo, contra, eqNuevo, eqViejo, pago);
 
                 Volver();
             }
@@ -138,11 +142,11 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void ShowExitDialog()
         {
-            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al estudiante?", "Si", "No");
+            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar al estudiante?", "Sí", "No");
             if (answer)
             {
                 clienteEnt.EliminarEstudiante(Int32.Parse(est.Cedula));
-                DisplayAlert("Informacion", "Estudiante eliminado", "Ok");
+                DisplayAlert("Información", "Estudiante eliminado", "Ok");
                 Volver();
             }
         }

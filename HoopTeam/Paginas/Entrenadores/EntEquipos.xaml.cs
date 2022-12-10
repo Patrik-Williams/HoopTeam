@@ -64,7 +64,7 @@ namespace HoopTeam.Paginas.Entrenadores
             cupo = selectedEquipo.cupo;
             equipo = selectedEquipo.idEquipo;
             Debug.WriteLine(selectedEquipo.categoria);
-            Debug.WriteLine("hola");
+            Debug.WriteLine("Hola");
         }
     }
 }

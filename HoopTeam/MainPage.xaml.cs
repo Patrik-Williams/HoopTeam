@@ -55,7 +55,7 @@ namespace HoopTeam
             }
             catch (Exception ex)
             {
-                DisplayAlert("Faild", ex.Message, "OK");
+                DisplayAlert("Failed", ex.Message, "OK");
 
                 
             }
@@ -76,17 +76,17 @@ namespace HoopTeam
 
                 if (objetocliente.LogIn(correo, contra).Equals("Est"))
                 {
-                    DisplayAlert("Información: ", "Bienvenido Estudiante", "OK");
+                    DisplayAlert("Información: ", "Bienvenido estudiante", "OK");
                     Est();
                 }
                 else if (objetocliente.LogIn(correo, contra).Equals("Ent"))
                 {
-                    DisplayAlert("Información: ", "Bienvenido Entrenador", "OK");
+                    DisplayAlert("Información: ", "Bienvenido entrenador", "OK");
                     Ent();
                 }
                 else if(objetocliente.LogIn(correo, contra).Equals("Sup"))
                 {
-                    DisplayAlert("Información: ", "Bienvenido Administrador", "OK");
+                    DisplayAlert("Información: ", "Bienvenido administrador", "OK");
                     Ent();
                 }
                 else
@@ -96,7 +96,7 @@ namespace HoopTeam
             }
             else
             {
-                DisplayAlert("Datos errones", "Por favor, llena toda la información", "Ok");
+                DisplayAlert("Datos erroneos", "Por favor, llena toda la información", "Ok");
 
             }
         }

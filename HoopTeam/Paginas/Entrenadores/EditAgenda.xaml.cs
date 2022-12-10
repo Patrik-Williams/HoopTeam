@@ -56,7 +56,7 @@ namespace HoopTeam.Paginas.Entrenadores
             
            //txtEqp.Text = agn.Equipo;
            //txtCn.Text = agn.Cancha;
-           txtFechaHora.Text = agn.FechaHora;
+           //txtFechaHora.Text = agn.FechaHora;
            txtDesc.Text = agn.Descripcion;
 
            foreach(Equipos eq in equipos)
@@ -131,9 +131,12 @@ namespace HoopTeam.Paginas.Entrenadores
         private void btnEditarA(object sender, EventArgs e)
         {
             ClienteAgenda clienteA = new ClienteAgenda();
-            try
-
+            if (txtDesc.Text == "" )
             {
+                DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
+            }
+            else
+             {
                 string Agenda = agn.idAgenda;
                 // string Cancha = txtCn.Text;
                 string FechaHora = txtFechaHora.Text;
@@ -142,19 +145,16 @@ namespace HoopTeam.Paginas.Entrenadores
 
                 VolverA();
             }
-            catch (Exception ex)
-            {
-                string txt = ex.Message;
-            }
+        
 
         }
         private async void ShowExitDialog()
         {
-            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea Eliminar la agenda?", "Si", "NO");
+            var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea eliminar la agenda?", "Sí", "NO");
             if (answer)
             {
                 clienteA.EliminarAgenda(agn.idAgenda);
-                DisplayAlert("Informacion", "Agenda eliminada", "Ok");
+                DisplayAlert("Información", "Agenda eliminada", "Ok");
                 VolverA();
             }
         }

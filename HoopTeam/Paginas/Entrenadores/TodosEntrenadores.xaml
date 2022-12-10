@@ -82,7 +82,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Column="1" Text="Correo: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="2" Text="{Binding Correo}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
+                                            <Label Grid.Column="2" Text="{Binding Correo}" FontSize="20" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
 
                                     </StackLayout>
