@@ -23,7 +23,7 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
                         <StackLayout Grid.Column="1" VerticalOptions="Center">
-                            <Image Source="https://cdn-icons-png.flaticon.com/512/4650/4650661.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/1940/1940735.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                         </StackLayout>
                         <StackLayout Grid.Column="2" VerticalOptions="Center">
                             <Label Text="Agregar cancha"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
