@@ -16,6 +16,7 @@ namespace HoopTeam.Paginas.Entrenadores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AgregarEst : ContentPage
     {
+        //lista de tipo equipos
         List<Equipos> equipos = new List<Equipos>();
         static int equipo { get; set; }
 

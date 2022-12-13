@@ -4,6 +4,7 @@ namespace HoopTeam.Modelo
 {
     class Entrenador
     {
+        //campos del objeto Entrenador
         private static string cedula;
         private static string Nombre;
         private static string Apellido1;
@@ -12,7 +13,7 @@ namespace HoopTeam.Modelo
         private static string contrasenna;
 
 
-
+        //getters and setters
         public String getCedula()
         {
             return cedula;

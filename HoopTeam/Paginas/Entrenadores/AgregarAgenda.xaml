@@ -4,19 +4,22 @@
              x:Class="HoopTeam.Paginas.Entrenadores.AgregarAgenda">
     <ContentPage.Content>
         <ScrollView>
+            <!-- define el color de fondo-->
         <StackLayout BackgroundColor="#999">
-                <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
+
+                <!--header de la pagina-->
+                    <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                     <Grid >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
                         <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
-
-
                         <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
                     </Grid>
                 </Frame>
+            
+            <!--titulo de la pagina-->
                 <Frame BackgroundColor="#256B1C" Margin="20,20,20,10" WidthRequest="1000" CornerRadius="20">
                     <Grid>
 
@@ -33,6 +36,7 @@
                     </Grid>
                 </Frame>
             
+            <!--Form principal-->
                 <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <StackLayout>
                         <Grid >
@@ -49,6 +53,8 @@
 
                                 <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
                                 <StackLayout Grid.Column="2">
+                                    
+                                    
                                     <Label Margin="20,0,0,0" Text="Equipo" x:Name="lb17" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Picker x:Name="cbEquipo" BackgroundColor="#ddd" Margin="20,10,0,20" TextColor="#000" SelectedIndexChanged="OnPickerSelectedIndexChangedEquipo1"/>
                                     
@@ -68,8 +74,6 @@
                                             <x:String>Entrenamiento</x:String>
                                         </Picker.Items>
                                     </Picker>
-                                    
-                                  <!--  <Entry  Placeholder="Partido o Entrenamiento" x:Name="txtDescripcion" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>-->
 
                                 </StackLayout>
                             </Grid>
@@ -79,9 +83,9 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <StackLayout Grid.Column="1" HorizontalOptions="Center" >
+                                <!--Boton de agregar-->
+                                    <StackLayout Grid.Column="1" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/148/148764.png" Margin="0,0,20,0" Clicked="btnAgregarAgn" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
-                             
                                 </StackLayout>
 
                             </Grid>

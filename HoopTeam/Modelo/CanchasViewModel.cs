@@ -8,10 +8,11 @@ namespace HoopTeam.Modelo
 {
     class CanchasViewModel
     {
-        //Entrenador ent = new Entrenador();
-
+        
+        //lista de tipo cancha
         public List<Cancha> CanchasTotal { get; set; }
 
+        //carga la lista con todas las canchas 
         public CanchasViewModel()
         {
             CanchasTotal = new CanchaService().GetCanchas();

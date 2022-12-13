@@ -6,12 +6,14 @@ namespace HoopTeam.Modelo.Estudiantes
 {
     class EstudiantePago
     {
+        //campos del objeto pago, permite ver el estado de pago del estudiantes
         private static string IdPago;
         private static string Cedula;
         private static string FechaPago;
         private static int PagoRealizado;
         private static string Monto;
 
+        //getters and setters
         public String getIdPago()
         {
             return IdPago;

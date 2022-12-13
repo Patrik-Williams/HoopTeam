@@ -4,7 +4,9 @@
              x:Class="HoopTeam.Paginas.Entrenadores.AgregarCancha">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout BackgroundColor="#999">
+            <!--Color de fondo-->
+                <StackLayout BackgroundColor="#999">
+                    <!--Header de la pagina-->
                 <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                     <Grid >
                         <Grid.ColumnDefinitions>
@@ -15,6 +17,7 @@
                         <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
                     </Grid>
                 </Frame>
+                    <!--Titulo de la pagina-->
                 <Frame BackgroundColor="#256B1C" Margin="20,20,20,10" WidthRequest="1000" CornerRadius="20">
                     <Grid>
 
@@ -30,7 +33,8 @@
                         </StackLayout>
                     </Grid>
                 </Frame>
-
+                
+                    <!--form principal-->
                 <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <StackLayout>
                         <Grid >
@@ -47,9 +51,7 @@
 
                                 <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8927/8927654.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
                                 <StackLayout Grid.Column="2">
-                                 <!--   <Label Margin="20,0,0,0" Text="Número cancha" x:Name="lb10" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <Entry  Placeholder="Número cancha" x:Name="txtCancha" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>-->
-
+                                    
                                     <Label Margin="20,0,0,0" Text="Ubicación" x:Name="lb17" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                                     <Entry  Placeholder="Ubicación" x:Name="txtUbicacion" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
@@ -61,9 +63,9 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
+                                <!--Boton de agregar-->
                                 <StackLayout Grid.Column="1" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/148/148764.png" Margin="0,0,20,0" Clicked="btnAgregarCancha" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
-
                                 </StackLayout>
 
                             </Grid>

@@ -22,32 +22,30 @@
                         </Grid.ColumnDefinitions>
 
                         <CheckBox Grid.Column="1" x:Name="verPass" CheckedChanged="verPass_CheckedChanged" ></CheckBox>
-                        <Label Grid.Column="2" Text="Mostrar contraseña" VerticalOptions="Center" TextColor="Black"></Label>
+                        <Label Grid.Column="2" Text="Mostrar contraseña" VerticalOptions="Center" FontSize="18" TextColor="Black"></Label>
 
 
                     </Grid>
                     <Label HorizontalTextAlignment="Center">
                         <Label.FormattedText>
                             <FormattedString>
-                                
+
                                 <Span Text="¿Olvidó su contraseña?"
                                         TextColor="Blue"
+                                        FontSize="18"
                                            TextDecorations="Underline" >
                                     <Span.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="olvidoContra" ></TapGestureRecognizer>
-                                        
                                     </Span.GestureRecognizers>
                                 </Span>
-                                
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
                 </StackLayout>
                 
 
-                <StackLayout Margin="0,10,0,0">
+                <StackLayout Margin="0,30,0,0">
                     <Button CornerRadius="10" FontAttributes="Bold" Text="Iniciar sesión" Background="#FF8200" Clicked="ver_clicked"  TextColor="#fff" />
-                    <!--<Button CornerRadius="10" FontAttributes="Bold" Text="Estudiante" BackgroundColor="#D28282" Clicked="ButtonEst_Clicked"  TextColor="#fff" />-->
                 </StackLayout>
 
 

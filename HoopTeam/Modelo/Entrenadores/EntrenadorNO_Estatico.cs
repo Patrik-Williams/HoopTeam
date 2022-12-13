@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace HoopTeam.Modelo.Entrenadores
-{
+{   
+    //campos del entrenador no estatico
     public class EntrenadorNO_Estatico
     {
         public string Cedula { get; set; }
