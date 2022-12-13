@@ -37,7 +37,7 @@
 
                         <StackLayout Grid.Column="1"
                                      VerticalOptions="Center">
-                            <Image Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png"
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/8302/8302434.png"
                                    HorizontalOptions="Start"
                                    WidthRequest="60"></Image>
                         </StackLayout>

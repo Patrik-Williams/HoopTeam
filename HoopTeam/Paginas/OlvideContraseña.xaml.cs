@@ -107,7 +107,7 @@ namespace HoopTeam.Paginas
             }
             else
             {
-                DisplayAlert("Alerta", "Código incorrecto, Ha exedido el número maximo de intentos", "Ok");
+                DisplayAlert("Alerta", "Código incorrecto, Ha excedido el número maximo de intentos", "Ok");
                 Sett();
             }
 
