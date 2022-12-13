@@ -71,8 +71,9 @@ namespace HoopTeam.Paginas.Entrenadores
                 string ap2 = txtApellido2.Text;
                 string correo = txtCorreo.Text;
                 string contra = txtContraseña.Text;
-                clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, genero[0].ToString(), correo, contra, equipo);
-                DisplayAlert("Información", "Estudiante agregado", "Ok");
+                DateTime fecha = fechaNacimiento.Date;
+                clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, fecha, genero[0].ToString(), correo, contra, equipo);
+                DisplayAlert("Informacion", "Estudiante agregado", "Ok");
                 Volver();
             }
 
@@ -119,12 +120,8 @@ namespace HoopTeam.Paginas.Entrenadores
                     cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString();
                 }
             }
-
             Debug.WriteLine(selectedItem.ToString());
             Debug.WriteLine(equipo);
-
         }
-
-
     }
 }

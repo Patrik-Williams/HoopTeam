@@ -34,16 +34,12 @@ namespace HoopTeam.Paginas.Entrenadores
         List<Cancha> canchas { get; set; }
         static string cancha { get; set; }
 
-
+        static string descripcion { get; set; }
         ClienteAgenda clienteA = new ClienteAgenda();
 
 
         public EditAgenda(Agenda agenda, string idA, int idE)
         {
-
-          
-            
-
             InitializeComponent();
             this.agn = agenda;
 
@@ -53,34 +49,31 @@ namespace HoopTeam.Paginas.Entrenadores
 
             eqViejo = idE;
 
+
+            //txtEqp.Text = agn.Equipo;
+            //txtCn.Text = agn.Cancha;
+            //txtFechaHora.Text = agn.FechaHora;
             
-           //txtEqp.Text = agn.Equipo;
-           //txtCn.Text = agn.Cancha;
-           txtFechaHora.Text = agn.FechaHora;
-           txtDesc.Text = agn.Descripcion;
+            fechaAgenda.Date = DateTime.Parse(agn.FechaHora.ToShortDateString());
+            //horaAgenda.Time = TimeSpan.Parse(agn.FechaHora.ToShortTimeString());
+            //txtDesc.Text = agn.Descripcion;
+            aDescripcion.SelectedItem = agn.Descripcion;
 
            foreach(Equipos eq in equipos)
             {
-                
-                
                cbEquipo.Items.Add(eq.idEquipo.ToString());
             }
             foreach (Cancha cn in canchas)
             {
                 cbCancha.Items.Add(cn.idCancha.ToString());
             }
-
             Debug.WriteLine("Equipo Viejo " + eqViejo);
             Debug.WriteLine(idE);
-
-         
-
         }
         async void Sett()
         {
             await Navigation.PushModalAsync(new EntAgenda(), true);
         }
-
 
         private void settings_clicked(object sender, EventArgs e)
         {
@@ -103,7 +96,6 @@ namespace HoopTeam.Paginas.Entrenadores
                     if(eqNuevo==eqViejo)
                     {
                         cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString() + "(Actual)";
-
                     }
                     else
                     {
@@ -111,12 +103,21 @@ namespace HoopTeam.Paginas.Entrenadores
                     }
                 }
             }
-
             Debug.WriteLine(selectedItem.ToString() + "Selected");
             Debug.WriteLine("Nuevo " + eqNuevo);
             Debug.WriteLine("Equipo Viejo " + eqViejo);
 
         }
+
+        private void OnPickerSelectedIndexChangedDescripcion(object sender, EventArgs e)
+        {
+            Picker picker = sender as Picker;
+            var selectedItem = picker.SelectedItem;
+            descripcion = selectedItem.ToString();
+            Debug.WriteLine(selectedItem.ToString());
+            Debug.WriteLine(descripcion);
+        }
+
         private void OnPickerSelectedIndexChangedCanchas(object sender, EventArgs e)
         {
             Picker picker = sender as Picker;
@@ -124,24 +125,29 @@ namespace HoopTeam.Paginas.Entrenadores
             cancha = selectedItem.ToString();
             Debug.WriteLine(selectedItem.ToString());
             Debug.WriteLine(cancha);
-
         }
 
 
         private void btnEditarA(object sender, EventArgs e)
         {
             ClienteAgenda clienteA = new ClienteAgenda();
-            if (txtDesc.Text == "" )
+            if (aDescripcion.SelectedIndex == null )
             {
                 DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
             }
             else
              {
                 string Agenda = agn.idAgenda;
+
+                DateTime fecha = fechaAgenda.Date;
+                string hora = horaAgenda.Time.ToString();
+
                 // string Cancha = txtCn.Text;
-                string FechaHora = txtFechaHora.Text;
-                string Descripcion = txtDesc.Text;
-                clienteA.EditarAgenda(Agenda, Descripcion);
+                // string FechaHora = txtFechaHora.Text;
+                string txt = fecha.ToString("yyyy-MM-dd") + " " + hora;
+
+                
+                clienteA.EditarAgenda(Agenda, descripcion, txt);
 
                 VolverA();
             }

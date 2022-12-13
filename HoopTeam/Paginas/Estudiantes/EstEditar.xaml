@@ -60,9 +60,7 @@
                             <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Apellido2" Text=" " x:Name="txtApellido2" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
-                            <Label Margin="20,0,0,0" Text="Fecha de Nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                            <Entry  Placeholder="fecha" Text=" " IsEnabled="False" x:Name="txtFecha" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
-
+                            
                             <Label Margin="20,0,0,0" Text="Genero" x:Name="lb6" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Genero" Text=" " x:Name="txtGenero" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 

@@ -69,18 +69,17 @@ namespace HoopTeam.Paginas.Entrenadores
             }
             else
             {
-                //int idAgenda = Int32.Parse(txtAgenda.Text);
-                //int idEquipo = Int32.Parse(txtEqp.Text);
-                //int idCancha = Int32.Parse(txtCn.Text);
-                string fechaH = txtFechaHora.Text;
+                DateTime fecha = fechaAgenda.Date;
+                string hora =  horaAgenda.Time.ToString();
                 //string descripcion = txtDescripcion.Text;
+                string txt = fecha.ToString("yyyy-MM-dd") + " " +hora;
 
-
-                clienteAgn.AgregarAgenda(idEquipo, cancha, fechaH, descripcion);
+                clienteAgn.AgregarAgenda( idEquipo,cancha,txt,descripcion);
                 DisplayAlert("Información", "Agenda agregada", "Aceptar");
                 Volver();
 
-            } }
+            } 
+        }
         private void OnPickerSelectedIndexChangedDescripcion(object sender, EventArgs e)
         {
             Picker picker = sender as Picker;
