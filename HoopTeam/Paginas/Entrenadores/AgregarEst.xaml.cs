@@ -120,12 +120,8 @@ namespace HoopTeam.Paginas.Entrenadores
                     cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString();
                 }
             }
-
             Debug.WriteLine(selectedItem.ToString());
             Debug.WriteLine(equipo);
-
         }
-
-
     }
 }

@@ -14,7 +14,7 @@ namespace HoopTeam.Implementacion
         //Crea objetos
         Agenda agn = new Agenda();
         Cancha cancha = new Cancha();
-      
+
 
         public List<Agenda> GetAgendaEstudiante(string est)
         {
@@ -256,7 +256,7 @@ namespace HoopTeam.Implementacion
                               "ag.descripcion, ca.ubicacion " +
                               "from Agenda ag, Canchas ca, Equipos eq " +
                               "where ag.idCanchas = ca.idCanchas " +
-                              "and ag.idEquipo = eq.idEquipo;" ;
+                              "and ag.idEquipo = eq.idEquipo;";
 
                 //convertir qry en comando 
                 cmd.CommandText = qry;
@@ -309,7 +309,8 @@ namespace HoopTeam.Implementacion
 
         public Agenda AgendaE(string idA)
         {
-            try { 
+            try
+            {
 
 
             MySqlCommand cmd = new MySqlCommand();//comandos
@@ -359,7 +360,7 @@ namespace HoopTeam.Implementacion
                     ag.FechaHora = DateTime.Parse(drCurrent["fechayHora"].ToString());
                     ag.Descripcion = drCurrent["descripcion"].ToString();
 
-                    
+
                 }
                 //Retorna objeto 
                 return agn;
@@ -370,7 +371,7 @@ namespace HoopTeam.Implementacion
                 string txt = ex.Message;
                 return new Agenda();
             }
-           
+
 
 
         }
@@ -430,7 +431,7 @@ namespace HoopTeam.Implementacion
                 //Retorn lista 
                 return list;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //Declara variable
                 string txt = ex.Message;
@@ -548,13 +549,13 @@ namespace HoopTeam.Implementacion
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //Declara variable 
                 string txt = ex.Message;
             }
             return flag;
-            }
+        }
 
 
         public void AgregarAgenda(string idEqp, string idCn, string fechaHora, string dcp)
@@ -603,9 +604,8 @@ namespace HoopTeam.Implementacion
                 string txt = ex.Message;
             }
         }
-        public string EditarAgenda(string idA, string descripcion)
+        public void EditarAgenda(string idA, string descripcion, string fechaHora)
         {
-            string flag = "";
 
 
             MySqlCommand cmd = new MySqlCommand();//comandos
@@ -646,15 +646,12 @@ namespace HoopTeam.Implementacion
                 //LLena el datatable con la informacion que trajo el dataset 
                 dt = ds.Tables["Agenda"];
 
-                
-
             }
             catch (Exception ex)
             {
                 //Declara variable 
                 string txt = ex.Message;
             }
-            return flag;
         }
 
 
@@ -696,5 +693,5 @@ namespace HoopTeam.Implementacion
         }
     }
 }
-    
+
 

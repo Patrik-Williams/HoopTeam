@@ -27,7 +27,6 @@ namespace HoopTeam.Paginas.Estudiantes
             txtApellido2.Text = estudiante.getApellido2();
             txtCorreo.Text = estudiante.getCorreo();
             txtContraseña.Text = estudiante.getContrasenna();
-            txtFecha.Text = estudiante.getNacimiento();
             txtGenero.Text = estudiante.getGenero();
 
 
@@ -64,7 +63,6 @@ namespace HoopTeam.Paginas.Estudiantes
             string gen = txtGenero.Text;
             string correo = txtCorreo.Text;
             string con = txtContraseña.Text;
-            string fecha = txtFecha.Text;
             string ced = estudiante.getCedula();
 
           
