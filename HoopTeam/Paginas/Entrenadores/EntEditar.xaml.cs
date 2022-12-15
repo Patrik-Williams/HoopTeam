@@ -59,7 +59,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
 
                 entC.actualizarEntrenador(nomE, ApE, Ap2E, Cor, Con, ced);
-                DisplayAlert("Información: ", "Datos Actualizados", "OK");
+                DisplayAlert("Información: ", "Datos actualizados", "OK");
                 Sett();
             }
         }

@@ -9,21 +9,31 @@ namespace HoopTeam.Implementacion
 {
     class Cliente
     {
+        //Llama a varios objetos de los Modelos para ser utilizados más tarde
+
         EstudianteEstatico est = new EstudianteEstatico();
         Entrenador ent = new Entrenador();
         Administrador adm = new Administrador();
 
+        //Objetos de MySQL para conectar con la base de datos
         MySqlCommand cmd = new MySqlCommand();//comandos
         MySqlConnection con;//conexion
         MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+
+        //Los DataSet y DataTable se usan a través del código para llenar tablas dentro del cliente con resultados de bases de datos,
+        // y las tablas de los resultados llenan los datos de la aplicación
 
         public Cliente()
         {
         }
 
+        //Método para iniciar sesión. Recibe de parámetros el correo y la contraseña, lo compara en la base de datos
+        // y busca qué tipo de usuario es
         public string LogIn(string correo, string contra)
         {
             string flag = "";
+ 
             DataSet dsEntrenador = new DataSet();
             DataTable tbEntrenador = new DataTable();
 
@@ -33,26 +43,34 @@ namespace HoopTeam.Implementacion
             DataSet dsAdmin = new DataSet();
             DataTable tbAdmin = new DataTable();
 
+            //Estructura try-catch para que cualquier error de SQL se pueda detectar y explicar al usuario si se necesitara.
             try
             {
+                //Este comando establece la sesión con la base de datos
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
                                           "username = admin; " +
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
+
+                //Comando SQL para hacer el inicio de sesión
                 string qry = "SELECT * FROM Entrenador where correo = '" + correo + "' and contrasenna = '" + contra + "' and activo = 1";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
+
+                //El adaptador llena los datos del código con los de la base de datos
                 Adaptador.SelectCommand = cmd;
                 Adaptador.Fill(dsEntrenador, "entrenador");
                 cmd.ExecuteNonQuery();
                 tbEntrenador = dsEntrenador.Tables["entrenador"];
 
+                //Recorre la base buscando datos que correspondan con el inicio de sesión de algún entrenador 
                 if (tbEntrenador.Rows.Count != 0)
                 {
                     foreach (DataRow drCurrent in tbEntrenador.Rows)
                     {
+                        //Establece los valores de cada campo del Entrenador para ver sus datos al iniciar sesión
                         ent.setCedula(drCurrent["cedula"].ToString());
                         ent.setNombre(drCurrent["nombre"].ToString());
                         ent.setApellido1(drCurrent["apellido1"].ToString());
@@ -67,6 +85,8 @@ namespace HoopTeam.Implementacion
                 }
                 else
                 {
+                    //Si no llegan datos de entrenadores, se recorre la base buscando datos que correspondan
+                    // con el inicio de sesión de algún estudiante 
                     string qry2 = "SELECT * FROM Estudiantes where correo = '" + correo + "' and contrasenna = '" + contra + "' and activo = 1 ";
                     cmd.CommandText = qry2;
                     cmd.Connection = con;
@@ -78,7 +98,8 @@ namespace HoopTeam.Implementacion
                     if (tbEstudiante.Rows.Count != 0)
                     {
                         foreach (DataRow drCurrent in tbEstudiante.Rows)
-                        {
+                        {//Establece los valores de cada campo del Estudiante para ver sus datos al iniciar sesión
+
                             est.setCedula(drCurrent["cedula"].ToString());
                             est.setNombre(drCurrent["nombre"].ToString());
                             est.setApellido1(drCurrent["apellido1"].ToString());
@@ -95,6 +116,8 @@ namespace HoopTeam.Implementacion
                     }
                     else
                     {
+                        //Si no llegan datos de estudiantes, se recorre la base buscando datos que correspondan
+                        // con el inicio de sesión del administrador
                         string qry3 = "SELECT * FROM Administrador where correo = '" + correo + "' and contrasenna = '" + contra + "'";
                         cmd.CommandText = qry3;
                         cmd.Connection = con;
@@ -107,7 +130,7 @@ namespace HoopTeam.Implementacion
                         if (tbAdmin.Rows.Count != 0)
                         {
                             foreach (DataRow drCurrent in tbAdmin.Rows)
-                            {
+                            {//Establece los valores de cada campo del Administrador para ver sus datos al iniciar sesión
                                 adm.setIdAdmin(Int32.Parse(drCurrent["idAdmin"].ToString()));
                                 adm.setCorreo(drCurrent["correo"].ToString());
                                 adm.setContra(drCurrent["contrasenna"].ToString());
@@ -118,13 +141,14 @@ namespace HoopTeam.Implementacion
                         }
                         else
                         {
+                            //Mensaje de error cuando el correo y contraseña no corresponde con ningún usuario
                             flag = "Usuario o contraseña equivocada";
                             return flag;
                         }
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) //Mensaje de error de SQL para detectar problemas o notificar a usuario
             {
                 return ex.Message;
             }
@@ -132,6 +156,7 @@ namespace HoopTeam.Implementacion
 
         }
 
+        //Método para verificar que el correo está en la base cuando se olvida la contraseña 
         public string verEmail(string correo)
         {
             string flag = "";
@@ -152,6 +177,9 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
+
+                //Comando para revisar si el correo está en la base de Entrenador
+
                 string qry = "SELECT * FROM Entrenador where correo = '" + correo + "' and activo = 1";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
@@ -168,6 +196,8 @@ namespace HoopTeam.Implementacion
                 }
                 else
                 {
+                    //Si no se reciben datos de Entrenador, este es el comando para revisar si el correo está en la base de Estudiante
+
                     string qry2 = "SELECT * FROM Estudiantes where correo = '" + correo + "' and activo = 1 ";
                     cmd.CommandText = qry2;
                     cmd.Connection = con;
@@ -194,6 +224,7 @@ namespace HoopTeam.Implementacion
 
         }
 
+        //Método para actualizar la contraseña cuando se selecciona olvidar contraseña y se verifica que existe el correo
         public void CambiarContrasenna (string ced, string contra, string tabla)
         {
             try
@@ -212,7 +243,7 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
-
+                //Comando para actualizar la contraseña en la tabla (la tabla es Entrenador o Estudiante dependiendo del parametro que reciba)
                 string qry = "UPDATE "+tabla+" SET contrasenna = '" + contra + "' WHERE cedula = " + ced + ";";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
@@ -227,6 +258,8 @@ namespace HoopTeam.Implementacion
             }
         }
 
+        //  En el email de cambiar contraseña, se usa el nombre completo para digirirse a la persona por el nombre. 
+        //  Este método consigue el nombre completo
         public string GetPersona(string correo, string tabla)
         {
             try
@@ -244,6 +277,8 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
+
+                //Comando SQL para conseguir los datos del Entrenador o Estudiante
                 string qry = "SELECT * FROM " + tabla + " Where  correo = '" + correo + "' and activo = 1 ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;
@@ -256,6 +291,7 @@ namespace HoopTeam.Implementacion
                 foreach (DataRow drCurrent in dt.Rows)
                 {
  
+                    //Esta parte trae el nombre, apellido 1 y apellido 2 del usuario que se busca y los une en un solo string
                     nombreCompleto = drCurrent["nombre"].ToString() + " " + drCurrent["apellido1"].ToString() + " " + drCurrent["apellido2"].ToString();
 
                 }
@@ -268,6 +304,7 @@ namespace HoopTeam.Implementacion
             }
         }
 
+        //  Este método consigue la cédula del usuario para mandar el correo de cambiar contraseña al correo electrónico de la persona
         public string GetCedula(string correo, string tabla)
         {
             try
@@ -285,6 +322,8 @@ namespace HoopTeam.Implementacion
                                           "password = hoopteamAdmin;" +
                                           "database =HoopTeam");
                 con.Open();
+
+                // Comando SQL que consigue la cédula del usuario indicado
                 string qry = "SELECT cedula FROM " + tabla + " Where  correo = '" + correo + "' and activo = 1 ";
                 cmd.CommandText = qry;
                 cmd.Connection = con;

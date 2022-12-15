@@ -40,10 +40,6 @@ namespace HoopTeam.Paginas.Entrenadores
 
         public EditAgenda(Agenda agenda, string idA, int idE)
         {
-
-          
-            
-
             InitializeComponent();
             this.agn = agenda;
 
@@ -53,16 +49,13 @@ namespace HoopTeam.Paginas.Entrenadores
 
             eqViejo = idE;
 
-            
            //txtEqp.Text = agn.Equipo;
            //txtCn.Text = agn.Cancha;
            //txtFechaHora.Text = agn.FechaHora;
            txtDesc.Text = agn.Descripcion;
 
            foreach(Equipos eq in equipos)
-            {
-                
-                
+            { 
                cbEquipo.Items.Add(eq.idEquipo.ToString());
             }
             foreach (Cancha cn in canchas)
