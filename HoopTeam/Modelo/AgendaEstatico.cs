@@ -6,6 +6,8 @@ namespace HoopTeam.Modelo
 {
     class AgendaEstatico
     {
+        //campos del objeto tipo agenda
+        //no estatico, permite conservar los datos
         private static string idAgenda;
         private static string Equipo;
         private static string Cancha;

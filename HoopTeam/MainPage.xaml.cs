@@ -96,7 +96,7 @@ namespace HoopTeam
             }
             else
             {
-                DisplayAlert("Datos erroneos", "Por favor, llena toda la información", "Ok");
+                DisplayAlert("Datos erróneos", "Por favor, llena toda la información", "Ok");
 
             }
         }

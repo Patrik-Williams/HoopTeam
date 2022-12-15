@@ -6,6 +6,7 @@ namespace HoopTeam.Modelo.Entrenadores
 {
     public class EstEntrenador
     {
+        //campos del objeto Estudiante para el entrenador
         public string Cedula { get; set; }
         public string NombreCompleto { get; set; }
         public string IdEquipo { get; set; }

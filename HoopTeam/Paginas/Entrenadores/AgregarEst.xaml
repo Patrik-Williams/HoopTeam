@@ -4,7 +4,9 @@
              x:Class="HoopTeam.Paginas.Entrenadores.AgregarEst">
     <ContentPage.Content>
         <ScrollView>
+            <!--Colo de fondo de la pagina -->
             <StackLayout BackgroundColor="#999">
+                <!--header-->
                 <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                     <Grid >
                         <Grid.ColumnDefinitions>
@@ -15,6 +17,8 @@
                         <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
                     </Grid>
                 </Frame>
+                
+                <!--titulo-->
                 <Frame BackgroundColor="#256B1C" Margin="20,20,20,10" WidthRequest="1000" CornerRadius="20">
                     <Grid>
 
@@ -31,6 +35,7 @@
                     </Grid>
                 </Frame>
 
+                <!--form principal de la pagina-->
                 <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <StackLayout>
                         <Grid >
@@ -62,7 +67,6 @@
                                     <Entry  Placeholder="Apellido 2" x:Name="txtApellido2" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Fecha de nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <!--<Entry  Placeholder="Contraseña" x:Name="txtNacimiento" IsEnabled="False" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>-->
                                     <DatePicker x:Name="fechaNacimiento" TextColor="#444"  Margin="20,10,0,20"></DatePicker>
                                     
                                     <Label Margin="20,0,0,0" Text="Género" x:Name="lb9" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
@@ -91,9 +95,9 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
+                                <!--Botodo de agregar-->
                                 <StackLayout Grid.Column="1" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/148/148764.png" Margin="0,0,20,0" Clicked="btnAgregar" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
-                                    <!-- <Label Text="Editar" HorizontalOptions="Center" FontSize="14" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"></Label>-->
                                 </StackLayout>
 
                             </Grid>

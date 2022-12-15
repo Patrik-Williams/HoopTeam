@@ -16,6 +16,7 @@ namespace HoopTeam.Implementacion
         //Objetos de MySQL para conectar con la base de datos. Se usa a través de todo el cliente
         MySqlCommand cmd = new MySqlCommand();//comandos
         MySqlConnection con;//conexion
+        //Declara la variable tipo DataAdapter
         MySqlDataAdapter Adaptador = new MySqlDataAdapter();
 
         public ClienteEntrenador()
@@ -29,11 +30,13 @@ namespace HoopTeam.Implementacion
 
             MySqlCommand cmd = new MySqlCommand();//comandos
             MySqlConnection con;//conexion
+            //Declara la variable tipo DataAdapter
             MySqlDataAdapter Adaptador = new MySqlDataAdapter();
 
             //Los DataSet y DataTable se usan a través del código para llenar tablas dentro del cliente con resultados de bases de datos,
             // y las tablas de los resultados llenan los datos de la aplicación. Se usan a través de todo el cliente.
             DataSet ds = new DataSet();
+            //Representar tablas dataset 
             DataTable dt = new DataTable();
 
             try//Modelo try-catch se usa para detectar errores de SQL y mencionarselos al usuario si fuera necesario. Se usa a través de todo el cliente
@@ -48,17 +51,23 @@ namespace HoopTeam.Implementacion
 
                 //Comando SQL para conseguir el correo y contraseña del entrenador respectivo, para hacer la comparación para ingresar a la sesión
                 string qry = "SELECT * FROM Entrenador where correo= '" + correo + "'and contrasenna= '" + contra + "'";
+                //convertir qry en comando 
                 cmd.CommandText = qry;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
 
                 //Los adaptadores usan el comando SQL para llenar las tablas del programa con la información de la base de datos
                 //Se usa un adaptador por cada tabla en uso en el comando
 
                 Adaptador.SelectCommand = cmd;
+                //Indica la tabla con la que se llena el dataset
                 Adaptador.Fill(ds, "Entrenador");
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
+                //LLena el datatable con la informacion que trajo el dataset 
                 dt = ds.Tables["Entrenador"];
 
+                //Asigna los valores a su respectiva variable en el objeto por cada fila 
                 foreach (DataRow drCurrent in dt.Rows)
                 {//Ciclo que llena los datos del entrenador si se verificó su sesión
                     ent.setCedula(drCurrent["cedula"].ToString());
@@ -76,6 +85,7 @@ namespace HoopTeam.Implementacion
             }
             catch (Exception ex)
             {
+                //Declara variable 
                 string txt = ex.Message;
             }
             return flag;
@@ -88,11 +98,15 @@ namespace HoopTeam.Implementacion
 
             MySqlCommand cmd = new MySqlCommand();//comandos
             MySqlConnection con1;//conexion
+            //Declara la variable tipo DataAdapter
             MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+            //objeto para almacenar datos
             DataSet ds = new DataSet();
+            // Representar tablas dataset
             DataTable dt = new DataTable();
             try
             {
+                //conexion base de datos 
                 con1 = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                    "port = 3306; " +
                                    "username = admin; " +
@@ -102,15 +116,19 @@ namespace HoopTeam.Implementacion
 
                 //Comando SQL que actualiza los datos del entrenador con los datos que el usuario proporciona
                 string qry = "UPDATE Entrenador set nombre= '" + Nom + "', apellido1 = '" + apE1 + "', apellido2 = '" + apE2 + "', correo = '" + cor + "', contrasenna ='" + con + "' where cedula = " + ced + " ";
+                //convertir qry en comando 
                 cmd.CommandText = qry;
+                //convierte el string conexion en conexion
                 cmd.Connection = con1;
 
                 //Se usa un adaptador por cada tabla en uso en el comando
                 Adaptador.SelectCommand = cmd;
+                //Indica la tabla con la que se llena el dataset
                 Adaptador.Fill(ds, "Entrenador");
 
                 cmd.ExecuteNonQuery();
 
+                //LLena el datatable con la informacion que trajo el dataset 
                 dt = ds.Tables["Entrenador"];
 
                 //Reestablece los datos del entrenador en su sesión para mantenerla activa
@@ -118,6 +136,7 @@ namespace HoopTeam.Implementacion
             }
             catch (Exception ex)
             {
+                //Declara variable 
                 string txt = ex.Message;
             }
             return flag;
@@ -130,13 +149,17 @@ namespace HoopTeam.Implementacion
             {
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
+                //Declara la variable tipo DataAdapter
                 MySqlDataAdapter Adaptador = new MySqlDataAdapter();
 
+                //objeto para almacenar datos
                 DataSet ds = new DataSet();
+                // Representar tablas dataset
                 DataTable dt = new DataTable();
 
                 //se establece una lista de tipo Estudiante para llenar los datos
                 List<Estudiante> list = new List<Estudiante>();
+                //conexion base de datos
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
                                           "username = admin; " +
@@ -147,16 +170,23 @@ namespace HoopTeam.Implementacion
 
                 //Comando SQL que trae todos los estudiantes activos
                 string qry = "SELECT * FROM Estudiantes where activo = 1";
+                //convertir qry en comando 
                 cmd.CommandText = qry;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
 
                 //Se usa un adaptador por cada tabla en uso en el comando
                 Adaptador.SelectCommand = cmd;
+                //Indica la tabla con la que se llena el dataset
                 Adaptador.Fill(ds, "Estudiantes");
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
 
+
+                //LLena el datatable con la informacion que trajo el dataset 
                 dt = ds.Tables["Estudiantes"];
 
+                //Asigna los valores a su respectiva variable en el objeto por cada fila 
                 foreach (DataRow drCurrent in dt.Rows)
                 {//Ciclo que por cada resultado que da la base de datos llena una nueva fila en la tabla
 
@@ -172,13 +202,14 @@ namespace HoopTeam.Implementacion
                     est.Contrasenna = drCurrent["contrasenna"].ToString();
 
 
-
+                    //Agrega objeto a la lista 
                     list.Add(est);
                 }
                 return list;//Regresa la lista de datos creada a partir de la base de datos 
             }
             catch (Exception ex)
             {
+                //Declara variable 
                 string txt = ex.Message;
                 //Si no hay resultados, devuelve una lista en blanco para evitar errores
                 return new List<Estudiante>();
@@ -193,18 +224,21 @@ namespace HoopTeam.Implementacion
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
 
+                //Declara la variable tipo DataAdapter
                 MySqlDataAdapter Adaptador = new MySqlDataAdapter();
                 MySqlDataAdapter Adaptador1 = new MySqlDataAdapter();
                 MySqlDataAdapter Adaptador2 = new MySqlDataAdapter();
                 MySqlDataAdapter Adaptador3 = new MySqlDataAdapter();
                 MySqlDataAdapter Adaptador4 = new MySqlDataAdapter();
 
+                //objeto para almacenar datos
                 DataSet ds = new DataSet();
                 DataSet ds1 = new DataSet();
                 DataSet ds2 = new DataSet();
                 DataSet ds3 = new DataSet();
                 DataSet ds4 = new DataSet();
 
+                // Representar tablas dataset
                 DataTable dt = new DataTable();
                 DataTable dt1 = new DataTable();
                 DataTable dt2 = new DataTable();
@@ -214,6 +248,7 @@ namespace HoopTeam.Implementacion
                 //Declaración de una lista que se va a llenar con datos de tipo Estudiante de un entrenador 
                 //Para combinar el equipo con el estudiante, en el modelo se declara el objeto de Estudiante por Entrenador (EstEntrenador)
                 List<EstEntrenador> list = new List<EstEntrenador>();
+                //conexion base de datos
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
                                           "username = admin; " +
@@ -233,6 +268,7 @@ namespace HoopTeam.Implementacion
                     "AND p.cedEstudiante = es.cedula;";
 
                 cmd.CommandText = qry;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
 
                 //Se usa un adaptador por cada tabla en uso en el comando
@@ -248,8 +284,10 @@ namespace HoopTeam.Implementacion
                 Adaptador1.Fill(ds1, "Equipos");
                 Adaptador4.Fill(ds3, "Pagos");
 
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
 
+                //LLena el datatable con la informacion que trajo el dataset 
                 dt2 = ds2.Tables["Estudiantes"];
                 dt = ds.Tables["Entrenador"];
                 dt1 = ds1.Tables["Equipos"];
@@ -282,6 +320,7 @@ namespace HoopTeam.Implementacion
             }
             catch (Exception ex)
             {
+                //Declara variable 
                 string txt = ex.Message;
                 //Si no hay resultados, devuelve una lista en blanco para evitar errores
                 return new List<EstEntrenador>();
@@ -295,10 +334,12 @@ namespace HoopTeam.Implementacion
             {
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
+                //Declara la variable tipo DataAdapter
                 MySqlDataAdapter Adaptador = new MySqlDataAdapter();
                 MySqlDataAdapter Adaptador2 = new MySqlDataAdapter();
-
+                //objeto para almacenar datos
                 DataSet ds = new DataSet();
+                // Representar tablas dataset
                 DataTable dt = new DataTable();
 
                 DataSet ds2 = new DataSet();
@@ -306,6 +347,7 @@ namespace HoopTeam.Implementacion
 
                 //Lista de tipo equipo
                 List<Equipos> list = new List<Equipos>();
+                //conexion base de datos 
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
                                           "username = admin; " +
@@ -316,19 +358,24 @@ namespace HoopTeam.Implementacion
                 //Consulta SQL que trae todos los equipos en la base
                 string qry = "SELECT e.idEquipo, e.categoria, e.genero, e.cedEntrenador, e.cupo, concat(et.nombre, ' ', et.apellido1, ' ', et.apellido2) as Nombre FROM Equipos e, Entrenador et " +
                     "WHERE e.cedEntrenador = et.cedula and e.activo = 1;";
+                //convertir qry en comando 
                 cmd.CommandText = qry;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
 
                 //Se usa un adaptador por cada tabla en uso en el comando
                 Adaptador.SelectCommand = cmd;
                 Adaptador2.SelectCommand = cmd;
+                //Indica la tabla con la que se llena el dataset
                 Adaptador.Fill(ds, "Equipos");
                 Adaptador2.Fill(ds2, "Entrenador");
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
-
+                //LLena el datatable con la informacion que trajo el dataset 
                 dt = ds.Tables["Equipos"];
                 dt2 = ds2.Tables["Entrenador"];
 
+                //Asigna los valores a su respectiva variable en el objeto por cada fila 
                 foreach (DataRow drCurrent in dt.Rows)
                 {//Ciclo que por cada resultado que da la base de datos llena una nueva fila en la tabla
                     Equipos eq = new Equipos();
@@ -346,6 +393,7 @@ namespace HoopTeam.Implementacion
             }
             catch (Exception ex)
             {
+                //Declara varibale 
                 string txt = ex.Message;
                 //Si no hay resultados, devuelve una lista en blanco para evitar errores
                 return new List<Equipos>();
@@ -359,11 +407,15 @@ namespace HoopTeam.Implementacion
             {
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
+                //Declara la variable tipo DataAdapter
                 MySqlDataAdapter Adaptador = new MySqlDataAdapter();
-
+                //objeto para almacenar datos
                 DataSet ds = new DataSet();
+                // Representar tablas dataset
                 DataTable dt = new DataTable();
+                //Crea lista 
                 List<Equipos> list = new List<Equipos>();
+                //conexion base de datos 
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
                                           "username = admin; " +
@@ -373,16 +425,21 @@ namespace HoopTeam.Implementacion
 
                 //Consulta SQL que trae los datos de los equipos con el entrenador seleccionado
                 string qry = "SELECT * FROM Equipos Where cedEntrenador = " + ent + " and activo = 1";
+                //convertir qry en comando
                 cmd.CommandText = qry;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
 
                 //Se usa un adaptador por cada tabla en uso en el comando
                 Adaptador.SelectCommand = cmd;
+                //Indica la tabla con la que se llena el dataset
                 Adaptador.Fill(ds, "Equipos");
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
-
+                //LLena el datatable con la informacion que trajo el dataset 
                 dt = ds.Tables["Equipos"];
 
+                //Asigna los valores a su respectiva variable en el objeto por cada fila 
                 foreach (DataRow drCurrent in dt.Rows)
                 {//Ciclo que por cada resultado que da la base de datos llena una nueva fila en la tabla
                     Equipos eq = new Equipos();
@@ -400,6 +457,7 @@ namespace HoopTeam.Implementacion
             }
             catch (Exception ex)
             {
+                //Declara variable 
                 string txt = ex.Message;
                 //Si no hay resultados, devuelve una lista en blanco para evitar errores
                 return new List<Equipos>();
@@ -413,11 +471,14 @@ namespace HoopTeam.Implementacion
             {
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
+                //Declara la variable tipo DataAdapter
                 MySqlDataAdapter Adaptador = new MySqlDataAdapter();
 
                 //Creación de objeto de tipo estudiante
                 Estudiante est = new Estudiante();
+                //objeto para almacenar datos
                 DataSet ds = new DataSet();
+                // Representar tablas dataset
                 DataTable dt = new DataTable();
 
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
@@ -439,6 +500,7 @@ namespace HoopTeam.Implementacion
 
                 dt = ds.Tables["Estudiantes"];
 
+                //Asigna los valores a su respectiva variable en el objeto por cada fila 
                 foreach (DataRow drCurrent in dt.Rows)
                 {//Ciclo que por cada resultado que da la base de datos llena una nueva fila en la tabla
                     est.Cedula = drCurrent["cedula"].ToString();
@@ -454,6 +516,7 @@ namespace HoopTeam.Implementacion
             }
             catch (Exception ex)
             {
+                //Declara variable
                 string txt = ex.Message;
                 //Si no hay resultados, devuelve un objeto en blanco para evitar errores
                 return new Estudiante();
@@ -467,11 +530,16 @@ namespace HoopTeam.Implementacion
             {
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
+                //Declara la variable tipo DataAdapter
                 MySqlDataAdapter Adaptador = new MySqlDataAdapter();
 
+                //objeto para almacenar datos
                 DataSet ds = new DataSet();
+                // Representar tablas dataset
                 DataTable dt = new DataTable();
+                //Crea lista
                 List<Equipos> list = new List<Equipos>();
+                //conexion base de datos 
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
                                           "username = admin; " +
@@ -481,16 +549,21 @@ namespace HoopTeam.Implementacion
 
                 //Consulta SQL donde se buscan equipos filtrados por el género respectivo
                 string qry = "SELECT * FROM Equipos Where genero = '" + gen + "' and (cupo > 0) and activo = 1 ";
+                //convertir qry en comando 
                 cmd.CommandText = qry;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
 
                 //Se usa un adaptador por cada tabla en uso en el comando
                 Adaptador.SelectCommand = cmd;
+                //Indica la tabla con la que se llena el dataset
                 Adaptador.Fill(ds, "Equipos");
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
-
+                //LLena el datatable con la informacion que trajo el dataset 
                 dt = ds.Tables["Equipos"];
 
+                //Asigna los valores a su respectiva variable en el objeto por cada fila 
                 foreach (DataRow drCurrent in dt.Rows)
                 {//Ciclo que por cada resultado que da la base de datos llena una nueva fila en la tabla
                     Equipos eq = new Equipos();
@@ -508,6 +581,7 @@ namespace HoopTeam.Implementacion
             }
             catch (Exception ex)
             {
+                //Declara variable 
                 string txt = ex.Message;
                 //Si no hay resultados, devuelve una lista en blanco para evitar errores
                 return new List<Equipos>();
@@ -522,11 +596,15 @@ namespace HoopTeam.Implementacion
             {
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
+                //Declara la variable tipo DataAdapter
                 MySqlDataAdapter Adaptador = new MySqlDataAdapter();
-
+                //objeto para almacenar datos
                 DataSet ds = new DataSet();
+                //Representar tablas dataset 
                 DataTable dt = new DataTable();
+                //Crea lista 
                 List<Equipos> list = new List<Equipos>();
+                //conexion base de datos 
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
                                           "username = admin; " +
@@ -536,16 +614,21 @@ namespace HoopTeam.Implementacion
 
                 //Comando SQL que trae los equipos por el género seleccionado bajo el entrenador seleccionado
                 string qry = "SELECT * FROM Equipos Where genero = '" + gen + "' and cedEntrenador = " + ent + " and (cupo > 0) and activo = 1;";
+                //convertir qry en comando 
                 cmd.CommandText = qry;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
 
                 //Se usa un adaptador por cada tabla en uso en el comando
                 Adaptador.SelectCommand = cmd;
+                ////Indica la tabla con la que se llena el dataset
                 Adaptador.Fill(ds, "Equipos");
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
-
+                //LLena el datatable con la informacion que trajo el dataset 
                 dt = ds.Tables["Equipos"];
 
+                //Asigna los valores a su respectiva variable en el objeto por cada fila 
                 foreach (DataRow drCurrent in dt.Rows)
                 {//Ciclo que por cada resultado que da la base de datos llena una nueva fila en la tabla
                     Equipos eq = new Equipos();
@@ -563,6 +646,7 @@ namespace HoopTeam.Implementacion
             }
             catch (Exception ex)
             {
+                //Declara variable 
                 string txt = ex.Message;
                 //Si no hay resultados, devuelve una lista en blanco para evitar errores
                 return new List<Equipos>();
@@ -576,12 +660,14 @@ namespace HoopTeam.Implementacion
             {
                 MySqlCommand cmd = new MySqlCommand();//comandos
                 MySqlConnection con;//conexion
+                //Declara la variable tipo DataAdapter
                 MySqlDataAdapter Adaptador = new MySqlDataAdapter();
-
+                //objeto para almacenar datos
                 DataSet ds = new DataSet();
+                //Representar tablas dataset 
                 DataTable dt = new DataTable();
 
-
+                //conexion base de datos 
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
                                           "port = 3306; " +
                                           "username = admin; " +
@@ -593,54 +679,81 @@ namespace HoopTeam.Implementacion
                 string qry = "UPDATE Estudiantes set Nombre = '" + nom + "', Apellido1 ='" + ap1 + "', Apellido2 ='" + ap2 + "'" +
                     ", fechaNacimiento = '" + fecha.ToString("yyyy-MM-dd") + "', correo= '" + correo + "', " + "contrasenna = '" + contra + "' where cedula = " + ced + " ";
                 cmd.CommandText = qry;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
 
                 //Si se cambia al estudiante de equipo, se debe añadir la conexión de estudiante al nuevo equipo
                 // e inhabilitar la conexión anterior con el equipo viejo
                 if (equipoNuevo != equipoViejo)
                 {
+                    //consulta base de datos
                     string qry2 = "INSERT INTO EstudianteEquipo (fechaInicio, cedEstudiante, idEquipo, activo )values( curdate(), " + ced + ", " + equipoNuevo + ", 1)";
+                    //convertir qry en comando 
                     cmd.CommandText = qry2;
+                    //convierte el string conexion en conexion
                     cmd.Connection = con;
+                    //Ejecuta el query
                     cmd.ExecuteNonQuery();
 
+                    //consulta base de datos
                     string qry6 = "UPDATE EstudianteEquipo SET activo = 0 where cedEstudiante = " + ced + " and idEquipo = " + equipoViejo + ";";
+                    //convertir qry en comando 
                     cmd.CommandText = qry6;
+                    //convierte el string conexion en conexion
                     cmd.Connection = con;
+                    //Ejecuta el query
                     cmd.ExecuteNonQuery();
                 }
 
                 //Se actualiza el cupo de ambos equipos
                 string qry3 = "UPDATE Equipos SET cupo= cupo-1 WHERE idEquipo=" + equipoNuevo + "";
+                //convertir qry en comando 
                 cmd.CommandText = qry3;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
 
+                //consulta base de datos
                 string qry4 = "UPDATE Equipos SET cupo= cupo+1 WHERE idEquipo=" + equipoViejo + "";
+                //convertir qry en comando 
                 cmd.CommandText = qry4;
+                //convierte el string conexion en conexion
                 cmd.Connection = con;
+                //Ejecuta el query
                 cmd.ExecuteNonQuery();
 
                 //Se establece que se debe actualizar si el pago ha sido realizado en la base de datos
                 if (pago == 1)
                 {
+                    //consulta base de datos
                     string qry5 = "UPDATE Pagos SET pagoRealizado = " + pago + ", fechaPago = DATE_ADD(fechaPago, INTERVAL +1 MONTH) WHERE cedEstudiante=" + ced + "";
+                    //convertir qry en comando 
                     cmd.CommandText = qry5;
+                    //convierte el string conexion en conexion
                     cmd.Connection = con;
+                    //Ejecuta el query
                     cmd.ExecuteNonQuery();
                 }
                 if (pago == 0)
                 {
+                    //consulta base de datos
                     string qry5 = "UPDATE Pagos SET pagoRealizado = " + pago + " WHERE cedEstudiante=" + ced + "";
+                    //convertir qry en comando 
                     cmd.CommandText = qry5;
+                    //convierte el string conexion en conexion
                     cmd.Connection = con;
+
+                    //Ejecuta el query
                     cmd.ExecuteNonQuery();
                 }
 
             }
             catch (Exception ex)
             {
+                //Declara variable
                 string txt = ex.Message;
 
             }
@@ -718,6 +831,7 @@ namespace HoopTeam.Implementacion
 
                 dt = ds.Tables["Canchas"];
 
+                //Asigna los valores a su respectiva variable en el objeto por cada fila 
                 foreach (DataRow drCurrent in dt.Rows)
                 {//Ciclo que por cada resultado que da la base de datos llena una nueva fila en la tabla
                     Cancha ca = new Cancha();

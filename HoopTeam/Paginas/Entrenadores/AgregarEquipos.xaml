@@ -4,7 +4,9 @@
              x:Class="HoopTeam.Paginas.Entrenadores.AgregarEquipos">
     <ContentPage.Content>
         <ScrollView>
+            <!--fondo de la pagina-->
             <StackLayout BackgroundColor="#999">
+                <!--HEADER-->
                 <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                     <Grid >
                         <Grid.ColumnDefinitions>
@@ -15,6 +17,7 @@
                         <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
                     </Grid>
                 </Frame>
+                <!--titulo-->
                 <Frame BackgroundColor="#256B1C" Margin="20,20,20,10" WidthRequest="1000" CornerRadius="20">
                     <Grid>
 
@@ -23,7 +26,7 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
                         <StackLayout Grid.Column="1" VerticalOptions="Center">
-                            <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/937/937139.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                         </StackLayout>
                         <StackLayout Grid.Column="2" VerticalOptions="Center">
                             <Label Text="Agregar equipo"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
@@ -45,7 +48,7 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
+                                <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8321/8321717.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
 
                                 <StackLayout Grid.Column="2">
 
@@ -75,9 +78,9 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
+                                <!--Boton de agregar-->
                                 <StackLayout Grid.Column="1" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/148/148764.png" Margin="0,0,20,0" Clicked="btnAgregar" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
-                                    <!-- <Label Text="Editar" HorizontalOptions="Center" FontSize="14" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"></Label>-->
                                 </StackLayout>
 
                             </Grid>

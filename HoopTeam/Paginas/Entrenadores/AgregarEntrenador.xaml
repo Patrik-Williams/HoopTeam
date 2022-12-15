@@ -4,7 +4,10 @@
              x:Class="HoopTeam.Paginas.Entrenadores.AgregarEntrenador">
     <ContentPage.Content>
         <ScrollView>
+            <!--Fondo de la pagina-->
             <StackLayout BackgroundColor="#999">
+                
+                <!--header de la pagina-->
                 <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                     <Grid >
                         <Grid.ColumnDefinitions>
@@ -15,6 +18,8 @@
                         <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
                     </Grid>
                 </Frame>
+                
+                <!--titulo de la pagina-->
                 <Frame BackgroundColor="#256B1C" Margin="20,20,20,10" WidthRequest="1000" CornerRadius="20">
                     <Grid>
 
@@ -31,6 +36,7 @@
                     </Grid>
                 </Frame>
 
+                <!--form principal de la pagina-->
                 <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <StackLayout>
                         <Grid >
@@ -76,9 +82,9 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
+                                <!--Boton de agregar-->
                                 <StackLayout Grid.Column="1" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/148/148764.png" Margin="0,0,20,0" Clicked="btnAgregar" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
-                                    <!-- <Label Text="Editar" HorizontalOptions="Center" FontSize="14" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"></Label>-->
                                 </StackLayout>
 
                             </Grid>
