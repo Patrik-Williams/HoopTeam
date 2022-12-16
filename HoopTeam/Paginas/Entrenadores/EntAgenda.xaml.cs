@@ -18,6 +18,8 @@ namespace HoopTeam.Paginas.Entrenadores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EntAgenda : ContentPage
     {
+
+        //referencias a entrenador y agenda
         Entrenador entA = new Entrenador();
         Agenda agn = new Agenda();
 
@@ -37,28 +39,25 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             Sett();
         }
+        //envia a la pagina de editar agenda
         async private void verEditAgn_Tapped(object sender, EventArgs e)
         {
-            
             await Navigation.PushModalAsync(new EditAgenda(agn,idA,idEqp), true);
         }
+
+        //captura el evento de presionar una entrada de agenda
         public void CVCollectionChanged(object sender, SelectionChangedEventArgs e)
         {
             updateSelectionData(e.PreviousSelection, e.CurrentSelection);
         }
 
+        //agarra la informacion de la entrada de agenda
         void updateSelectionData(IReadOnlyList<Object> previousSelected, IReadOnlyList<Object> currentSelected)
         {
             var selectedAgenda = currentSelected.FirstOrDefault() as Agenda;
             agn = selectedAgenda;
 
             idEqp = selectedAgenda.idEquipo;
-
-            Debug.WriteLine(selectedAgenda.Descripcion);
-            Debug.WriteLine(selectedAgenda.Equipo);
-            Debug.WriteLine(selectedAgenda.Cancha);
-            Debug.WriteLine(selectedAgenda.FechaHora);
-            Debug.WriteLine(selectedAgenda.idAgenda);
         }
         async void Agenda()
         {

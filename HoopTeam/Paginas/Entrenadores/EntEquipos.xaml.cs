@@ -17,6 +17,8 @@ namespace HoopTeam.Paginas.Entrenadores
     {   
         static int cupo { get; set; }
         int equipo { get; set; }
+
+        //referencia al cliente entrenador
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
 
         public EntEquipos()
@@ -34,6 +36,7 @@ namespace HoopTeam.Paginas.Entrenadores
             Sett();
         }
 
+        //lleva a la pagina de todos los equipos
         private async void verEquipos_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new TodosEquipos(), true);
@@ -41,30 +44,30 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private async void editarEquipo_Tapped(object sender, EventArgs e)
         {
-            Debug.WriteLine(equipo);
+            //despliega una ventana para editar
             string result = await DisplayPromptAsync("Editar Cupo", "Cupo:", initialValue: cupo.ToString(), maxLength: 2, keyboard: Keyboard.Numeric);
+            //si la informacion es diferente a nula
             if(result != null)
             {
+                //llama al metodo de editar
                clienteEnt.EditarCupo(Int32.Parse(result), equipo);
                InitializeComponent();
             }
-         
-
-
         }
 
+        //captura el presionar
         public void CVCollectionChanged(object sender, SelectionChangedEventArgs e)
         {
             updateSelectionData(e.PreviousSelection, e.CurrentSelection);
         }
 
+        //agarra la informacion de la entrada presionada
         void updateSelectionData(IReadOnlyList<Object> previousSelected, IReadOnlyList<Object> currentSelected)
         {
             var selectedEquipo = currentSelected.FirstOrDefault() as Equipos;
             cupo = selectedEquipo.cupo;
             equipo = selectedEquipo.idEquipo;
-            Debug.WriteLine(selectedEquipo.categoria);
-            Debug.WriteLine("Hola");
+
         }
     }
 }

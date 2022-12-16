@@ -14,10 +14,13 @@ namespace HoopTeam.Paginas.Entrenadores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditEntrenador : ContentPage
     {
+        //referencia al entrenador
         EntrenadorNO_Estatico entrenador = new EntrenadorNO_Estatico();
+        //referencia a l cliente administrador
         ClienteAdmin clienteAdm = new ClienteAdmin();
         public EditEntrenador(EntrenadorNO_Estatico ent)
         {
+            //carga los campos de pagina
             InitializeComponent();
             entrenador = ent;
             txtNombre.Text = ent.Nombre;
@@ -37,39 +40,44 @@ namespace HoopTeam.Paginas.Entrenadores
 
         private void btnEditar(object sender, EventArgs e)
         {
+            //si los campos necesarios estan vacios 
             if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "")
             {
+                //avisa
                 DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
             }
             else
             {
+                //llena las variables con la informacion de los campos de la pagina
                 int ced = Int32.Parse(entrenador.Cedula);
                 string nom = txtNombre.Text;
                 string ap1 = txtApellido1.Text;
                 string ap2 = txtApellido2.Text;
                 string correo = txtCorreo.Text;
                 string contra = txtContraseña.Text;
+
+                //envia los datos al metodo de editar el Entrenador
                 clienteAdm.EditarEntrenador(ced, nom, ap1, ap2, correo, contra);
-                //clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, correo, contra, eqNuevo, eqViejo, pago);
                 Sett();
             }
         }
 
         private async void ShowExitDialog()
         {
+            //aviso cuando se preciona el boton de eliminar
             var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea eliminar al entrenador?", "Sí", "No");
+            //si se selecciona que si
             if (answer)
-            {
+            {   //se verifica si el entrenador tiene un equipo a su nombre
                 if (clienteAdm.verificarEquipoEnt(Int32.Parse(entrenador.Cedula)) > 0) 
                 {
                     DisplayAlert("Alerta", "El entrenador tiene un equipo a su nombre. Cambie el equipo de entrenador para poder eliminar.", "Ok");
                 }else
-                {
+                {//si no tiene ningun equipo, se llama al metodo de eliminar
                     clienteAdm.EliminarEntrenador(Int32.Parse(entrenador.Cedula));
                     DisplayAlert("Información", "Entrenador eliminado", "Ok");
                     Sett();
                 }
-                //clienteEnt.EliminarEstudiante(Int32.Parse(est.Cedula));
                 ;
             }
         }

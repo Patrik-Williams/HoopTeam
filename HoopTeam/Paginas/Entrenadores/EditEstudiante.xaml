@@ -4,7 +4,9 @@
              x:Class="HoopTeam.Paginas.Entrenadores.EditEstudiante">
     <ContentPage.Content>
         <ScrollView>
+            <!--Fondo de la pagina-->
             <StackLayout BackgroundColor="#999">
+                <!--Header-->
                 <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                     <Grid >
                         <Grid.ColumnDefinitions>
@@ -15,6 +17,7 @@
                         <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
                     </Grid>
                 </Frame>
+                <!--Titulo-->
                 <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Grid>
 
@@ -30,7 +33,7 @@
                         </StackLayout>
                     </Grid>
                 </Frame>
-                
+                <!--Form principal de la pagina-->
                 <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <StackLayout>
                     <Grid >
@@ -59,7 +62,7 @@
                                     <Entry  Placeholder="Apellido2" x:Name="txtApellido2" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>
 
                                     <Label Margin="20,0,0,0" Text="Fecha de nacimiento" x:Name="lb5" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                    <!--<Entry  Placeholder="Contraseña" x:Name="txtNacimiento" IsEnabled="False" BackgroundColor="#eee" Margin="20,10,0,20" PlaceholderColor="#333" TextColor="#000"/>-->
+                                    
                                     <DatePicker x:Name="fechaNacimiento" TextColor="#444"  Margin="20,10,0,20"></DatePicker>
 
                                     <Label Margin="20,0,0,0" Text="Correo" x:Name="lb6" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
@@ -87,13 +90,13 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
+                                <!--Boton de editar-->
                                 <StackLayout Grid.Column="1" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" Margin="0,0,20,0" Clicked="btnEditar" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
-                                   <!-- <Label Text="Editar" HorizontalOptions="Center" FontSize="14" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"></Label>-->
                                 </StackLayout>
+                                <!--Boton de eliminar-->
                                 <StackLayout Grid.Column="2" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/8568/8568248.png" Margin="20,0,0,0"  Clicked="btnEliminar" VerticalOptions="Center" HorizontalOptions="Center"  WidthRequest="50"></ImageButton>
-                                    <!--<Label Text="Eliminar" HorizontalOptions="Center" FontSize="14" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"></Label>-->
                                 </StackLayout>
                             </Grid>
                         </Grid>

@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:HoopTeam.Modelo.Entrenadores"
              x:Class="HoopTeam.Paginas.Entrenadores.TodosEquipos">
+    <!--De donde vienen los datos del binding-->
     <ContentPage.BindingContext>
         <vm:EquiposViewModel></vm:EquiposViewModel>
     </ContentPage.BindingContext>
 
        <ContentPage.Content>
+        <!--fondo de la pagina-->
         <StackLayout BackgroundColor="#999">
-
+            <!--Header-->
             <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -23,7 +25,7 @@
 
                 </Grid>
             </Frame>
-
+            <!--Titulo-->
             <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                 <!--On clicked para el frame-->
                 <Grid >
@@ -35,16 +37,14 @@
                     <StackLayout Grid.Column="1" VerticalOptions="Center">
                         <Image Source="https://cdn-icons-png.flaticon.com/512/937/937139.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                     </StackLayout>
-
-
-
                     <StackLayout Grid.Column="2" VerticalOptions="Center">
                         <Label Text="Equipos"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                     </StackLayout>
 
                 </Grid>
             </Frame>
-
+            
+            <!--Lista de elementos-->
             <CollectionView ItemsSource="{Binding Equipos}" Margin="20,10,20,10" SelectionMode="Single" SelectionChanged="CVCollectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
@@ -107,9 +107,6 @@
                                             <Label Grid.Column="2" Text="{Binding cupo}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                         </Grid>
 
-
-
-
                                     </StackLayout>
 
                                 </Grid>
@@ -119,6 +116,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <!--Boton de agregar-->
             <Frame BackgroundColor="#256B1C" x:Name="agregar" Margin="0,0,0,5" WidthRequest="100" HeightRequest="17" CornerRadius="20" HorizontalOptions="Center">
                 <!--On clicked para el frame-->
                 <Frame.GestureRecognizers>

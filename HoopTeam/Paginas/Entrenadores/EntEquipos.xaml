@@ -7,22 +7,21 @@
         <vm:EquiposEntrenadorViewModel></vm:EquiposEntrenadorViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
+        <!--Fondo de la pagina-->
         <StackLayout BackgroundColor="#999">
-
+            <!--Header-->
             <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
-
                     </Grid.ColumnDefinitions>
-
                     <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/1783/1783338.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
                     <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
 
                 </Grid>
             </Frame>
-
+            <!--Titulo-->
             <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                 <!--On clicked para el frame-->
                 <Grid >
@@ -35,8 +34,6 @@
                         <Image Source="https://cdn-icons-png.flaticon.com/512/937/937139.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                     </StackLayout>
 
-
-
                     <StackLayout Grid.Column="2" VerticalOptions="Center">
                         <Label Text="Mis equipos"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                     </StackLayout>
@@ -44,6 +41,7 @@
                 </Grid>
             </Frame>
 
+            <!--Lista principal de los equipos-->
             <CollectionView ItemsSource="{Binding EquiposEntrenador}" SelectionMode="Single" SelectionChanged="CVCollectionChanged" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
@@ -113,13 +111,13 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <!--Boton que nos lleva a la pagina para ver todos los equipos-->
             <Frame BackgroundColor="#253A52"  Margin="0,0,0,5" WidthRequest="100" HeightRequest="15" CornerRadius="20" HorizontalOptions="Center">
                 <!--On clicked para el frame-->
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="verEquipos_Tapped" NumberOfTapsRequired="1">
                     </TapGestureRecognizer>
                 </Frame.GestureRecognizers>
-
                 <Label Text="Ver todos"  FontAttributes="bold" FontSize="13" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
             </Frame>
             

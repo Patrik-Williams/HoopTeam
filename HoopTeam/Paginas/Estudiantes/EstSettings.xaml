@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HoopTeam.Paginas.EstSettings">
     <ContentPage.Content>
+        <!--Fonde de la pagina-->
         <StackLayout BackgroundColor="#999">
-
+            <!--Header-->
             <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -12,16 +13,13 @@
                         <ColumnDefinition Width="auto"/>
 
                     </Grid.ColumnDefinitions>
-
-                    <!--<Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5107/5107718.png" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
-                   -->
-
                     <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/507/507257.png" Clicked="Volver_Clicked" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="30"></ImageButton>
 
                     <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
                 </Grid>
             </Frame>
 
+            <!--Muestra las cuentas bancarias para realizar el pago-->
             <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -70,7 +68,8 @@
 
                 </Grid>
             </Frame>
-
+    
+            <!--Muestra el estado de pago del estudiante-->
             <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -138,7 +137,7 @@
 
 
             <Label Text="Cerrar sesión" TextColor="Black" FontSize="30" HorizontalOptions="Center"></Label>
-
+            <!--Boton para log out-->
             <ImageButton Source="https://cdn-icons-png.flaticon.com/512/992/992680.png" Clicked="LogOut_Clicked" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50"></ImageButton>
 
 

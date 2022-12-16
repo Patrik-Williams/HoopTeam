@@ -4,29 +4,20 @@
              x:Class="HoopTeam.Paginas.EstMain">
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Default" >
+            <!--Fondo de la pagina-->
             <StackLayout BackgroundColor="#999">
-
+                <!--Header-->
                 <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                     <Grid >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
-
                         </Grid.ColumnDefinitions>
-
-                        <!--<Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/5107/5107718.png" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
-                   -->
-
-
-
-
                         <ImageButton Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" Clicked="settings_Clicked" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
                         <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
-
-
                     </Grid>
                 </Frame>
-
+                <!--Titulo-->
                 <Frame BackgroundColor="#FF8200" x:Name="perfil" Margin="20,20" WidthRequest="1000" CornerRadius="20" >
                     <!--On clicked para el frame-->
                     <Frame.GestureRecognizers>
@@ -55,6 +46,7 @@
                     </Grid>
                 </Frame>
 
+                <!--Pagina principal-->
                 <Frame BackgroundColor="#FFF" x:Name="Equipos" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="verEstudiantes_Tapped" NumberOfTapsRequired="1">

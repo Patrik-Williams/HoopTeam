@@ -21,6 +21,7 @@ namespace HoopTeam.Paginas
         }
         async void LogOut()
         {
+            //limpia la sesion del administrador para hacer un Log Out
             entrenador.setCedula("");
             entrenador.setNombre("");
             entrenador.setApellido1("");
@@ -28,6 +29,7 @@ namespace HoopTeam.Paginas
             entrenador.setCorreo("");
             entrenador.setContrasenna("");
 
+            //pone al super usuario en 0 por seguridad
             adm.setIdAdmin(0);
             adm.setCorreo("");
             adm.setContra("");

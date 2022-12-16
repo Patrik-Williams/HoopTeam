@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:HoopTeam.Modelo.Entrenadores"
              x:Class="HoopTeam.Paginas.Entrenadores.TodosEstudiantes">
+    <!--De donde vienen los datos del binding-->
     <ContentPage.BindingContext>
         <vm:EstudianteViewModel></vm:EstudianteViewModel>
     </ContentPage.BindingContext>
-    
-        <!--De donde trae datos-->
-        <ContentPage.Content>
+    <ContentPage.Content>
+        <!--Fondo de la pagina-->
         <StackLayout BackgroundColor="#999">
-
+            <!--Header-->
             <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -25,6 +25,7 @@
                 </Grid>
             </Frame>
 
+            <!--Titulo-->
             <Frame BackgroundColor="#FF8200" Margin="20,20,20,5" WidthRequest="1000" CornerRadius="20">
                 <!--On clicked para el frame-->
                 <Grid>
@@ -43,7 +44,7 @@
 
                 </Grid>
             </Frame>
-
+            <!--Lista de elementos-->
             <CollectionView ItemsSource="{Binding Estudiantes}" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
@@ -103,6 +104,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <!--Boton de agregar-->
             <Frame BackgroundColor="#256B1C"  Margin="0,0,0,5" WidthRequest="100" HeightRequest="17" CornerRadius="20" HorizontalOptions="Center">
                 <!--On clicked para el frame-->
                 <Frame.GestureRecognizers>

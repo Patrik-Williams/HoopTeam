@@ -4,7 +4,9 @@
              x:Class="HoopTeam.Paginas.Entrenadores.EntEditar">
     <ContentPage.Content>
         <ScrollView>
+            <!--Fondo-->
             <StackLayout BackgroundColor="#999">
+                <!--Header-->
                 <Frame HeightRequest="40" WidthRequest="1000" BackgroundColor="#FFFFFF">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -16,6 +18,7 @@
                         <Image Grid.Column="2" Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" WidthRequest="40" Margin="0,0,50,0"></Image>
                     </Grid>
                 </Frame>
+                <!--Titulo-->
                 <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -34,6 +37,8 @@
 
                     </Grid>
                 </Frame>
+                
+                <!--Form principal-->
                 <Frame BackgroundColor="#FFF" Margin=" 20,20" WidthRequest="1000" CornerRadius="20">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -59,12 +64,9 @@
                             <Label Margin=" 20,0,0,0" Text="Contraseña" x:Name="lb24" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
                             <Entry Placeholder="Contraseña" Text=" " x:Name="lbCon" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
-
+                            <!--Boton de editar-->
                             <StackLayout Margin="20,20" HorizontalOptions="Center">
-
                                 <ImageButton Source="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" Margin="0,0,20,0" Clicked="do_Change" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
-
-
                             </StackLayout>
 
                         </StackLayout>

@@ -4,7 +4,9 @@
              x:Class="HoopTeam.Paginas.Entrenadores.EditAgenda">
     <ContentPage.Content>
         <ScrollView>
+            <!--Fondo de la pagina-->
             <StackLayout BackgroundColor="#999">
+                <!--header-->
                 <Frame HeightRequest="40" WidthRequest="1000" BackgroundColor="#FFFFFF">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -16,7 +18,8 @@
 
                     </Grid>
                 </Frame>
-
+                
+                <!--titulo-->
                 <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Grid>
 
@@ -32,6 +35,8 @@
                         </StackLayout>
                     </Grid>
                 </Frame>
+                
+                <!--Form principal de edicion -->
                 <Frame BackgroundColor="#FFF" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <StackLayout>
                         <Grid >
@@ -73,16 +78,6 @@
                                             <x:String>Entrenamiento</x:String>
                                         </Picker.Items>
                                     </Picker>
-                                    <!--   <Label Margin="20,0,0,0" Text="Descripción" x:Name="lb15" FontAttributes="bold" FontSize="22" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                                   <Picker Margin="20,5,0,20" x:Name="aDescripcion" TextColor="Black" BackgroundColor="#ddd" SelectedIndexChanged="OnPickerSelectedIndexChangedDescripcion">
-                                        <Picker.Items>
-                                            <x:String>Partido</x:String>
-                                            <x:String>Entrenamiento</x:String>
-                                        </Picker.Items>
-                                    </Picker>-->
-                                    
-
-
                                 </StackLayout>
                             </Grid>
                             <Grid Grid.Row="2" HorizontalOptions="Center" Margin="0,20,0,0">
@@ -90,10 +85,13 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
+                                <!--Boton editar-->
                                 <StackLayout Grid.Column="1" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/5996/5996831.png" Margin="0,0,20,0" Clicked="btnEditarA" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60"></ImageButton>
 
                                 </StackLayout>
+                                
+                                <!--Boton eliminar-->
                                 <StackLayout Grid.Column="2" HorizontalOptions="Center" >
                                     <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/8568/8568248.png" Margin="20,0,0,0"  Clicked="btnEliminarA" VerticalOptions="Center" HorizontalOptions="Center"  WidthRequest="50"></ImageButton>
 

@@ -19,56 +19,54 @@ namespace HoopTeam.Paginas.Entrenadores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditAgenda : ContentPage
     {
+        //referencia a los entrenadores, agenda y equipos
         Agenda agn = new Agenda();
         AgendaEstatico agnE = new AgendaEstatico();
         Entrenador ent = new Entrenador();
         Equipos eq = new Equipos();
+
+        //listas de agenda, canchas y de equipos
         List<Agenda> agnd = new List<Agenda>();
         List<Equipos> equipos = new List<Equipos>();
+        List<Cancha> canchas { get; set; }
+        //definicion de variables
         static int eqNuevo { get; set; }
         static int eqViejo { get; set; }
-
         static int cNueva { get; set; }
         static int cVieja { get; set; }
-
-        List<Cancha> canchas { get; set; }
         static string cancha { get; set; }
-
         static string descripcion { get; set; }
+
+        //referencia al cliente agenda
         ClienteAgenda clienteA = new ClienteAgenda();
 
 
         public EditAgenda(Agenda agenda, string idA, int idE)
         {
             InitializeComponent();
+
             this.agn = agenda;
 
-            //agn = clienteA.AgendaE(idA);
+            //trae los equipos y las canchas desde la base de datos
             equipos = clienteA.GetEquiposA(Int32.Parse(ent.getCedula()));
             canchas = clienteA.GetCanchasA();
 
             eqViejo = idE;
-
-
-            //txtEqp.Text = agn.Equipo;
-            //txtCn.Text = agn.Cancha;
-            //txtFechaHora.Text = agn.FechaHora;
-            
+          
             fechaAgenda.Date = DateTime.Parse(agn.FechaHora.ToShortDateString());
-            //horaAgenda.Time = TimeSpan.Parse(agn.FechaHora.ToShortTimeString());
-            //txtDesc.Text = agn.Descripcion;
             aDescripcion.SelectedItem = agn.Descripcion;
 
+            //llena el picker de equipos
            foreach(Equipos eq in equipos)
             {
                cbEquipo.Items.Add(eq.idEquipo.ToString());
             }
+
+           //llena el picker de canchas 
             foreach (Cancha cn in canchas)
             {
                 cbCancha.Items.Add(cn.idCancha.ToString());
             }
-            Debug.WriteLine("Equipo Viejo " + eqViejo);
-            Debug.WriteLine(idE);
         }
         async void Sett()
         {
@@ -83,48 +81,47 @@ namespace HoopTeam.Paginas.Entrenadores
         {
             await Navigation.PushModalAsync(new EntAgenda(), true);
         }
+
         private void OnPickerASelectedIndexChanged(object sender, EventArgs e)
         {
+            //consigue el equipo seleccionado en el picker
             Picker picker = sender as Picker;
             var selectedItem = picker.SelectedItem;
             eqNuevo = Int32.Parse(selectedItem.ToString());
 
+            //recorre la lista de equipos
             foreach(Equipos eq in equipos)
             {
                 if(eq.idEquipo == eqNuevo)
                 {
+                    //si el equipo seleccionado es igual al de antes, el titulo dira ACTUAL 
                     if(eqNuevo==eqViejo)
                     {
                         cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString() + "(Actual)";
                     }
+                    //si no es igual, solo agrega la informacion del equipo al titulo 
                     else
                     {
                         cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString();
                     }
                 }
             }
-            Debug.WriteLine(selectedItem.ToString() + "Selected");
-            Debug.WriteLine("Nuevo " + eqNuevo);
-            Debug.WriteLine("Equipo Viejo " + eqViejo);
-
         }
 
         private void OnPickerSelectedIndexChangedDescripcion(object sender, EventArgs e)
         {
+            //consigue la descripcion de la agenda seleccionada en el picker
             Picker picker = sender as Picker;
             var selectedItem = picker.SelectedItem;
             descripcion = selectedItem.ToString();
-            Debug.WriteLine(selectedItem.ToString());
-            Debug.WriteLine(descripcion);
         }
 
         private void OnPickerSelectedIndexChangedCanchas(object sender, EventArgs e)
         {
+            //consigue cancha seleccionada en el picker
             Picker picker = sender as Picker;
             var selectedItem = picker.SelectedItem;
             cancha = selectedItem.ToString();
-            Debug.WriteLine(selectedItem.ToString());
-            Debug.WriteLine(cancha);
         }
 
 
@@ -146,7 +143,7 @@ namespace HoopTeam.Paginas.Entrenadores
                 // string FechaHora = txtFechaHora.Text;
                 string txt = fecha.ToString("yyyy-MM-dd") + " " + hora;
 
-                
+                //llama a l metodo de editar y envia los datos necesarios
                 clienteA.EditarAgenda(Agenda, descripcion, txt);
 
                 VolverA();
@@ -156,9 +153,12 @@ namespace HoopTeam.Paginas.Entrenadores
         }
         private async void ShowExitDialog()
         {
+            //si se presiona el boton de eliminar despliega una advertencia
             var answer = await DisplayAlert("¡ALERTA!", "¿Seguro que desea eliminar la agenda?", "Sí", "NO");
+            //si responde que si
             if (answer)
             {
+                //llama al metodo eliminar
                 clienteA.EliminarAgenda(agn.idAgenda);
                 DisplayAlert("Información", "Agenda eliminada", "Ok");
                 VolverA();

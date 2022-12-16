@@ -15,45 +15,44 @@ namespace HoopTeam.Paginas.Entrenadores
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditEstudiante : ContentPage
-
     {
+        //referencia a estudiantes y equipos 
         Estudiante est = new Estudiante();
         Equipos eq = new Equipos();
+
+        //lista de equipos
         List<Equipos> equipos = new List<Equipos>();
         static int equipoNuevo { get; set; }
         static int equipoViejo { get; set; }
-
         static int pago { get; set; }
 
-
+        //referencia al cliente entrenador
         ClienteEntrenador clienteEnt = new ClienteEntrenador();
 
         public EditEstudiante(string ced, int eqAc)
         {
             InitializeComponent();
+            //se trae la informacion del estudiante
             est = clienteEnt.GetEstudiante(ced);
+
+            //se llena la lista de los equipos segun el genero del estudiante
             equipos = clienteEnt.GetEquiposGenero(est.Genero);
 
             equipoViejo = eqAc;
 
+            //se llena el picker de quipos con la informacion en la lista
             foreach (Equipos e in equipos)
             {   
-
-
                 cbEquipo.Items.Add(e.idEquipo.ToString());
             }
-            Debug.WriteLine("Equipo Viejo " + equipoViejo);
-            Debug.WriteLine(eqAc);
 
+            //se llenan los campos de la pagina con la informacion del estudiante
             txtNombre.Text = est.Nombre;
             txtApellido1.Text = est.Apellido1;
             txtApellido2.Text = est.Apellido2;
-            //txtNacimiento.Text = est.Nacimiento.ToString();
             txtCorreo.Text = est.Correo;
             txtContraseña.Text = est.Contrasenna;
             fechaNacimiento.Date = est.Nacimiento;
-            //DisplayAlert("Info", est.Nacimiento.ToString("yyyy-MM-dd"), "OK");
-
         }
         async void Sett()
         {
@@ -70,15 +69,19 @@ namespace HoopTeam.Paginas.Entrenadores
             await Navigation.PushModalAsync(new EntEstudiantes(), true);
         }
         private void OnPickerSelectedIndexChanged(object sender, EventArgs e)
-        {
+        {       
+            //consigue el elemento en el picker de equipos
             Picker picker = sender as Picker;
             var selectedItem = picker.SelectedItem;
             equipoNuevo = Int32.Parse(selectedItem.ToString());
 
+            //circula la lista de equipos
             foreach (Equipos eq in equipos)
             {
+                //si el equipo seleccionado coincide con uno en la lista 
                 if (eq.idEquipo == equipoNuevo)
                 {
+                    //si el id del equipo seleccionado es igual al que ya tenia, el titulo dira actual
                     if(equipoNuevo == equipoViejo)
                     {
                         cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString() + " (ACTUAL)";
@@ -87,14 +90,8 @@ namespace HoopTeam.Paginas.Entrenadores
                     {
                         cbEquipo.Title = eq.idEquipo.ToString() + " " + eq.categoria.ToString();
                     }
-                    
                 }
-                
             }
-
-            Debug.WriteLine(selectedItem.ToString() + " Selected");
-            Debug.WriteLine("Nuevo " + equipoNuevo);
-            Debug.WriteLine("Equipo Viejo " + equipoViejo);
         }
 
         private void OnPicker2SelectedIndexChanged(object sender, EventArgs e)
@@ -109,19 +106,18 @@ namespace HoopTeam.Paginas.Entrenadores
             {
                 pago = 0;
             }
-            Debug.WriteLine(selectedItem.ToString());
-            Debug.WriteLine(pago);
-            Debug.WriteLine("Pago " + pago);
         }
 
         private void btnEditar(object sender, EventArgs e)
         {
+            //si los campos necesarios estan vacios
             if (cbEquipo.SelectedItem == null || cbPago.SelectedItem == null || txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtCorreo.Text == "" ||txtContraseña.Text=="")
             {
                 DisplayAlert("Alerta", "Debe seleccionar un equipo y Estado de pago", "Aceptar");
             }
             else
             {
+                //llena las variables con la informacion de los campos en la pagina
                 int ced = Int32.Parse(est.Cedula);
                 string nom = txtNombre.Text;
                 string ap1 = txtApellido1.Text;
@@ -132,6 +128,7 @@ namespace HoopTeam.Paginas.Entrenadores
                 int eqNuevo = equipoNuevo;
                 DateTime date = fechaNacimiento.Date;
 
+                //llama al metodo de editar estudiante
                 clienteEnt.EditarInfoEst(ced, nom, ap1, ap2, date, correo, contra, eqNuevo, eqViejo, pago);
 
                 Volver();

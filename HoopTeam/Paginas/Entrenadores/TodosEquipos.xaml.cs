@@ -15,12 +15,14 @@ namespace HoopTeam.Paginas.Entrenadores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TodosEquipos : ContentPage
     {
+        //referencia al administrados
         Administrador adm = new Administrador();
 
         static Equipos equipo = new Equipos();
         public TodosEquipos()
         {
             InitializeComponent();
+            //verifica si el usuario es un super administrador, si lo es, habilita la opcion de agregar equipos
             if (adm.getSuperUser())
             {
                 agregar.IsVisible = true;
@@ -32,20 +34,23 @@ namespace HoopTeam.Paginas.Entrenadores
 
         }
 
+        //captura el evento de presionar 
         public void CVCollectionChanged(object sender, SelectionChangedEventArgs e)
         {
             updateSelectionData(e.PreviousSelection, e.CurrentSelection);
         }
 
+        //captura la informacion de la entrada seleccionada
         void updateSelectionData(IReadOnlyList<Object> previousSelected, IReadOnlyList<Object> currentSelected)
         {
             var selectedEquipo = currentSelected.FirstOrDefault() as Equipos;
             equipo = selectedEquipo;
-            Debug.WriteLine(selectedEquipo.categoria);
+        
         }
 
         async void Sett()
         {
+            //si es super user, lo devuelve directo a la pagina principal
             if (adm.getSuperUser())
             {
                 await Navigation.PushModalAsync(new EntMain(), true);

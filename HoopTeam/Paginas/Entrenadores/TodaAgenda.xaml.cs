@@ -17,6 +17,7 @@ namespace HoopTeam.Paginas.Entrenadores
             InitializeComponent();
         }
 
+        //devuelve a la pagina principal
         async void verAgenda_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new EntMain(), true);

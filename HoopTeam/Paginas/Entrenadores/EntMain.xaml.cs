@@ -20,6 +20,7 @@ namespace HoopTeam.Paginas
         {
             InitializeComponent();
 
+            //si el usuario es un super usuario, habilita algunas funciones y deshabilita otras
             if(adm.getSuperUser())
             {
                 lbInfo.Text = "ADMINISTRADOR";
@@ -63,6 +64,7 @@ namespace HoopTeam.Paginas
            
         }
 
+        //eventos de redireccion
         async private void verPerfil_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new EntEditar(), true);

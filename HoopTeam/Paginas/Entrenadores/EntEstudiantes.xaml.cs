@@ -16,6 +16,7 @@ namespace HoopTeam.Paginas.Entrenadores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EntEstudiantes : ContentPage
     {
+        //referencia a la sesion del entrenador
         Entrenador ent = new Entrenador();
 
         string ced { get; set; }
@@ -40,20 +41,18 @@ namespace HoopTeam.Paginas.Entrenadores
             await Navigation.PushModalAsync(new TodosEstudiantes(), true);
         }
 
-
-
         async private void verEditEst_Tapped(object sender, EventArgs e)
         {
-            Debug.WriteLine(ced);
-            Debug.WriteLine(equipo);
             await Navigation.PushModalAsync(new EditEstudiante(ced, equipo), true);
         }
 
+        //captura el evento de presionar en una de las entradas de la lista 
         public void CVCollectionChanged(object sender, SelectionChangedEventArgs e)
         {
             updateSelectionData(e.PreviousSelection, e.CurrentSelection);
         }
 
+        //captura la informacion de la entrada seleccionada 
         void updateSelectionData(IReadOnlyList<Object> previousSelected, IReadOnlyList<Object> currentSelected)
         {
             var selectedEstudiante = currentSelected.FirstOrDefault() as EstEntrenador;

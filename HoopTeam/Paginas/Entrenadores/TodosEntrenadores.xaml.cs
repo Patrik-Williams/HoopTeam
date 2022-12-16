@@ -14,6 +14,7 @@ namespace HoopTeam.Paginas.Entrenadores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TodosEntrenadores : ContentPage
     {
+        //referncia al entrenador no estatico 
         EntrenadorNO_Estatico ent = new EntrenadorNO_Estatico();
         public TodosEntrenadores()
         {
@@ -37,11 +38,13 @@ namespace HoopTeam.Paginas.Entrenadores
             await Navigation.PushModalAsync(new AgregarEntrenador(), true);
         }
 
+        //captura el evento de precionar una entrada 
         public void CVCollectionChanged(object sender, SelectionChangedEventArgs e)
         {
             updateSelectionData(e.PreviousSelection, e.CurrentSelection);
         }
 
+        //captura la informacion de la entrada seleccionada
         void updateSelectionData(IReadOnlyList<Object> previousSelected, IReadOnlyList<Object> currentSelected)
         {
             var selectedEntrenador = currentSelected.FirstOrDefault() as EntrenadorNO_Estatico;

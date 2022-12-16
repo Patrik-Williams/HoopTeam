@@ -12,7 +12,8 @@ namespace HoopTeam.Paginas.Estudiantes
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EstAgenda : ContentPage
-    {
+    {   
+        //referencia a la sesion del estudiante
         EstudianteEstatico est = new EstudianteEstatico();
         public EstAgenda()
         {

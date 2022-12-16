@@ -525,49 +525,36 @@ namespace HoopTeam.Implementacion
         }
 
         //Método para editar los detalles de un evento del calendario
-        public string EditarAgenda(string idA, string descripcion)
+
+        public void EditarAgenda(string idA, string descripcion, string fechaHora)
         {
-
-
-            MySqlCommand cmd = new MySqlCommand();//comandos
-            MySqlConnection con;//conexion
-            //Declara la variable tipo DataAdapter 
-            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
-            //objeto para almacenar datos
-            DataSet ds = new DataSet();
-            //Representar tablas dataset 
-            DataTable dt = new DataTable();
             try
             {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
 
-                //conexion base de datos 
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
                 con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
-                                          "port = 3306; " +
-                                          "username = admin; " +
-                                          "password = hoopteamAdmin;" +
-                                          "database =HoopTeam");
+                          "port = 3306; " +
+                          "username = admin; " +
+                          "password = hoopteamAdmin;" +
+                          "database =HoopTeam");
                 con.Open();
-
-                //Comando SQL para actualizar los detalles de un evento del calendario con los datos que el usuario ingresa
-                string qry = "UPDATE Agenda set descripcion = '" + descripcion + "' where idAgenda= " + idA + ";";
-
+                string qry = "UPDATE Agenda set fechayHora = '" + fechaHora + "', descripcion = '" + descripcion + "' where idAgenda= " + idA + ";";
                 cmd.CommandText = qry;
-                //convierte el string conexion en conexion
                 cmd.Connection = con;
-                //El adaptador selecciona el comando
                 Adaptador.SelectCommand = cmd;
-                //Indica la tabla con la que se llena el dataset
                 Adaptador.Fill(ds, "Agenda");
                 cmd.ExecuteNonQuery();
-                
                 dt = ds.Tables["Agenda"];
-
             }
             catch (Exception ex)
             {
-                //Declara variable 
                 string txt = ex.Message;
             }
+
         }
 
         //Método para eliminar un evento de la agenda

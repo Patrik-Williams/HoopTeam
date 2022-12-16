@@ -15,6 +15,7 @@ namespace HoopTeam.Paginas.Estudiantes
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EstEditar : ContentPage
     {
+        //referencias a la sesion del estudiantes y a los clientes
         ClienteEntrenador cEnt = new ClienteEntrenador();
         ClienteEstudiante cEst = new ClienteEstudiante();
         EstudianteEstatico estudiante = new EstudianteEstatico();
@@ -22,14 +23,13 @@ namespace HoopTeam.Paginas.Estudiantes
         {
             InitializeComponent();
 
+            //se llenan los campos de la pagina con la informacion del objeto estudiante
             txtNombre.Text = estudiante.getNombre();
             txtApellido1.Text = estudiante.getApellido1();
             txtApellido2.Text = estudiante.getApellido2();
             txtCorreo.Text = estudiante.getCorreo();
             txtContraseña.Text = estudiante.getContrasenna();
             txtGenero.Text = estudiante.getGenero();
-
-
         }
 
         async void Sett()
@@ -47,27 +47,24 @@ namespace HoopTeam.Paginas.Estudiantes
         }
         private void ver_Cambios(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtGenero.Text== "" || txtCorreo.Text=="" || txtContraseña.Text == ""  ) 
+            //si los campos estan vacios
+            if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtGenero.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "")
             {
                 DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
             }
-       
-          
+
             else
             {
+                //se llenan las variables con los datos de los campos de la pagina
+                string nom = txtNombre.Text;
+                string ap1 = txtApellido1.Text;
+                string ap2 = txtApellido2.Text;
+                string gen = txtGenero.Text;
+                string correo = txtCorreo.Text;
+                string con = txtContraseña.Text;
+                string ced = estudiante.getCedula();
 
-            
-            string nom = txtNombre.Text;
-            string ap1 = txtApellido1.Text;
-            string ap2 = txtApellido2.Text;
-            string gen = txtGenero.Text;
-            string correo = txtCorreo.Text;
-            string con = txtContraseña.Text;
-            string ced = estudiante.getCedula();
-
-          
-
-
+                //llamada al metodo editar estudiante
                 cEst.actualizarEstudiante(nom, ap1, ap2, gen, correo, con, ced);
                 DisplayAlert("Información: ", "Datos actualizados", "OK");
                 Volver();

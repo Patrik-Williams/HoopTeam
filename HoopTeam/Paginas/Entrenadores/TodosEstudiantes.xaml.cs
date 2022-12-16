@@ -22,6 +22,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
         async void Sett()
         {
+            //si es administrador, lo devulve directo a la pagina de administrador
             if (adm.getSuperUser())
             {
                 await Navigation.PushModalAsync(new EntMain(), true);
@@ -37,9 +38,9 @@ namespace HoopTeam.Paginas.Entrenadores
             Sett();
         }
 
+        //si se da click en el agregar
         private async void agregarEstudiantes_Tapped(object sender, EventArgs e)
         {
-
             await Navigation.PushModalAsync(new AgregarEst(), true);
         }
 

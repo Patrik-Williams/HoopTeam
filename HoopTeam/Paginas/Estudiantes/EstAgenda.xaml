@@ -3,12 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:HoopTeam.Modelo"
              x:Class="HoopTeam.Paginas.Estudiantes.EstAgenda">
-    <ContentPage.BindingContext>
+    <!--De donde vienen los datos del binding-->
+        <ContentPage.BindingContext>
         <vm:AgendaPorEstudianteViewModel></vm:AgendaPorEstudianteViewModel>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
+        <!--Fondo de la pagina-->
         <StackLayout BackgroundColor="#999">
+            <!--Header-->
             <Frame HeightRequest="40" WidthRequest="1000"  BackgroundColor="#FFFFFF" >
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -22,7 +25,7 @@
 
                 </Grid>
             </Frame>
-
+            <!--Titulo-->
             <Frame BackgroundColor="#FF8200"
                    Margin="20,20"
                    WidthRequest="1000"
@@ -59,7 +62,7 @@
                 </StackLayout>
             </Frame>
 
-
+            <!--Lista de elementos de la agenda-->
             <CollectionView ItemsSource="{Binding AgendaPorEstudiante}" Margin="20,10,20,10">
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
