@@ -19,7 +19,7 @@
                     </Grid>
                 </Frame>
                 <!--Titulo-->
-                <Frame BackgroundColor="#FF8200" Margin="20,20" WidthRequest="1000" CornerRadius="20">
+                <Frame BackgroundColor="#0B0B49" Margin="20,20" WidthRequest="1000" CornerRadius="20">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -49,19 +49,19 @@
                         <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"></Image>
                         <StackLayout Grid.Column="2">
 
-                            <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb20" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
+                            <Label Margin="0,0,0,0" Text="Nombre" x:Name="lb20" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
                             <Entry Placeholder="Nombre" Text=" " x:Name="lblN" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
-                            <Label Margin=" 20,0,0,0" Text="Apellido 1" x:Name="lb21" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
+                            <Label Margin=" 0,0,0,0" Text="Apellido 1" x:Name="lb21" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
                             <Entry Placeholder="Apellido 1" Text=" " x:Name="lbA1" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
-                            <Label Margin=" 20,0,0,0" Text="Apellido 2" x:Name="lb22" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
+                            <Label Margin=" 0,0,0,0" Text="Apellido 2" x:Name="lb22" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
                             <Entry Placeholder="Apellido 2" Text=" " x:Name="lbA2" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
-                            <Label Margin=" 20,0,0,0" Text="Correo" x:Name="lb23" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
+                            <Label Margin=" 0,0,0,0" Text="Correo" x:Name="lb23" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
                             <Entry Placeholder="Correo" Text=" " x:Name="lbCor" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
-                            <Label Margin=" 20,0,0,0" Text="Contraseña" x:Name="lb24" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
+                            <Label Margin=" 0,0,0,0" Text="Contraseña" x:Name="lb24" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Start" FontFamily="Arial" TextColor="#010121" VerticalOptions="Start"/>
                             <Entry Placeholder="Contraseña" Text=" " x:Name="lbCon" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
                             <!--Boton de editar-->

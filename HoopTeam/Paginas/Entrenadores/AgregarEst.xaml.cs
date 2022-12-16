@@ -83,7 +83,7 @@ namespace HoopTeam.Paginas.Entrenadores
 
                 //envia los datos al metodo de agregar en el cliente entrenador
                 clienteEnt.AgregarEstudiante(ced, nom, ap1, ap2, fecha, genero[0].ToString(), correo, contra, equipo);
-                DisplayAlert("Informacion", "Estudiante agregado", "Ok");
+                DisplayAlert("Información", "Estudiante agregado", "Ok");
                 Volver();
             }
 

@@ -51,27 +51,31 @@
 
                         <StackLayout Grid.Column="2">
 
-                            <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="0,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Nombre" Text=" " x:Name="txtNombre" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
 
-                            <Label Margin="20,0,0,0" Text="Apellido 1" x:Name="lb3" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="0,0,0,0" Text="Apellido 1" x:Name="lb3" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Apellido1" Text=" " x:Name="txtApellido1" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
 
-                            <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="0,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Apellido2" Text=" " x:Name="txtApellido2" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
                             
-                            <Label Margin="20,0,0,0" Text="Género" x:Name="lb6" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
-                            <Entry  Placeholder="Genero" Text=" " x:Name="txtGenero" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
+                            <Label Margin="0,0,0,0" Text="Género" x:Name="lb6" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Picker Margin="0,5,0,20" x:Name="cbGenero" TextColor="Black" BackgroundColor="#ddd">
+                                <Picker.Items>
+                                    <x:String>Masculino</x:String>
+                                    <x:String>Femenino</x:String>
+                                </Picker.Items>
+                            </Picker>
 
-
-                            <Label Margin="20,0,0,0" Text="Correo" x:Name="lb7" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="0,0,0,0" Text="Correo" x:Name="lb7" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Correo" Text=" " x:Name="txtCorreo" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
 
-                            <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb8" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="0,0,0,0" Text="Contraseña" x:Name="lb8" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Contraseña" Text=" " x:Name="txtContraseña" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
                             <!--Boton de editar-->

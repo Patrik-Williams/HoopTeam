@@ -149,13 +149,13 @@ namespace HoopTeam
                     //se envia el correo
                     enviarEmail(result, num);
                    
-                    DisplayAlert("Información", "Hemos enviado un código de verificación a su correo electrónico", "ok");
+                    DisplayAlert("Información", "Hemos enviado un código de verificación a su correo electrónico", "Aceptar");
                     //abre la pagina de olvide contra
                     olv(num, verificacion, result);
                 }
                 else
                 {
-                    DisplayAlert("Alerta", "El correo ingresado no está registrado", "ok");
+                    DisplayAlert("Alerta", "El correo ingresado no está registrado", "Aceptar");
                 }
             }
         }

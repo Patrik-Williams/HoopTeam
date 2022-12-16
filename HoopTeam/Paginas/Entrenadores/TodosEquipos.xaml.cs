@@ -26,10 +26,12 @@ namespace HoopTeam.Paginas.Entrenadores
             if (adm.getSuperUser())
             {
                 agregar.IsVisible = true;
+                equipoEn.IsEnabled = true;
             }
             else
             {
                 agregar.IsVisible = false;
+                equipoEn.IsEnabled = false;
             }
 
         }

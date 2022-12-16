@@ -29,7 +29,7 @@ namespace HoopTeam.Paginas.Estudiantes
             txtApellido2.Text = estudiante.getApellido2();
             txtCorreo.Text = estudiante.getCorreo();
             txtContraseña.Text = estudiante.getContrasenna();
-            txtGenero.Text = estudiante.getGenero();
+            cbGenero.SelectedItem = estudiante.getGenero();
         }
 
         async void Sett()
@@ -48,7 +48,7 @@ namespace HoopTeam.Paginas.Estudiantes
         private void ver_Cambios(object sender, EventArgs e)
         {
             //si los campos estan vacios
-            if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || txtGenero.Text == "" || txtCorreo.Text == "" || txtContraseña.Text == "")
+            if (txtNombre.Text == "" || txtApellido1.Text == "" || txtApellido2.Text == "" || cbGenero.SelectedItem == null || txtCorreo.Text == "" || txtContraseña.Text == "")
             {
                 DisplayAlert("Alerta", "Debe llenar todos los campos", "Aceptar");
             }
@@ -59,7 +59,7 @@ namespace HoopTeam.Paginas.Estudiantes
                 string nom = txtNombre.Text;
                 string ap1 = txtApellido1.Text;
                 string ap2 = txtApellido2.Text;
-                string gen = txtGenero.Text;
+                string gen = cbGenero.SelectedItem.ToString();
                 string correo = txtCorreo.Text;
                 string con = txtContraseña.Text;
                 string ced = estudiante.getCedula();

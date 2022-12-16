@@ -45,7 +45,7 @@ namespace HoopTeam.Paginas.Entrenadores
         private async void editarEquipo_Tapped(object sender, EventArgs e)
         {
             //despliega una ventana para editar
-            string result = await DisplayPromptAsync("Editar Cupo", "Cupo:", initialValue: cupo.ToString(), maxLength: 2, keyboard: Keyboard.Numeric);
+            string result = await DisplayPromptAsync("Editar cupo", "Cupo:", initialValue: cupo.ToString(), maxLength: 2, keyboard: Keyboard.Numeric);
             //si la informacion es diferente a nula
             if(result != null)
             {

@@ -6,7 +6,7 @@
     <!--Fondo-->
         <StackLayout BackgroundColor="#999">
             <!--Frame de login-->
-        <Frame VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="700" WidthRequest="250" Margin="20,100" CornerRadius="20" BackgroundColor="#FFFFFF">
+        <Frame VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="500" WidthRequest="250" Margin="20,100" CornerRadius="20" BackgroundColor="#FFFFFF">
             <StackLayout>
 
                 <Image Source="https://cdn-icons-png.flaticon.com/512/8481/8481587.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100"></Image>

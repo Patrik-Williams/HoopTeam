@@ -57,12 +57,6 @@
                                 <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
                             <Frame BackgroundColor="White" CornerRadius="20">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="verEditEntrenador_Tapped" NumberOfTapsRequired="1">
-                                    </TapGestureRecognizer>
-
-                                </Frame.GestureRecognizers>
-
                                 <!--On clicked para el frame-->
 
                                 <Grid  ColumnSpacing="10" RowSpacing="10">
@@ -72,8 +66,17 @@
                                     </Grid.ColumnDefinitions>
 
 
-                                    <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png"
-                                        VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
+                                    <StackLayout Grid.Column="1">
+
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="verEditEntrenador_Tapped" NumberOfTapsRequired="1">
+                                            </TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                        <Image Grid.Column="1" Source="https://cdn-icons-png.flaticon.com/512/8111/8111048.png"
+                                            VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="100"/>
+                                        <Label Text="Editar" FontSize="18" TextColor="#999" HorizontalOptions="Center"></Label>
+                                    </StackLayout>
 
                                     <StackLayout Orientation="Vertical" Grid.Column="2" Margin="20,0,0,0" VerticalOptions="Center" HorizontalOptions="Start">
                                         <Label Text="{Binding NombreCompleto}" FontSize="22" TextColor="Black" FontAttributes="Bold"></Label>
