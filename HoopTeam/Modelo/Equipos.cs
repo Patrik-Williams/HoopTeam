@@ -6,7 +6,7 @@ namespace HoopTeam.Modelo.Entrenadores
 {
     public class Equipos
     {
-        //capos del ojeto equipo
+        //campos del ojeto equipo
         public int idEquipo { get; set; }
         public string categoria { get; set; }
         public string genero { get; set; }
