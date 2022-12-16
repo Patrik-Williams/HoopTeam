@@ -143,10 +143,20 @@ namespace HoopTeam.Paginas.Entrenadores
                 // string FechaHora = txtFechaHora.Text;
                 string txt = fecha.ToString("yyyy-MM-dd") + " " + hora;
 
-                //llama a l metodo de editar y envia los datos necesarios
-                clienteA.EditarAgenda(Agenda, descripcion, txt);
 
-                VolverA();
+                //Variable numérica para revisar si existe un evento a la misma hora en la misma cancha
+                int x = clienteA.VerificarAgenda(cancha, fecha.ToString("yyyy-MM-dd"), hora);
+                if (x == 0)
+                {
+                    //llama al método de editar y envia los datos necesarios
+                    clienteA.EditarAgenda(Agenda, descripcion, txt);
+                    DisplayAlert("Información", "Agenda editada", "Aceptar");
+                    VolverA();
+                }
+                if (x != 0)
+                {//Mensaje de error
+                    DisplayAlert("Información", "Alerta! No puede agendar a esta hora, ya está reservada la cancha.", "Aceptar");
+                }
             }
         
 

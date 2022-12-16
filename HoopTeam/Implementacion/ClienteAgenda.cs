@@ -524,6 +524,70 @@ namespace HoopTeam.Implementacion
             }
         }
 
+        //Método para revisar si la hora y lugar a agendar ya está reservada en la base de datos
+        public int VerificarAgenda(string idCn, string fecha, string hora)
+        {
+            int contador=0;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();//comandos
+                MySqlConnection con;//conexion
+                //Declara la variable tipo DataAdapter 
+                MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+                //objeto para almacenar datos
+                DataSet ds = new DataSet();
+                //Representar tablas dataset 
+                DataTable dt = new DataTable();
+
+                //conexion base de datos
+                con = new MySqlConnection("server = hoopteam.ckftwuueje9o.us-east-1.rds.amazonaws.com; " +
+                                          "port = 3306; " +
+                                          "username = admin; " +
+                                          "password = hoopteamAdmin;" +
+                                          "database =HoopTeam");
+                con.Open();
+
+                //Comando SQL para revisar si ya hay eventos en la agenda en las condiciones seleccionadas
+                string qry = "Select count(*) from Agenda " +
+                    "where DATE_FORMAT(fechaYHora, '%Y-%m-%d') = '" + fecha + "' AND( " +
+                    "DATE_FORMAT(fechaYHora, '%H:%i:%s') = '" + hora + "'" +
+                    "OR(DATE_FORMAT(fechaYHora, '%H:%i:%s') < '" + hora + "' AND addtime(DATE_FORMAT(fechaYHora, '%H:%i:%s'), '2:00:00') > '" + hora + "') " +
+                    "OR(DATE_FORMAT(fechaYHora, '%H:%i:%s') < addtime('" + hora + "', '2:00:00') AND addtime(DATE_FORMAT(fechaYHora, '%H:%i:%s'), '2:00:00') > addtime('" + hora + "', '2:00:00')) " +
+                    "OR(DATE_FORMAT(fechaYHora, '%H:%i:%s') > '" + hora + "' AND addtime(DATE_FORMAT(fechaYHora, '%H:%i:%s'), '2:00:00') < addtime('" + hora + "', '2:00:00')) " +
+                    "OR(DATE_FORMAT(fechaYHora, '%H:%i:%s') < '" + hora + "' AND addtime(DATE_FORMAT(fechaYHora, '%H:%i:%s'), '2:00:00') > addtime('" + hora + "', '2:00:00')) " +
+                    ") " +
+                    "and idCanchas = " + idCn + ";";
+                cmd.CommandText = qry;
+                //convierte el string conexion en conexion
+                cmd.Connection = con;
+                //Ejecuta el query
+                cmd.ExecuteNonQuery();
+
+                Adaptador.SelectCommand = cmd;
+                //Indica la tabla con la que se llena el dataset
+                Adaptador.Fill(ds, "Agenda");
+
+                //Ejecuta el query
+                cmd.ExecuteNonQuery();
+
+                //LLena el datatable con la informacion que trajo el dataset 
+                dt = ds.Tables["Agenda"];
+
+                foreach (DataRow drCurrent in dt.Rows)
+                {//Ciclo que por cada resultado añade al contador
+
+                    contador = Int32.Parse(drCurrent["count(*)"].ToString());
+
+                }
+                return contador;//Regresa el valor del contador
+            }
+            catch (Exception ex)
+            {
+                string txt = ex.Message;
+                return 1;
+            }
+        }
+
         //Método para editar los detalles de un evento del calendario
 
         public void EditarAgenda(string idA, string descripcion, string fechaHora)
