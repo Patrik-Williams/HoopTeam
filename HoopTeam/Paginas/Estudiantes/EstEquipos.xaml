@@ -70,7 +70,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="1" Text="Equipo: " FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="1" Text="Equipo: " FontSize="18" TextColor="Black" FontAttributes="Bold"></Label>
                                             <Label Grid.Column="2" Text="{Binding IdEquipo}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                             <Label Grid.Column="3" Text="{Binding Categoria}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>
                                             <Label Grid.Column="4" Text="{Binding Genero}" FontSize="18" TextColor="Black" HorizontalOptions="Start"></Label>

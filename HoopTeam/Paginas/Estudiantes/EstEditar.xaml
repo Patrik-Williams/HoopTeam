@@ -32,7 +32,7 @@
                             <Image Source="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"  HorizontalOptions="Start" WidthRequest="60"></Image>
                         </StackLayout>
                         <StackLayout Grid.Column="2" VerticalOptions="Center">
-                            <Label Text="Editar Perfil"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
+                            <Label Text="Editar perfil"  FontAttributes="bold" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="Arial" TextColor="#FFF" />
                         </StackLayout>
 
                     </Grid>
@@ -51,27 +51,27 @@
 
                         <StackLayout Grid.Column="2">
 
-                            <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="Nombre" x:Name="lb2" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Nombre" Text=" " x:Name="txtNombre" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
 
-                            <Label Margin="20,0,0,0" Text="Apellido 1" x:Name="lb3" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="Apellido 1" x:Name="lb3" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Apellido1" Text=" " x:Name="txtApellido1" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
 
-                            <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="Apellido 2" x:Name="lb4" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Apellido2" Text=" " x:Name="txtApellido2" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
                             
-                            <Label Margin="20,0,0,0" Text="Genero" x:Name="lb6" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="Género" x:Name="lb6" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Genero" Text=" " x:Name="txtGenero" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
 
-                            <Label Margin="20,0,0,0" Text="Correo" x:Name="lb7" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="Correo" x:Name="lb7" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Correo" Text=" " x:Name="txtCorreo" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
 
-                            <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb8" FontAttributes="bold" FontSize="30" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
+                            <Label Margin="20,0,0,0" Text="Contraseña" x:Name="lb8" FontAttributes="bold" FontSize="20" HorizontalTextAlignment="Start"  FontFamily="Arial" TextColor="#010121" />
                             <Entry  Placeholder="Contraseña" Text=" " x:Name="txtContraseña" BackgroundColor="#eee" Margin="0,20,0,10" PlaceholderColor="#333" TextColor="#000"/>
 
                             <!--Boton de editar-->
